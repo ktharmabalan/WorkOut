@@ -5,7 +5,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Begin Workout"
+        android:id="@+id/btn_begin_workout"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="137dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daily Nutrition Calculator"
+        android:id="@+id/btn_nutrition_calculator"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="115dp"
+        android:layout_below="@+id/btn_begin_workout"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

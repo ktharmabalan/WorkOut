@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Choose your method of exercise:"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="16dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Begin Day 5"
+            android:id="@+id/btn_workout_day"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_weight="2" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Custom:\nCustomize your own workout regimen!"
+            android:id="@+id/btn_custom_workout"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recommended:\nTry our various recommended workout regimens!"
+            android:id="@+id/btn_recommended_workout"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</RelativeLayout>
