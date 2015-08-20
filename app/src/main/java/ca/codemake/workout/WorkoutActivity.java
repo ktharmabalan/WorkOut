@@ -1,28 +1,27 @@
 package ca.codemake.workout;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class WorkoutActivity extends ActionBarActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_workout_regimen);
         setUpButtons();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_workout, menu);
         return true;
     }
 
@@ -42,10 +41,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     public void setUpButtons() {
-        Button b = (Button) this.findViewById(R.id.btn_begin_workout);
+        Button b = (Button) this.findViewById(R.id.btn_workout_day);
         b.setOnClickListener(this);
 
-        b = (Button) this.findViewById(R.id.btn_nutrition_calculator);
+        b = (Button) this.findViewById(R.id.btn_custom_workout);
+        b.setOnClickListener(this);
+
+        b = (Button) this.findViewById(R.id.btn_recommended_workout);
         b.setOnClickListener(this);
     }
 
@@ -53,14 +55,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         Button b = (Button) v;
 
-        if(b.getId() == R.id.btn_begin_workout) {
-//            Toast.makeText(this, "Begin Workout", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getApplicationContext(), WorkoutActivity.class);
+        if(b.getId() == R.id.btn_workout_day) {
+            Intent i = new Intent(getApplicationContext(), WorkoutMenuActivity.class);
             startActivity(i);
-        } else if(b.getId() == R.id.btn_nutrition_calculator) {
-//            Toast.makeText(this, "Nutrition Calculator", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getApplicationContext(), NutritionCalculatorActivity.class);
+        } else if(b.getId() == R.id.btn_custom_workout) {
+            Intent i = new Intent(getApplicationContext(), CustomWorkoutActivity.class);
+            startActivity(i);
+        } else if(b.getId() == R.id.btn_recommended_workout) {
+            Intent i = new Intent(getApplicationContext(), RecommendedWorkoutActivity.class);
             startActivity(i);
         }
     }
+
 }
