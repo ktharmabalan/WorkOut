@@ -1,11 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"><![CDATA[
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:background="#F3F3F3"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
 
-    ExpandableListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/expandableListView" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Exercise Name"
+        android:id="@+id/exercise"
+        android:layout_toLeftOf="@+id/removeExercise"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    ]]></LinearLayout>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Sets"
+        android:id="@+id/sets"
+        android:layout_below="@+id/exercise"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/exercise"
+        android:layout_alignEnd="@+id/exercise" />
+
+    <Button
+        style="@style/SmallBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="qty"
+        android:layout_centerVertical="true"
+        android:id="@+id/editSets"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        style="@style/SmallBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/removeExercise"
+        android:background="@android:drawable/ic_delete"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/editSets"
+        android:layout_toStartOf="@+id/editSets" />
+
+</RelativeLayout>

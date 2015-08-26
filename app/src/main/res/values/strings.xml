@@ -7,10 +7,17 @@
     <string name="title_activity_workout_menu">Workout Menu</string>
     <string name="title_activity_workout_input">Workout Record</string>
     <string name="title_activity_workout_history">Workout History</string>
-    <string name="title_activity_custom_workout">Custom Workout</string>
-    <string name="title_activity_custom_workout_group">Custome Workout Groups</string>
+    <string name="title_activity_custom_workout">Customise</string>
+    <string name="title_activity_custom_workout_group">Custom Workout Groups</string>
     <string name="title_activity_recommended_workout">Recommended Workout</string>
     <string name="title_activity_recommended_workout_details">Recommended Workout Details</string>
     <string name="title_activity_nutrition_calculator">Nutrition Calculator</string>
     <string name="title_activity_nutrition_day">Daily Nutrition</string>
+    <string name="title_activity_workout_pattern">Create Workout</string>
+
+    <string-array name="workout_frequency">
+        <item>Everyday</item>
+        <item>Every other day</item>
+    </string-array>
+    <string name="title_activity_choose_exercises">Choose Exercises</string>
 </resources>

@@ -6,17 +6,20 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Holo.Light" >
 
+        <!-- android:theme="@style/AppTheme" -->
         <!-- android:theme="@android:style/Theme.Holo.Light.DarkActionBar" -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".WorkoutActivity"
@@ -56,6 +59,19 @@
         <activity
             android:name=".NutritionDayActivity"
             android:label="@string/title_activity_nutrition_day" >
+        </activity>
+        <activity
+            android:name=".CreateWorkoutActivity"
+            android:label="@string/title_activity_workout_pattern" >
+        </activity>
+        <activity
+            android:name=".ChooseExerciseActivity"
+            android:label="@string/title_activity_choose_exercises" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
