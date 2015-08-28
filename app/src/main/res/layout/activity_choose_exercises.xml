@@ -13,11 +13,21 @@
         android:gravity="center_horizontal"
         android:id="@+id/textView7" />
 
+    <!--  divider -->
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_below="@+id/textView7"
+        android:background="#9E9E9E" >
+    </View>
+
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@android:id/list"
-        android:layout_below="@+id/textView7"
+        android:layout_below="@+id/viewDivider"
         android:layout_above="@+id/LinearLayout1"
         android:layout_centerHorizontal="true"/>
 

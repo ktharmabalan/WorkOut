@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- xmlns:app="http://schemas.android.com/apk/res-auto
+     and app:showAsAction="always"
+    required to display icon on actionbar -->
+    <item android:id="@+id/addNewFoodItem"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="New Food Item" />
+</menu>

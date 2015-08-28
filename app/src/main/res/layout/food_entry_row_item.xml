@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/bottom_border">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Burger"
+        android:id="@+id/foodName" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="1 burger, 300 cal"
+            android:layout_weight=".5"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/servingSize" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="300 CALS"
+            android:textColor="#03A9F4"
+            android:id="@+id/calories"
+            android:gravity="right"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

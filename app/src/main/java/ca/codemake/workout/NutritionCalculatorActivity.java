@@ -1,20 +1,86 @@
 package ca.codemake.workout;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * Created by Kajan on 8/19/2015.
- */
-public class NutritionCalculatorActivity extends ActionBarActivity implements View.OnClickListener {
+import java.util.ArrayList;
+
+import ca.codemake.workout.adapters.NutritionAdapter;
+import ca.codemake.workout.models.Item;
+import ca.codemake.workout.models.Meal;
+import ca.codemake.workout.models.MealEntry;
+
+public class NutritionCalculatorActivity extends ListActivity implements View.OnClickListener {
+
+    public NutritionAdapter nutritionAdapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_calculator);
         setUpButtons();
+        loadData();
+        setListAdapter(nutritionAdapter);
+    }
+
+    private void loadData() {
+        nutritionAdapter = new NutritionAdapter(this);
+/*
+        ArrayList<MealEntry> mealEntries = new ArrayList<>();
+        mealEntries.add(new MealEntry("Pancakes", 300));
+        mealEntries.add(new MealEntry("Orange Juice", 100));
+
+        mealEntries.add(new MealEntry("Burger", 500));
+        mealEntries.add(new MealEntry("Pop", 200));
+
+        mealEntries.add(new MealEntry("Pasta", 500));
+        mealEntries.add(new MealEntry("Wine", 300));
+
+        nutritionAdapter.addMealEntries(mealEntries);*/
+
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Meal("Breakfast"));
+        items.add(new MealEntry("Pancakes", 300));
+        items.add(new MealEntry("Orange Juice", 100));
+
+        items.add(new Meal("Lunch"));
+        items.add(new MealEntry("Burger", 500));
+        items.add(new MealEntry("Pop", 200));
+
+        items.add(new Meal("Dinner"));
+        items.add(new MealEntry("Pasta", 500));
+        items.add(new MealEntry("Wine", 300));
+
+        Log.v("ITEM SIZE", String.valueOf(items.size()));
+        nutritionAdapter.setItems(items);
+
+/*        Meal meal = new Meal("Breakfast");
+        meal.AddMealEntry(new MealEntry("Pancakes", 300));
+        meal.AddMealEntry(new MealEntry("Orange Juice", 100));
+        nutritionAdapter.addMeal(meal);
+
+        meal = new Meal("Lunch");
+        meal.AddMealEntry(new MealEntry("Burger", 500));
+        meal.AddMealEntry(new MealEntry("Pop", 200));
+        nutritionAdapter.addMeal(meal);
+
+        meal = new Meal("Dinner");
+        meal.AddMealEntry(new MealEntry("Pasta", 500));
+        meal.AddMealEntry(new MealEntry("Wine", 300));
+        nutritionAdapter.addMeal(meal);*/
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_nutrition_calculator, menu);
+        return true;
     }
 
     public void setUpButtons() {

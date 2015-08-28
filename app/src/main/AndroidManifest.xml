@@ -55,6 +55,11 @@
         <activity
             android:name=".NutritionCalculatorActivity"
             android:label="@string/title_activity_nutrition_calculator" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".NutritionDayActivity"
@@ -67,11 +72,6 @@
         <activity
             android:name=".ChooseExerciseActivity"
             android:label="@string/title_activity_choose_exercises" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

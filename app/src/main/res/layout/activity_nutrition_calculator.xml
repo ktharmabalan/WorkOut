@@ -2,50 +2,148 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     tools:context="ca.codemake.workout.NutritionCalculatorActivity">
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Nutrition Calculator"
-        android:id="@+id/textView4"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:id="@+id/linearLayout">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="500"
+                android:textColor="#03A9F4"
+                android:id="@+id/textView5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="CALORIES REMAINING"
+                android:id="@+id/textView4" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Add Entry"
+            android:textSize="16dp"
+            android:id="@+id/btn_nutrition_day"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="#EAEAEA"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/linearLayout"
+        android:background="#EAEAEA"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/linearLayout2">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Begin Month 4 Day 3!"
-        android:id="@+id/btn_nutrition_day"
-        android:layout_below="@+id/textView4"
-        android:layout_marginTop="8dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:layout_weight="1">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="History:"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/btn_nutrition_day"
-        android:layout_marginTop="8dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="1200"
+                android:layout_weight="1"
+                android:id="@+id/textView8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="GOAL"
+                android:id="@+id/textView11"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/left_border"
+            android:paddingLeft="10dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="1000"
+                android:layout_weight="1"
+                android:id="@+id/textView9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="CONSUMED"
+                android:id="@+id/textView12"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/left_border"
+            android:paddingLeft="10dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="300"
+                android:layout_weight="1"
+                android:id="@+id/textView10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="SPENT"
+                android:id="@+id/textView13"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
 
     <ListView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_nutrition"
-        android:layout_below="@+id/textView5"
-        android:layout_marginTop="8dp"
+        android:id="@android:id/list"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:choiceMode="singleChoice" />
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/linearLayout2" />
+
 </RelativeLayout>
