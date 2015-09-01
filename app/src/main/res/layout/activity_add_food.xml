@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background"
+    tools:context="ca.codemake.workout.AddFoodActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodName"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="Food name" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/calories"
+        android:layout_below="@+id/foodName"
+        android:layout_centerHorizontal="true"
+        android:hint="Calories"
+        android:inputType="number" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/servingSize"
+        android:layout_below="@+id/calories"
+        android:layout_centerHorizontal="true"
+        android:hint="Serving size (g)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodDescription"
+        android:layout_below="@+id/servingSize"
+        android:layout_centerHorizontal="true"
+        android:hint="Description" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foodDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:padding="5dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_color">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_span="3"
+                    android:textSize="20sp"
+                    android:text="Nutrition Facts"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Per"
+                    android:textStyle="bold" />
+                <EditText
+                    android:text="3/4 cup (175)g"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Amount"
+                    android:textStyle="bold" />
+                <TextView
+                    android:text="" />
+                <TextView
+                    android:text="% Daily Value"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Calories"
+                    android:textStyle="bold" />
+                <EditText
+                    android:text="160" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Fat"
+                    android:textStyle="bold" />
+                <EditText
+                    android:text="2.5g" />
+                <EditText
+                    android:text="4%"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Saturated Fat"/>
+                <EditText
+                    android:text="1.5g" />
+                <EditText
+                    android:text="8%"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Trans Fat"/>
+                <EditText
+                    android:text="0g" />
+                <EditText
+                    android:text="" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Cholesterol"
+                    android:textStyle="bold" />
+                <EditText
+                    android:text="10mg" />
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Sodium"
+                    android:textStyle="bold" />
+                <EditText
+                    android:text="75mg" />
+                <EditText
+                    android:text="3%"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Carbohydrate"
+                    android:textStyle="bold" />
+                <EditText
+                    android:text="25g" />
+                <EditText
+                    android:text="8%"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Fibre"/>
+                <EditText
+                    android:text="0g" />
+                <EditText
+                    android:text="0%"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Sugars"/>
+                <EditText
+                    android:text="24g" />
+                <EditText
+                    android:text="" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Protein"
+                    android:textStyle="bold" />
+                <EditText
+                    android:text="8g" />
+                <EditText
+                    android:text="" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Vitamin A"/>
+                <TextView
+                    android:text="" />
+                <EditText
+                    android:text="2%"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Vitamin C"/>
+                <TextView
+                    android:text="" />
+                <EditText
+                    android:text="0%"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Calcium"/>
+                <TextView
+                    android:text="" />
+                <EditText
+                    android:text="20%"
+                    android:textStyle="bold" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Iron"/>
+                <TextView
+                    android:text="" />
+                <EditText
+                    android:text="0%"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

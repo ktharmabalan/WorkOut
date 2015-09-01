@@ -3,7 +3,6 @@ package ca.codemake.workout;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -44,19 +43,30 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         nutritionAdapter.addMealEntries(mealEntries);*/
 
         ArrayList<Item> items = new ArrayList<>();
-        items.add(new Meal("Breakfast"));
+        Meal meal = new Meal("Breakfast");
+        items.add(meal);
         items.add(new MealEntry("Pancakes", 300));
         items.add(new MealEntry("Orange Juice", 100));
 
-        items.add(new Meal("Lunch"));
+        meal = new Meal("Lunch");
+        meal.setMarginTop(true);
+        items.add(meal);
         items.add(new MealEntry("Burger", 500));
         items.add(new MealEntry("Pop", 200));
 
-        items.add(new Meal("Dinner"));
+        meal = new Meal("Dinner");
+        meal.setMarginTop(true);
+        items.add(meal);
         items.add(new MealEntry("Pasta", 500));
         items.add(new MealEntry("Wine", 300));
 
-        Log.v("ITEM SIZE", String.valueOf(items.size()));
+        meal = new Meal("Other");
+        meal.setMarginTop(true);
+        items.add(meal);
+        items.add(new MealEntry("Apple", 100));
+        items.add(new MealEntry("Orange Juice", 200));
+        items.add(new MealEntry("Cookies", 250));
+
         nutritionAdapter.setItems(items);
 
 /*        Meal meal = new Meal("Breakfast");
@@ -93,7 +103,7 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         Button b = (Button) v;
 
         if(b.getId() == R.id.btn_nutrition_day) {
-            Intent i = new Intent(getApplicationContext(), NutritionDayActivity.class);
+            Intent i = new Intent(getApplicationContext(), AddNutritionEntryActivity.class);
             startActivity(i);
         }
     }

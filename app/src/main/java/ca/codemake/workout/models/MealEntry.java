@@ -4,6 +4,7 @@ public class MealEntry implements Item {
     private String foodName;
     private int calories;
     private String servingSize;
+    private boolean marginTop = false;
 
     public MealEntry(String foodName, int calories) {
         this.foodName = foodName;
@@ -15,6 +16,20 @@ public class MealEntry implements Item {
         this.foodName = foodName;
         this.calories = calories;
         this.servingSize = servingSize;
+    }
+
+    public MealEntry(String foodName, int calories, boolean marginTop) {
+        this.foodName = foodName;
+        this.calories = calories;
+        this.servingSize = "Serving size";
+        this.marginTop = marginTop;
+    }
+
+    public MealEntry(String foodName, int calories, String servingSize, boolean marginTop) {
+        this.foodName = foodName;
+        this.calories = calories;
+        this.servingSize = servingSize;
+        this.marginTop = marginTop;
     }
 
     public int getCalories() {
@@ -44,5 +59,13 @@ public class MealEntry implements Item {
     @Override
     public boolean isDivider() {
         return false;
+    }
+
+    public void setMarginTop(boolean marginTop) {
+        this.marginTop = marginTop;
+    }
+
+    public boolean hasMarginTop() {
+        return marginTop;
     }
 }

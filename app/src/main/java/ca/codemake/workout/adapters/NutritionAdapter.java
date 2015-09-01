@@ -1,11 +1,11 @@
 package ca.codemake.workout.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -62,14 +62,20 @@ public class NutritionAdapter extends BaseAdapter {
         if(items.get(position).isDivider()) {
             Meal meal = (Meal) items.get(position);
 
+            if(items.get(position).hasMarginTop()) {
+                LinearLayout linearLayout = (LinearLayout) convertView.findViewById(R.id.marginTop);
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
+                params.setMargins(0, 20, 0, 0);
+                linearLayout.setLayoutParams(params);
+            }
+
+
             mealName = (TextView) convertView.findViewById(R.id.mealName);
             mealName.setText(meal.getMealName());
             calories = (TextView) convertView.findViewById(R.id.mealCalories);
             calories.setText(String.valueOf(meal.getCalories()));
         } else {
             MealEntry mealEntry = (MealEntry) items.get(position);
-
-            Log.v("MEAL ENTRY", mealEntry.getFoodName());
 
             foodName = (TextView) convertView.findViewById(R.id.foodName);
             foodName.setText(mealEntry.getFoodName());

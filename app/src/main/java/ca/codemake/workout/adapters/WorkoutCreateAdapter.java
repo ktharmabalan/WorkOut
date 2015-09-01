@@ -36,11 +36,9 @@ public class WorkoutCreateAdapter extends BaseAdapter {
     }
 
     public void addRow(WorkoutRow item) {
-        Log.v("ADD ROW", "position: " + rowPosition);
         rowType.put(rowPosition, WORKOUT_ROW);
         workoutRows.add(item);
         positionToType.put(rowPosition, workoutRows.size() - 1);
-        Log.v("PositionToType", String.valueOf(positionToType.size()));
         rowPosition++;
         notifyDataSetChanged();
     }
@@ -48,11 +46,9 @@ public class WorkoutCreateAdapter extends BaseAdapter {
     public void addHeading(WorkoutHeading heading) {
 //        workoutRows.add(item);
 //        workoutHeadings.add(workoutRows.size() - 1);
-        Log.v("ADD HEADING", "position: " + rowPosition);
         rowType.put(rowPosition, WORKOUT_HEADING);
         workoutHeadings.add(heading);
         positionToType.put(rowPosition, workoutHeadings.size() - 1);
-        Log.v("PositionToType", String.valueOf(positionToType.size()));
         rowPosition++;
         notifyDataSetChanged();
     }

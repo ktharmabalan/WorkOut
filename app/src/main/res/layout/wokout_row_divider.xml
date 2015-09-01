@@ -25,7 +25,7 @@
 
     <Button
         android:id="@+id/addExerciseToWeekDay"
-        style="@style/SmallBtn"
+        style="@style/AppTheme.SmallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
@@ -36,7 +36,7 @@
 
     <Button
         android:id="@+id/editWeekday"
-        style="@style/SmallBtn"
+        style="@style/AppTheme.SmallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""

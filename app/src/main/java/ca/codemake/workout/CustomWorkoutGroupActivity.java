@@ -27,7 +27,7 @@ public class CustomWorkoutGroupActivity extends ActionBarActivity implements Vie
         Button b = (Button) v;
 
         if(b.getId() == R.id.btn_custom_workout) {
-//            Intent i = new Intent(getApplicationContext(), NutritionDayActivity.class);
+//            Intent i = new Intent(getApplicationContext(), AddNutritionEntryActivity.class);
 //            startActivity(i);
         }
     }

@@ -4,13 +4,15 @@
     android:layout_height="wrap_content"
     android:padding="5dp"
     android:layout_marginBottom="2dp"
-    android:background="@drawable/bottom_border">
+    android:background="@drawable/bottom_border_gray">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Burger"
+        android:textStyle="bold"
+        android:textColor="@color/secondary_color"
         android:id="@+id/foodName" />
 
     <LinearLayout
@@ -24,6 +26,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="1 burger, 300 cal"
             android:layout_weight=".5"
+            android:textColor="@color/primary_color_dark"
             android:layout_gravity="center_vertical"
             android:id="@+id/servingSize" />
 
@@ -32,7 +35,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="300 CALS"
-            android:textColor="#03A9F4"
+            android:textStyle="bold"
+            android:textColor="@color/secondary_color"
             android:id="@+id/calories"
             android:gravity="right"
             android:layout_gravity="center_vertical"

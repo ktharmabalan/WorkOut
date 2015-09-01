@@ -30,7 +30,7 @@
         android:layout_alignEnd="@+id/exercise" />
 
     <Button
-        style="@style/SmallBtn"
+        style="@style/AppTheme.SmallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="qty"
@@ -39,7 +39,7 @@
         android:layout_alignParentRight="true" />
 
     <Button
-        style="@style/SmallBtn"
+        style="@style/AppTheme.SmallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""

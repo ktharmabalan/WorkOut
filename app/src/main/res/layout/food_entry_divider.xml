@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:background="#0288D1">
+    android:layout_height="wrap_content">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="BREAKFAST"
-        android:textColor="#FFFFFF"
-        android:layout_weight=".6"
-        android:layout_gravity="center_vertical"
-        android:id="@+id/mealName" />
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:id="@+id/marginTop"
+        android:background="@color/primary_color">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="120500 CALS"
-        android:textColor="#FFFFFF"
-        android:id="@+id/mealCalories"
-        android:layout_gravity="center_vertical"
-        android:layout_weight=".8" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="BREAKFAST"
+            android:textColor="@color/text_color"
+            android:textStyle="bold"
+            android:layout_weight=".6"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/mealName" />
 
-    <Button
-        style="@style/SmallBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="EDIT"
-        android:id="@+id/button3"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="120500 CALS"
+            android:textColor="@color/text_color"
+            android:textStyle="bold"
+            android:id="@+id/mealCalories"
+            android:layout_gravity="center_vertical"
+            android:layout_weight=".8" />
+
+        <Button
+            style="@style/AppTheme.SmallButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EDIT"
+            android:id="@+id/button3"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+    </LinearLayout>
 </LinearLayout>

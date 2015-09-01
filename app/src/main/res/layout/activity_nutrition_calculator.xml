@@ -3,15 +3,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
+    android:background="@color/background"
     tools:context="ca.codemake.workout.NutritionCalculatorActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Date"
+        android:gravity="center_horizontal"
+        android:textColor="@color/text_color"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/bottom_border_secondary_dark"
+        android:id="@+id/textView14" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressRemaining"
+        android:layout_below="@+id/textView14">
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/progress"
+            android:progress="58"
+            android:minHeight="30dp"
+            android:maxHeight="30dp" />
+        <!--android:progressBackgroundTint="@color/secondary_color"-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remaining 500 calories of 1200"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_color"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
+        android:layout_below="@+id/progressRemaining"
         android:id="@+id/linearLayout">
 
         <LinearLayout
@@ -27,7 +68,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="500"
-                android:textColor="#03A9F4"
+                android:textStyle="bold"
+                android:textColor="@color/secondary_color"
                 android:id="@+id/textView5" />
 
             <TextView
@@ -35,7 +77,10 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="CALORIES REMAINING"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
                 android:id="@+id/textView4" />
+
         </LinearLayout>
 
         <Button
@@ -46,8 +91,12 @@
             android:id="@+id/btn_nutrition_day"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:background="#EAEAEA"
+            android:background="@color/secondary_color_dark"
+            android:textColor="@color/text_color"
+            android:textStyle="bold"
             android:layout_weight="2" />
+
+        <!--android:background="#EAEAEA"-->
     </LinearLayout>
 
     <LinearLayout
@@ -57,7 +106,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout"
-        android:background="#EAEAEA"
+        android:background="@color/secondary_color_dark"
         android:padding="5dp"
         android:layout_marginTop="5dp"
         android:id="@+id/linearLayout2">
@@ -75,6 +124,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="1200"
                 android:layout_weight="1"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
                 android:id="@+id/textView8" />
 
             <TextView
@@ -83,6 +134,8 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="GOAL"
                 android:id="@+id/textView11"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -100,6 +153,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="1000"
                 android:layout_weight="1"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
                 android:id="@+id/textView9" />
 
             <TextView
@@ -108,6 +163,8 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="CONSUMED"
                 android:id="@+id/textView12"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -123,16 +180,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="300"
+                android:text="-300"
                 android:layout_weight="1"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
+                android:id="@+id/textView15" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="BURNED"
+                android:id="@+id/textView16"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/left_border"
+            android:paddingLeft="10dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="500"
+                android:layout_weight="1"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
                 android:id="@+id/textView10" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="SPENT"
+                android:text="NET"
                 android:id="@+id/textView13"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
                 android:layout_weight="1" />
         </LinearLayout>
     </LinearLayout>

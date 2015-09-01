@@ -5,13 +5,19 @@ import java.util.ArrayList;
 public class Meal implements Item {
 
     private String mealName;
-    private int calories;
+    private int calories = 0;
     private ArrayList<MealEntry> mealEntries;
+    private boolean marginTop = false;
 
     public Meal(String mealName) {
         this.mealName = mealName;
         mealEntries = new ArrayList<>();
-        calories = 0;
+    }
+
+    public Meal(String mealName, boolean marginTop) {
+        this.mealName = mealName;
+        this.marginTop = marginTop;
+        mealEntries = new ArrayList<>();
     }
 
     public void AddMealEntry(MealEntry mealEntry) {
@@ -38,5 +44,13 @@ public class Meal implements Item {
     @Override
     public boolean isDivider() {
         return true;
+    }
+
+    public void setMarginTop(boolean marginTop) {
+        this.marginTop = marginTop;
+    }
+
+    public boolean hasMarginTop() {
+        return marginTop;
     }
 }

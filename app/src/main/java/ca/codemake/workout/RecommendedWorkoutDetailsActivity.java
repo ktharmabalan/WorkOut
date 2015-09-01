@@ -27,7 +27,7 @@ public class RecommendedWorkoutDetailsActivity extends ActionBarActivity impleme
         Button b = (Button) v;
 
         if(b.getId() == R.id.btn_recommendation_start) {
-//            Intent i = new Intent(getApplicationContext(), NutritionDayActivity.class);
+//            Intent i = new Intent(getApplicationContext(), AddNutritionEntryActivity.class);
 //            startActivity(i);
         }
     }

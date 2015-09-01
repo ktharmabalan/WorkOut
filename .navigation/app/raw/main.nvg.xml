@@ -6,7 +6,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.NutritionDayActivity"/>
+        className = "ca.codemake.workout.AddNutritionEntryActivity"/>
       <point      
         x = "548"      
         y = "4288"/>

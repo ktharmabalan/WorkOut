@@ -50,7 +50,7 @@ public class WorkoutInputActivity extends ActionBarActivity implements View.OnCl
         Button b = (Button) v;
 
         if(b.getId() == R.id.btn_done) {
-//            Intent i = new Intent(getApplicationContext(), NutritionDayActivity.class);
+//            Intent i = new Intent(getApplicationContext(), AddNutritionEntryActivity.class);
 //            startActivity(i);
         }
     }

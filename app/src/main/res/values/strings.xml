@@ -15,9 +15,33 @@
     <string name="title_activity_nutrition_day">Daily Nutrition</string>
     <string name="title_activity_workout_pattern">Create Workout</string>
 
-    <string-array name="workout_frequency">
-        <item>Everyday</item>
-        <item>Every other day</item>
-    </string-array>
+    <!--<string-array name="workout_frequency">-->
+        <!--<item>Everyday</item>-->
+        <!--<item>Every other day</item>-->
+    <!--</string-array>-->
     <string name="title_activity_choose_exercises">Choose Exercises</string>
+    <string name="add_food">Add Food</string>
+
+    <color name="primary_color_dark">#3949AB</color>
+    <color name="primary_color">#7986BC</color>
+    <color name="secondary_color_dark">#FF8A65</color>
+    <color name="secondary_color">#FFAB91</color>
+    <color name="text_color">#000</color>
+    <color name="under_line">#acacac</color>
+    <color name="background">#EEEEEE</color>
+    <color name="light_gray">#EDEDED</color>
+    <color name="lighter_gray">#EEEEEE</color>
+    <color name="green_blue_dark">#4B88A5</color>
+    <color name="green_blue_medium">#3297DB</color>
+    <color name="green_blue">#2C85AD</color>
+    <color name="green_blue_light">#20C09E</color>
+    <color name="green_blue_lighter">#11BA9B</color>
+    <color name="green_blue_lightest">#62D8B6</color>
+    <color name="red_orange_dark">#EE5545</color>
+    <color name="red_orange">#E84033</color>
+    <color name="red_orange_light">#E64C40</color>
+
+
+
+
 </resources>
