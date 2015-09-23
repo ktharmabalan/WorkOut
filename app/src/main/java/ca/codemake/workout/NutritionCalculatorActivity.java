@@ -3,8 +3,6 @@ package ca.codemake.workout;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
@@ -86,12 +84,12 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_nutrition_calculator, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater menuInflater = getMenuInflater();
+//        menuInflater.inflate(R.menu.menu_nutrition_calculator, menu);
+//        return true;
+//    }
 
     public void setUpButtons() {
         Button b = (Button) this.findViewById(R.id.btn_nutrition_day);

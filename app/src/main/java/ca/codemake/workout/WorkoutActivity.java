@@ -1,15 +1,13 @@
 package ca.codemake.workout;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 
-public class WorkoutActivity extends ActionBarActivity implements View.OnClickListener {
+public class WorkoutActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +16,7 @@ public class WorkoutActivity extends ActionBarActivity implements View.OnClickLi
         setUpButtons();
     }
 
-    @Override
+/*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_workout, menu);
@@ -38,7 +36,7 @@ public class WorkoutActivity extends ActionBarActivity implements View.OnClickLi
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     public void setUpButtons() {
         Button b = (Button) this.findViewById(R.id.btn_workout_day);
@@ -66,5 +64,4 @@ public class WorkoutActivity extends ActionBarActivity implements View.OnClickLi
             startActivity(i);
         }
     }
-
 }

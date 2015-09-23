@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/background"
     tools:context=".WorkoutActivity">
 
     <TextView
@@ -29,9 +30,9 @@
             android:layout_height="wrap_content"
             android:text="Begin Day 5"
             android:id="@+id/btn_workout_day"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:padding="16dp"
             android:layout_weight="2"
+            android:layout_marginBottom="5dp"
             android:textSize="20dp" />
 
         <Button
@@ -39,9 +40,9 @@
             android:layout_height="wrap_content"
             android:text="Custom:\nCustomize your own workout regimen!"
             android:id="@+id/btn_custom_workout"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:padding="16dp"
             android:layout_weight="1"
+            android:layout_marginBottom="5dp"
             android:textSize="20dp" />
 
         <Button
@@ -49,8 +50,7 @@
             android:layout_height="wrap_content"
             android:text="Recommended:\nTry our various recommended workout regimens!"
             android:id="@+id/btn_recommended_workout"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:padding="16dp"
             android:layout_weight="1"
             android:textSize="20dp" />
     </LinearLayout>

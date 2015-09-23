@@ -1,82 +1,87 @@
 <resources>
-        <!-- inherit from the material theme
-        <style name="AppTheme" parent="android:Theme.Material">
-             Main theme colors
-               your app branding color for the app bar
-            <item name="android:colorPrimary">@color/primary</item>
-               darker variant for the status bar and contextual app bars
-            <item name="android:colorPrimaryDark">@color/primary_dark</item>
-               theme UI controls like checkboxes and text fields
-            <item name="android:colorAccent">@color/accent</item>
-        </style>-->
-
-
-
-
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="AppTheme" parent="android:Theme.Material">
+
+        <!-- Main theme colors -->
+        <!--   your app branding color for the app bar -->
+        <item name="android:colorPrimary">@color/primary_color</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <!--<item name="android:colorPrimaryDark">@color/primary_color_dark</item>-->
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">#7652D8</item>
+
+
+
     <!--<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">-->
-        <!-- Customize your theme here. -->
-        <item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>
-        <item name="android:actionOverflowButtonStyle">@style/AppTheme.OverFlow</item>
-        <!--<item name="android:actionBarWidgetTheme">@style/AppTheme.ActionBarWidget</item>-->
-        <!--<item name="android:actionMenuTextColor">#FFF</item>-->
+        <!--ActionBar-->
+        <!--<item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>-->
+
+        <!--ActionBar Options Menu-->
+        <!--<item name="android:actionOverflowMenuStyle">@style/AppTheme.ActionMenuOverFlow</item>-->
+
+        <!--Options Menu Text Color-->
+        <!--<item name="android:itemTextAppearance">@style/AppTheme.OptionsMenuTextColor</item>-->
+
+        <!---->
+
+        <!--Button-->
         <item name="android:buttonStyle">@style/AppTheme.Button</item>
-        <item name="android:editTextStyle">@style/AppTheme.EditText</item>
 
+        <!--EditText-->
+        <!--<item name="android:editTextStyle">@style/AppTheme.EditText</item>-->
 
-
-<!--        &lt;!&ndash; Main theme colors &ndash;&gt;
-        &lt;!&ndash;   your app branding color for the app bar &ndash;&gt;
-        <item name="android:colorPrimary">@color/green_blue</item>
-        &lt;!&ndash;   darker variant for the status bar and contextual app bars &ndash;&gt;
-        <item name="android:colorPrimaryDark">@color/green_blue_dark</item>
-        &lt;!&ndash;   theme UI controls like checkboxes and text fields &ndash;&gt;
-        <item name="android:colorAccent">@color/primary_color</item>-->
-
+        <!--TextView-->
+        <item name="android:textViewStyle">@style/AppTheme.TextView</item>
     </style>
 
-    <!-- ActionBar styles -->
-    <!--<style name="CustomActionBar" parent="@android:style/Widget.AppCompat.Light.DarkActionBar">-->
-        <!--<item name="android:background">#3949AB</item>-->
-    <!--</style>-->
+    <!-- ActionBar-->
     <style name="AppTheme.ActionBar" parent="android:Widget.Holo.Light.ActionBar">
         <item name="android:background">@color/primary_color_dark</item>
+        <!--ActionBar Text Color-->
         <item name="android:titleTextStyle">@style/ActionBarText</item>
-        <item name="android:actionMenuTextColor">@color/text_color</item>
-        <!--<item name="android:displayOptions">@style/ActionBarText</item>-->
-    </style>
-    
-    <style name="ActionBarText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/text_color</item>
     </style>
 
-    <style name="AppTheme.OverFlow" parent="android:Widget.Holo.Light.ActionButton.Overflow">
-        <item name="android:textColor">@color/text_color</item>
+    <!--ActionBar Text-->
+    <style name="ActionBarText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#fff</item>
     </style>
 
-    <style name="AppTheme.ActionBarWidget" parent="android:Theme.Holo.Light">
-        <item name="android:popupMenuStyle">@android:style/Widget.Holo.Light.PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@android:style/Widget.Holo.Light.ListView.DropDown</item>
+    <!--ActionBar Options Menu-->
+    <style name="AppTheme.ActionMenuOverFlow" parent="android:Widget.PopupMenu">
+        <item name="android:popupBackground">#fff</item>
     </style>
 
+    <!--ActionBar Options Menu Text Color-->
+    <style name="AppTheme.OptionsMenuTextColor" parent="android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <!--Button-->
     <style name="AppTheme.Button" parent="android:Widget.Button">
         <item name="android:background">@color/secondary_color_dark</item>
-        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColor">#fff</item>
         <item name="android:textStyle">bold</item>
         <item name="android:minHeight">40dp</item>
     </style>
 
+    <!--SmallButton-->
     <style name="AppTheme.SmallButton" parent="AppTheme.Button">
         <!--<item name="android:minHeight">40dp</item>-->
         <item name="android:minWidth">0dp</item>
     </style>
 
+    <!--EditText-->
     <style name="AppTheme.EditText" parent="android:Widget.EditText">
         <item name="android:textColor">@color/text_color</item>
         <item name="android:textColorHint">@color/text_color</item>
     </style>
 
+    <!--TextView-->
+    <style name="AppTheme.TextView" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <!--ProgressBar-->
     <style name="AppTheme.ProgressBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:minHeight">50dp</item>
         <item name="android:maxHeight">50dp</item>

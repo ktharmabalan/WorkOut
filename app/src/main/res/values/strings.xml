@@ -14,21 +14,28 @@
     <string name="title_activity_nutrition_calculator">Nutrition Calculator</string>
     <string name="title_activity_nutrition_day">Daily Nutrition</string>
     <string name="title_activity_workout_pattern">Create Workout</string>
-
-    <!--<string-array name="workout_frequency">-->
-        <!--<item>Everyday</item>-->
-        <!--<item>Every other day</item>-->
-    <!--</string-array>-->
     <string name="title_activity_choose_exercises">Choose Exercises</string>
     <string name="add_food">Add Food</string>
 
-    <color name="primary_color_dark">#3949AB</color>
-    <color name="primary_color">#7986BC</color>
-    <color name="secondary_color_dark">#FF8A65</color>
-    <color name="secondary_color">#FFAB91</color>
+
+
+
+    <string-array name="serving_size">
+        <item>g</item>
+        <item>ml</item>
+    </string-array>
+
+    <color name="primary_color_dark">#1F7CDB</color>
+    <color name="primary_color">@color/green_blue_medium</color>
+    <color name="secondary_color_dark">#763ADD</color>
+    <color name="secondary_color">#7652D8</color>
+    <color name="light_blue">#7986BC</color>
+    <color name="dark_blue">#3949AB</color>
+    <color name="light_orange">#FFAB91</color>
+    <color name="dark_orange">#FF8A65</color>
     <color name="text_color">#000</color>
     <color name="under_line">#acacac</color>
-    <color name="background">#EEEEEE</color>
+    <color name="background">@color/lighter_gray</color>
     <color name="light_gray">#EDEDED</color>
     <color name="lighter_gray">#EEEEEE</color>
     <color name="green_blue_dark">#4B88A5</color>
