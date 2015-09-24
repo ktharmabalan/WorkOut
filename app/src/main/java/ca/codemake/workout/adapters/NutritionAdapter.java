@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -45,12 +47,13 @@ public class NutritionAdapter extends BaseAdapter {
         return  position;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         TextView foodName = null;
         TextView calories = null;
         TextView servingSize = null;
 
         TextView mealName = null;
+        Button addMealItem = null;
 
 //        if(convertView == null) {
             if(items.get(position).isDivider())
@@ -69,11 +72,22 @@ public class NutritionAdapter extends BaseAdapter {
                 linearLayout.setLayoutParams(params);
             }
 
-
             mealName = (TextView) convertView.findViewById(R.id.mealName);
             mealName.setText(meal.getMealName());
             calories = (TextView) convertView.findViewById(R.id.mealCalories);
             calories.setText(String.valueOf(meal.getCalories()));
+
+            addMealItem = (Button) convertView.findViewById(R.id.button3);
+            final TextView finalMealName = mealName;
+
+            addMealItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(parent.getContext(), finalMealName.getText(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
         } else {
             MealEntry mealEntry = (MealEntry) items.get(position);
 
