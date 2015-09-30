@@ -2,7 +2,6 @@ package ca.codemake.workout;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,15 +15,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import ca.codemake.workout.database.WorkoutDbAdapter;
-
 /**
  * Created by Kajan on 8/19/2015.
  */
 public class AddNutritionEntryActivity extends Activity {
 
     private HashMap<String, String> autoText;
-    private ArrayList autoName;
+    private ArrayList foodNameList;
+    private ArrayList mealNameList;
 //    private Toolbar toolbar;
 
 
@@ -38,29 +36,50 @@ public class AddNutritionEntryActivity extends Activity {
 //        ActionBar actionBar = getSupportActionBar();
 //        actionBar.setDisplayHomeAsUpEnabled(true);
 
-        autoName = new ArrayList();
-        autoText = new HashMap<>();
-
         TextView date = (TextView) findViewById(R.id.txt_nutrition_day);
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
         date.setText(simpleDateFormat.format(calendar.getTime()));
+
+        foodNameList = new ArrayList();
+        mealNameList = new ArrayList();
+
+        foodNameList.add("Bacon");
+        foodNameList.add("Eggs");
+        foodNameList.add("Sausage");
+        foodNameList.add("Toast");
+        foodNameList.add("Juice");
+        foodNameList.add("Apple");
+
+        mealNameList.add("Breakfast");
+        mealNameList.add("Lunch");
+        mealNameList.add("Dinner");
+        mealNameList.add("Other");
+
+
+        /*autoText = new HashMap<>();
 
         WorkoutDbAdapter db = new WorkoutDbAdapter(getApplicationContext());
         db.open();
         Cursor cursor = db.getAllFoods();
         if(cursor.moveToFirst()) {
             do {
-                autoName.add(cursor.getString(0));
+                foodNameList.add(cursor.getString(0));
                 autoText.put(cursor.getString(0), String.valueOf(cursor.getLong(1)));
             } while (cursor.moveToNext());
         }
-        db.close();
+        db.close();*/
 
-        if(autoName.size() > 0) {
-            AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.foodName);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, autoName);
-            autoCompleteTextView.setAdapter(adapter);
+        if(mealNameList.size() > 0) {
+            AutoCompleteTextView mealName = (AutoCompleteTextView) findViewById(R.id.mealName);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mealNameList);
+            mealName.setAdapter(adapter);
+        }
+
+        if(foodNameList.size() > 0) {
+            AutoCompleteTextView foodName = (AutoCompleteTextView) findViewById(R.id.foodName);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, foodNameList);
+            foodName.setAdapter(adapter);
         }
 
 

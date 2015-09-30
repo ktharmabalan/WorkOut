@@ -20,7 +20,7 @@ public class Meal implements Item {
         mealEntries = new ArrayList<>();
     }
 
-    public void AddMealEntry(MealEntry mealEntry) {
+    public void addMealEntry(MealEntry mealEntry) {
         mealEntries.add(mealEntry);
         calories += mealEntry.getCalories();
     }
@@ -54,3 +54,4 @@ public class Meal implements Item {
         return marginTop;
     }
 }
+

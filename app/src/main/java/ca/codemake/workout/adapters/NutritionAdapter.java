@@ -27,6 +27,7 @@ public class NutritionAdapter extends BaseAdapter {
     ArrayList<MealEntry> mealEntries;
     ArrayList<Item> items;
 
+
     public NutritionAdapter(Context context) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         meals = new ArrayList<>();

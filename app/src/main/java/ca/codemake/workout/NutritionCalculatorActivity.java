@@ -183,8 +183,34 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         db.close();*/
 
 
+        ArrayList<Item> sample = new ArrayList<>();
+        Meal m = new Meal("Breakfast");
+        m.addMealEntry(new MealEntry("Pancakes", 300));
+        m.addMealEntry(new MealEntry("Orange Juice", 100));
+        sample.add(m);
 
-        ArrayList<Item> items = new ArrayList<>();
+        m = new Meal("Lunch");
+        m.setMarginTop(true);
+        m.addMealEntry(new MealEntry("Burger", 500));
+        m.addMealEntry(new MealEntry("Pop", 200));
+        sample.add(m);
+
+        m = new Meal("Dinner");
+        m.setMarginTop(true);
+        m.addMealEntry(new MealEntry("Pasta", 500));
+        m.addMealEntry(new MealEntry("Wine", 300));
+        sample.add(m);
+
+        m = new Meal("Other");
+        m.setMarginTop(true);
+        m.addMealEntry(new MealEntry("Apple", 100));
+        m.addMealEntry(new MealEntry("Orange Juice", 200));
+        m.addMealEntry(new MealEntry("Cookies", 250));
+        sample.add(m);
+
+        nutritionAdapter.setItems(sample);
+
+/*        ArrayList<Item> items = new ArrayList<>();
         Meal meal = new Meal("Breakfast");
         items.add(meal);
         items.add(new MealEntry("Pancakes", 300));
@@ -209,21 +235,21 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         items.add(new MealEntry("Orange Juice", 200));
         items.add(new MealEntry("Cookies", 250));
 
-        nutritionAdapter.setItems(items);
+        nutritionAdapter.setItems(items);*/
 
 /*        Meal meal = new Meal("Breakfast");
-        meal.AddMealEntry(new MealEntry("Pancakes", 300));
-        meal.AddMealEntry(new MealEntry("Orange Juice", 100));
+        meal.addMealEntry(new MealEntry("Pancakes", 300));
+        meal.addMealEntry(new MealEntry("Orange Juice", 100));
         nutritionAdapter.addMeal(meal);
 
         meal = new Meal("Lunch");
-        meal.AddMealEntry(new MealEntry("Burger", 500));
-        meal.AddMealEntry(new MealEntry("Pop", 200));
+        meal.addMealEntry(new MealEntry("Burger", 500));
+        meal.addMealEntry(new MealEntry("Pop", 200));
         nutritionAdapter.addMeal(meal);
 
         meal = new Meal("Dinner");
-        meal.AddMealEntry(new MealEntry("Pasta", 500));
-        meal.AddMealEntry(new MealEntry("Wine", 300));
+        meal.addMealEntry(new MealEntry("Pasta", 500));
+        meal.addMealEntry(new MealEntry("Wine", 300));
         nutritionAdapter.addMeal(meal);*/
     }
 

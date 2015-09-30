@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="ca.codemake.workout.AddNutritionEntryActivity">
+    tools:context=".AddNutritionEntryActivity">
 
 <!--    <include
         android:id="@+id/tool_bar"
@@ -35,9 +35,15 @@
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/foodName"
-            android:hint="Food name"
+            android:id="@+id/mealName"
+            android:hint="Meal name"
             android:layout_marginTop="5dp" />
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/foodName"
+            android:hint="Food name" />
 
         <EditText
             android:layout_width="match_parent"

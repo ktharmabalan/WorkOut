@@ -109,6 +109,7 @@
     <style name="AppTheme.AutoCompleteTextView" parent="android:Widget.AutoCompleteTextView">
         <item name="android:textColor">@color/primary_color</item>
         <item name="android:textColorHint">@color/primary_color</item>
+        <item name="android:popupBackground">@color/primary_color</item>
     </style>
 
     <!--ProgressBar-->
