@@ -12,13 +12,10 @@
     <string name="title_activity_recommended_workout">Recommended Workout</string>
     <string name="title_activity_recommended_workout_details">Recommended Workout Details</string>
     <string name="title_activity_nutrition_calculator">Nutrition Calculator</string>
-    <string name="title_activity_nutrition_day">Daily Nutrition</string>
+    <string name="title_activity_nutrition_day">Add meal entry</string>
     <string name="title_activity_workout_pattern">Create Workout</string>
     <string name="title_activity_choose_exercises">Choose Exercises</string>
     <string name="add_food">Add Food</string>
-
-
-
 
     <string-array name="serving_size">
         <item>g</item>
@@ -33,7 +30,7 @@
     <color name="dark_blue">#3949AB</color>
     <color name="light_orange">#FFAB91</color>
     <color name="dark_orange">#FF8A65</color>
-    <color name="text_color">#000</color>
+    <color name="text_color">#fff</color>
     <color name="under_line">#acacac</color>
     <color name="background">@color/lighter_gray</color>
     <color name="light_gray">#EDEDED</color>
@@ -47,8 +44,6 @@
     <color name="red_orange_dark">#EE5545</color>
     <color name="red_orange">#E84033</color>
     <color name="red_orange_light">#E64C40</color>
-
-
-
+    <string name="title_activity_add_meal">Add Meal</string>
 
 </resources>

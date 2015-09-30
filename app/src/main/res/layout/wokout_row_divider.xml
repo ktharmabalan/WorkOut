@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="48dp"
-    android:background="#EEEEEE">
+    android:background="@color/primary_color">
 
     <TextView
         android:id="@+id/divider"
@@ -11,39 +11,42 @@
         android:padding="5dp"
         android:text="Wednesday "
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="normal"
+        android:textStyle="bold"
         android:layout_marginTop="5dp"/>
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/bodyGroup"
         android:hint="Body Group"
         android:layout_alignTop="@+id/divider"
         android:layout_toRightOf="@+id/divider"
-        android:layout_toEndOf="@+id/divider" />
+        android:layout_toStartOf="@+id/addExerciseToWeekDay" />
 
     <Button
         android:id="@+id/addExerciseToWeekDay"
-        style="@style/AppTheme.SmallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:background="@android:drawable/ic_input_add"
+        android:background="@drawable/plus_small"
+        android:backgroundTint="#fff"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_toStartOf="@+id/editWeekday"
-        android:layout_toLeftOf="@+id/editWeekday"
-        android:layout_centerVertical="true"/>
+        android:layout_alignTop="@+id/bodyGroup"
+        android:layout_alignBottom="@+id/divider" />
 
     <Button
         android:id="@+id/editWeekday"
-        style="@style/AppTheme.SmallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:background="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"
-        android:backgroundTint="#000"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true" />
+        android:background="@drawable/edit_small"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignTop="@+id/addExerciseToWeekDay"
+        android:layout_alignBottom="@+id/addExerciseToWeekDay"
+        android:layout_alignParentEnd="true" />
 
     <!--  divider -->
     <View
@@ -51,7 +54,8 @@
         android:layout_height="1dp"
         android:layout_marginBottom="1dp"
         android:layout_alignParentBottom="true"
-        android:background="#9E9E9E" >
+        android:background="#9E9E9E"
+        android:id="@+id/view">
     </View>
 
 </RelativeLayout>

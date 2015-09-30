@@ -1,12 +1,12 @@
 package ca.codemake.workout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class WorkoutMenuActivity extends ActionBarActivity implements View.OnClickListener {
+public class WorkoutMenuActivity extends Activity implements View.OnClickListener {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

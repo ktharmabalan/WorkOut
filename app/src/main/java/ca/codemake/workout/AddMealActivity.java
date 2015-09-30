@@ -2,23 +2,21 @@ package ca.codemake.workout;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 
-
-public class WorkoutInputActivity extends Activity implements View.OnClickListener {
+public class AddMealActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workout_input);
-        setUpButtons();
+        setContentView(R.layout.activity_add_meal);
     }
 
-/*    @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_workout_input, menu);
+        getMenuInflater().inflate(R.menu.menu_add_meal, menu);
         return true;
     }
 
@@ -35,20 +33,5 @@ public class WorkoutInputActivity extends Activity implements View.OnClickListen
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
-
-    public void setUpButtons() {
-        Button b = (Button) this.findViewById(R.id.btn_done);
-        b.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        Button b = (Button) v;
-
-        if(b.getId() == R.id.btn_done) {
-//            Intent i = new Intent(getApplicationContext(), AddNutritionEntryActivity.class);
-//            startActivity(i);
-        }
     }
 }

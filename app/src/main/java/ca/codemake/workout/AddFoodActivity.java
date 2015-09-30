@@ -16,6 +16,9 @@ public class AddFoodActivity extends Activity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.serving_size, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setSelected(true);
+        spinner.setSelection(0);
+
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
     }

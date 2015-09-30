@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@color/background"
     tools:context="ca.codemake.workout.MainActivity"
     android:orientation="vertical">
+
+<!--    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar">
+    </include>-->
 
     <TextView
         android:layout_width="match_parent"
@@ -33,6 +33,8 @@
         android:layout_centerVertical="true"
         android:layout_weight="1"
         android:layout_marginBottom="25dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:textSize="24dp" />
 
     <Button
@@ -40,6 +42,8 @@
         android:layout_height="wrap_content"
         android:text="Daily Nutrition Calculator"
         android:id="@+id/btn_nutrition_calculator"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_weight="1"
         android:layout_marginBottom="100dp"
         android:textSize="24dp" />

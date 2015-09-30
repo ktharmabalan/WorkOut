@@ -43,15 +43,15 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/servingSizeSpinner"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:layout_gravity="bottom|center_horizontal"/>
         </LinearLayout>
 
-        <EditText
+<!--        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/foodDescription"
-            android:hint="Description" />
+            android:hint="Description" />-->
 
         <TableLayout
             android:layout_width="match_parent"
@@ -82,7 +82,10 @@
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/bottom_border_gray">
                 <TextView
                     android:text="Amount"
                     android:textStyle="bold" />
@@ -94,7 +97,8 @@
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_border_gray">
                 <TextView
                     android:text="Calories"
                     android:textStyle="bold" />
@@ -126,17 +130,19 @@
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_border_gray">
                 <TextView
                     android:text="Trans Fat"/>
                 <EditText
                     android:text="0g" />
-                <EditText
-                    android:text="" />
+<!--                <EditText
+                    android:text="" />-->
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_border_gray">
                 <TextView
                     android:text="Cholesterol"
                     android:textStyle="bold" />
@@ -146,7 +152,8 @@
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_border_gray">
                 <TextView
                     android:text="Sodium"
                     android:textStyle="bold" />
@@ -170,7 +177,8 @@
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_border_gray">
                 <TextView
                     android:text="Fibre"/>
                 <EditText
@@ -181,24 +189,26 @@
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_border_gray">
                 <TextView
                     android:text="Sugars"/>
                 <EditText
                     android:text="24g" />
-                <EditText
-                    android:text="" />
+<!--                <EditText
+                    android:text="" />-->
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/bottom_border_gray">
                 <TextView
                     android:text="Protein"
                     android:textStyle="bold" />
                 <EditText
                     android:text="8g" />
-                <EditText
-                    android:text="" />
+                <!--<EditText
+                    android:text="" />-->
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"

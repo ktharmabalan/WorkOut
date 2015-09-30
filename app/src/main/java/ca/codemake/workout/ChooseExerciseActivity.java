@@ -24,5 +24,4 @@ public class ChooseExerciseActivity extends ListActivity {
 
         setListAdapter(mAdapter);
     }
-
 }

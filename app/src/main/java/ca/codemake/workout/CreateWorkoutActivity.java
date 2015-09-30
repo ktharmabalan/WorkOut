@@ -22,8 +22,7 @@ public class CreateWorkoutActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_workout_pattern);
-
+        setContentView(R.layout.activity_workout_pattern);
 
         ArrayList<WorkoutHeading> workoutHeadings = new ArrayList<>();
         workoutHeadings.add(new WorkoutHeading(workdays[0], "Chest"));
@@ -41,7 +40,6 @@ public class CreateWorkoutActivity extends ListActivity {
         workoutRows.add(new WorkoutRow("Curls", 5));
         workoutRows.add(new WorkoutRow("Rows", 5));
 
-
         mAdapter = new WorkoutCreateAdapter(this);
         int exercise = 1;
         for (int i = 0; i < workoutHeadings.size(); i++) {
@@ -55,6 +53,5 @@ public class CreateWorkoutActivity extends ListActivity {
         }
         setListAdapter(mAdapter);
         Log.v("COUNT: ", String.valueOf(mAdapter.getCount()));
-
     }
 }

@@ -57,7 +57,8 @@ public class WorkoutActivity extends Activity implements View.OnClickListener {
             Intent i = new Intent(getApplicationContext(), WorkoutMenuActivity.class);
             startActivity(i);
         } else if(b.getId() == R.id.btn_custom_workout) {
-            Intent i = new Intent(getApplicationContext(), CustomWorkoutActivity.class);
+//            Intent i = new Intent(getApplicationContext(), CustomWorkoutActivity.class);
+            Intent i = new Intent(getApplicationContext(), CreateWorkoutActivity.class);
             startActivity(i);
         } else if(b.getId() == R.id.btn_recommended_workout) {
             Intent i = new Intent(getApplicationContext(), RecommendedWorkoutActivity.class);

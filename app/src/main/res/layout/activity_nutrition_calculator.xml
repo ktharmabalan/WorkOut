@@ -15,6 +15,7 @@
         android:textColor="@color/text_color"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:textStyle="bold"
         android:background="@drawable/bottom_border_secondary_dark"
         android:id="@+id/textView14" />
 
@@ -77,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="CALORIES REMAINING"
-                android:textColor="@color/text_color"
+                android:textColor="@color/primary_color"
                 android:textStyle="bold"
                 android:id="@+id/textView4" />
 
@@ -91,7 +92,7 @@
             android:id="@+id/btn_nutrition_day"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:background="@color/secondary_color_dark"
+            android:background="@drawable/button"
             android:textColor="@color/text_color"
             android:textStyle="bold"
             android:layout_weight="2" />
@@ -229,7 +230,7 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@android:id/list"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

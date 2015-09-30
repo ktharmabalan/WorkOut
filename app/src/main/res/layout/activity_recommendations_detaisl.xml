@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context="ca.codemake.workout.RecommendedWorkoutDetailsActivity">
+    tools:context=".RecommendedWorkoutDetailsActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Workout 1"
+        android:textColor="@color/primary_color"
         android:id="@+id/txt_recommendation_title"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="A brief description of this workout regime."
+        android:textColor="@color/primary_color"
         android:id="@+id/txt_recommendation_description"
         android:layout_below="@+id/txt_recommendation_title"
         android:layout_alignParentLeft="true"

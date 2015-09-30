@@ -1,28 +1,34 @@
 <resources>
     <!-- Base application theme -->
-    <style name="AppTheme" parent="android:Theme.Material">
+    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
 
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
         <item name="android:colorPrimary">@color/primary_color</item>
         <!--   darker variant for the status bar and contextual app bars -->
-        <!--<item name="android:colorPrimaryDark">@color/primary_color_dark</item>-->
+        <item name="android:colorPrimaryDark">@color/primary_color_dark</item>
         <!--   theme UI controls like checkboxes and text fields -->
         <item name="android:colorAccent">#7652D8</item>
-
-
-
+        
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="android:windowBackground">@color/background</item>
+        
     <!--<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">-->
         <!--ActionBar-->
         <!--<item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>-->
+        <!--Support Library Compatibility-->
+        <!--<item name="actionBarStyle">@style/AppTheme.ActionBar</item>-->
+
+        <!--ActionButton-->
+        <!--<item name="android:actionButtonStyle">@style/AppTheme.ActionButton</item>-->
+        <!--<item name="actionButtonStyle">@style/AppTheme.ActionButton</item>-->
 
         <!--ActionBar Options Menu-->
         <!--<item name="android:actionOverflowMenuStyle">@style/AppTheme.ActionMenuOverFlow</item>-->
 
         <!--Options Menu Text Color-->
         <!--<item name="android:itemTextAppearance">@style/AppTheme.OptionsMenuTextColor</item>-->
-
-        <!---->
 
         <!--Button-->
         <item name="android:buttonStyle">@style/AppTheme.Button</item>
@@ -31,19 +37,37 @@
         <item name="android:editTextStyle">@style/AppTheme.EditText</item>
 
         <!--TextView-->
-        <item name="android:textViewStyle">@style/AppTheme.TextView</item>
+        <!--<item name="android:textViewStyle">@style/AppTheme.TextView</item>-->
+
+        <!--AutoCompleteTextView-->
+        <item name="android:autoCompleteTextViewStyle">@style/AppTheme.AutoCompleteTextView</item>
+
+        <!--AlertDialog-->
+        <item name="android:alertDialogTheme">@style/AppTheme.AlertDialog</item>
+        <!--<item name="android:alertDialogStyle">@style/AppTheme.AlertDialogStyle</item>-->
     </style>
 
+    <!-- *************************************************************************************** -->
+
     <!-- ActionBar-->
-    <style name="AppTheme.ActionBar" parent="android:Widget.Holo.Light.ActionBar">
+    <!--<style name="AppTheme.ActionBar" parent="android:Widget.Holo.Light.ActionBar">-->
+    <style name="AppTheme.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
         <item name="android:background">@color/primary_color_dark</item>
+        <item name="background">@color/primary_color_dark</item>
+
         <!--ActionBar Text Color-->
-        <item name="android:titleTextStyle">@style/ActionBarText</item>
+        <item name="android:titleTextStyle">@style/AppTheme.ActionBarText</item>
+        <item name="titleTextStyle">@style/AppTheme.ActionBarText</item>
     </style>
 
     <!--ActionBar Text-->
-    <style name="ActionBarText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <style name="AppTheme.ActionBarText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">#fff</item>
+    </style>
+
+    <!--ActionButton-->
+    <style name="AppTheme.ActionButton" parent="android:Widget.ActionButton">
+        <item name="android:color">#fff</item>
     </style>
 
     <!--ActionBar Options Menu-->
@@ -58,7 +82,7 @@
 
     <!--Button-->
     <style name="AppTheme.Button" parent="android:Widget.Button">
-        <item name="android:background">@color/secondary_color_dark</item>
+        <item name="android:background">@drawable/button</item>
         <item name="android:textColor">#fff</item>
         <item name="android:textStyle">bold</item>
         <item name="android:minHeight">40dp</item>
@@ -72,13 +96,19 @@
 
     <!--EditText-->
     <style name="AppTheme.EditText" parent="android:Widget.EditText">
-        <item name="android:textColor">@color/text_color</item>
-        <item name="android:textColorHint">@color/text_color</item>
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textColorHint">@color/primary_color</item>
     </style>
 
     <!--TextView-->
     <style name="AppTheme.TextView" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+    <!--AutoCompleteTextView-->
+    <style name="AppTheme.AutoCompleteTextView" parent="android:Widget.AutoCompleteTextView">
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textColorHint">@color/primary_color</item>
     </style>
 
     <!--ProgressBar-->
@@ -87,4 +117,43 @@
         <item name="android:maxHeight">50dp</item>
     </style>
 
+    <!--AlertDialog-->
+    <style name="AppTheme.AlertDialog" parent="MaterialDialog">
+        <item name="android:windowTitleStyle">@style/AppTheme.AlertDialogTitle</item>
+        <item name="android:textColorPrimary">#f0f</item> <!--message color-->
+        <item name="android:background">@color/primary_color</item> <!--Entire dialog background-->
+    </style>
+
+    <style name="MaterialDialog" parent="android:Theme.Material.Light.Dialog">
+    <!--<style name="MaterialDialog" parent="android:Theme.Holo.Dialog">-->
+        <item name="android:windowBackground">@android:color/transparent</item> <!--Background for dialog-->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@style/MaterialTitle</item>
+    </style>
+
+    <style name="MaterialTitle">
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.DialogWindowTitle</item>
+    </style>
+
+    <style name="AppTheme.AlertDialogTitle" parent="MaterialTitle">
+        <item name="android:textAppearance">@style/AppTheme.AlertDialogWindowTitle</item>
+    </style>
+
+    <style name="AppTheme.AlertDialogWindowTitle" parent="@android:style/TextAppearance.Holo.DialogWindowTitle">
+        <item name="android:textColor">#fff</item> <!--Title color-->
+        <item name="android:textStyle">bold</item>
+    </style>
+
+<!--    <style name="AppTheme.AlertDialogStyle">
+        <item name="android:fullDark">#99f</item>
+        <item name="android:topDark">#f99</item>
+        <item name="android:centerDark">#9f9</item>
+        &lt;!&ndash;<item name="android:bottomDark">...</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:fullBright">...</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:topBright">...</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:centerBright">...</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:bottomBright">...</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:bottomMedium">...</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:centerMedium">...</item>&ndash;&gt;
+    </style>-->
 </resources>

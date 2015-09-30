@@ -1,17 +1,16 @@
 package ca.codemake.workout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /**
  * Created by Kajan on 8/19/2015.
  */
-public class RecommendedWorkoutActivity extends ActionBarActivity implements ListView.OnItemClickListener {
+public class RecommendedWorkoutActivity extends Activity implements ListView.OnItemClickListener {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
