@@ -3,7 +3,9 @@ package ca.codemake.workout;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +21,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import ca.codemake.workout.adapters.NutritionAdapter;
+import ca.codemake.workout.database.WorkoutDbAdapter;
 import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Meal;
 import ca.codemake.workout.models.MealEntry;
@@ -28,13 +33,31 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
 
     public NutritionAdapter nutritionAdapter;
 //    private Toolbar toolbar;
+    ArrayList<Item> sample = new ArrayList<>();
+    ArrayList<HashMap<String, Item>> hashMaps;
+    HashMap<String, Item> stringItemHashMap;
+
+    WorkoutDbAdapter db;
+
+    protected void onStart() {
+        super.onStart();
+        Log.d("TAG", "onStart");
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_calculator);
 
+        Log.d("TAG", "onCreate");
+
 //        toolbar = (Toolbar) findViewById(R.id.tool_bar);
 //        setSupportActionBar(toolbar);
+
+        stringItemHashMap = new HashMap<>();
+        hashMaps = new ArrayList<>();
+
+        db = new WorkoutDbAdapter(getApplicationContext());
+        db.open();
 
         setUpButtons();
         loadData();
@@ -108,6 +131,11 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
                     }
                 });
 
+//                sample.add(new Meal("Another"));
+//
+//                nutritionAdapter.setMealsList(sample);
+//                nutritionAdapter.notifyDataSetInvalidated();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -134,40 +162,64 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
         date.setText(simpleDateFormat.format(calendar.getTime()));
 
-/*        ArrayList<Item> items = new ArrayList<>();
+        ArrayList<Item> items = new ArrayList<>();
         Meal meal;
 
-        WorkoutDbAdapter db = new WorkoutDbAdapter(getApplicationContext());
-        db.open();
-
-        Cursor cursor = db.getAllMeals();
+//        Cursor cursor = db.getAllMeals();
+        Cursor cursor = db.getAllMealEntries();
 
         if(cursor.getCount() == 0) {
-            db.newMeal("Breakfast", 100, 1);
-            db.newMeal("Lunch", 100, 1);
-            db.newMeal("Dinner", 100, 1);
-            db.newMeal("Other", 100, 1);
+            db.newMeal("Breakfast", 0, 1);
+            db.newMeal("Brunch", 0, 1);
+            db.newMeal("Lunch", 0, 1);
+            db.newMeal("Dinner", 0, 1);
+            db.newMeal("Snack", 0, 1);
 
             db.newFood("Eggs", 100, 0);
-            db.newFood("Bacon", 100, 0);
-            db.newFood("Sausage", 100, 0);
-            db.newFood("Toast", 100, 0);
-            db.newFood("Ham", 100, 0);
+            db.newFood("Bacon", 150, 0);
+            db.newFood("Sausage", 130, 0);
+            db.newFood("Toast", 50, 0);
+            db.newFood("Ham", 75, 0);
+            db.newFood("Pancake", 250, 0);
 
-//            db.newMealEntry(1, 1);
-//            db.newMealEntry(1, 2);
-//            db.newMealEntry(2, 3);
-//            db.newMealEntry(3, 4);
-//            db.newMealEntry(4, 5);
+            db.newMealEntry(1, 1);
+            db.newMealEntry(1, 2);
+            db.newMealEntry(2, 3);
+            db.newMealEntry(3, 4);
+            db.newMealEntry(4, 5);
+            db.newMealEntry(5, 1);
+            db.newMealEntry(4, 1);
+            db.newMealEntry(1, 6);
 
-            cursor = db.getAllMeals();
+//            cursor = db.getAllMeals();
+            cursor = db.getAllMealEntries();
         }
 //        Meal meal = new Meal("Breakfast");
 
+        int totalCalories = 0;
         if (cursor.moveToFirst()) {
-            Cursor subCursor;
+//            Cursor subCursor;
+            String mealName = null;
             do {
-                meal = new Meal(cursor.getString(0));
+                if(mealName == null) {
+                    mealName = cursor.getString(cursor.getColumnIndex("meal_name"));
+                    meal = new Meal(mealName);
+                    meal.setCalories(cursor.getInt(cursor.getColumnIndex("total_calories")));
+                    items.add(meal);
+                    totalCalories = cursor.getInt(cursor.getColumnIndex("all_calories"));
+                }
+
+                if(!cursor.getString(cursor.getColumnIndex("meal_name")).equals(mealName)) {
+                    mealName = cursor.getString(cursor.getColumnIndex("meal_name"));
+
+                    meal = new Meal(mealName);
+                    meal.setCalories(cursor.getInt(cursor.getColumnIndex("total_calories")));
+                    items.add(meal);
+                }
+
+                items.add(new MealEntry(cursor.getString(cursor.getColumnIndex("food_name")), cursor.getInt(cursor.getColumnIndex("calories"))));
+
+/*                meal = new Meal(cursor.getString(0));
                 items.add(meal);
 //                Log.d("TAG", cursor.getString(0));
 
@@ -177,14 +229,21 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
                         items.add(new MealEntry(subCursor.getString(0), 100));
 //                        Log.d("TAG", subCursor.getString(0));
                     } while (subCursor.moveToNext());
-                }
+                }*/
             } while (cursor.moveToNext());
         }
-        db.close();*/
 
 
-        ArrayList<Item> sample = new ArrayList<>();
-        Meal m = new Meal("Breakfast");
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setProgress(75);
+        TextView progressBarText = (TextView) findViewById(R.id.progressBarText);
+        progressBarText.setText(String.valueOf(totalCalories));
+
+//        nutritionAdapter.setItems(items);
+        nutritionAdapter.setItems(items, totalCalories);
+
+        // Using items and meals that include meal entries
+/*        Meal m = new Meal("Breakfast");
         m.addMealEntry(new MealEntry("Pancakes", 300));
         m.addMealEntry(new MealEntry("Orange Juice", 100));
         sample.add(m);
@@ -207,9 +266,11 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         m.addMealEntry(new MealEntry("Orange Juice", 200));
         m.addMealEntry(new MealEntry("Cookies", 250));
         sample.add(m);
+        nutritionAdapter.setMealsList(sample);*/
 
-        nutritionAdapter.setItems(sample);
+//        nutritionAdapter.setItems(sample);
 
+        // Add meals and mealentries into one list
 /*        ArrayList<Item> items = new ArrayList<>();
         Meal meal = new Meal("Breakfast");
         items.add(meal);
@@ -236,21 +297,6 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         items.add(new MealEntry("Cookies", 250));
 
         nutritionAdapter.setItems(items);*/
-
-/*        Meal meal = new Meal("Breakfast");
-        meal.addMealEntry(new MealEntry("Pancakes", 300));
-        meal.addMealEntry(new MealEntry("Orange Juice", 100));
-        nutritionAdapter.addMeal(meal);
-
-        meal = new Meal("Lunch");
-        meal.addMealEntry(new MealEntry("Burger", 500));
-        meal.addMealEntry(new MealEntry("Pop", 200));
-        nutritionAdapter.addMeal(meal);
-
-        meal = new Meal("Dinner");
-        meal.addMealEntry(new MealEntry("Pasta", 500));
-        meal.addMealEntry(new MealEntry("Wine", 300));
-        nutritionAdapter.addMeal(meal);*/
     }
 
 
@@ -266,7 +312,6 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         b.setOnClickListener(this);
     }
 
-    @Override
     public void onClick(View v) {
         Button b = (Button) v;
 
@@ -275,4 +320,17 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
             startActivity(i);
         }
     }
+
+    protected void onPause() {
+        super.onPause();
+        Log.d("TAG", "onPAUSE");
+        db.close();
+    }
+
+    protected void onResume() {
+        super.onResume();
+        Log.d("TAG", "onResume");
+        db.open();
+    }
+
 }

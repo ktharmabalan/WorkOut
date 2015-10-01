@@ -25,6 +25,14 @@ public class Meal implements Item {
         calories += mealEntry.getCalories();
     }
 
+    public ArrayList<MealEntry> getMealEntries() {
+        return mealEntries;
+    }
+
+    public void setMealEntries(ArrayList<MealEntry> mealEntries) {
+        this.mealEntries = mealEntries;
+    }
+
     public int getCalories() {
         return calories;
     }

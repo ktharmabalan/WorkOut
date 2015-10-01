@@ -26,6 +26,8 @@ public class NutritionAdapter extends BaseAdapter {
     // TEST
     ArrayList<MealEntry> mealEntries;
     ArrayList<Item> items;
+    private ArrayList<Item> mealItems;
+    private int totalCalories = 0;
 
 
     public NutritionAdapter(Context context) {
@@ -33,6 +35,7 @@ public class NutritionAdapter extends BaseAdapter {
         meals = new ArrayList<>();
         // TEST
         items = new ArrayList<>();
+        mealItems = new ArrayList<>();
     }
 
     public int getCount() {
@@ -102,7 +105,7 @@ public class NutritionAdapter extends BaseAdapter {
             servingSize = (TextView) convertView.findViewById(R.id.servingSize);
             servingSize.setText(mealEntry.getServingSize());
         }
-
+        
         return convertView;
     }
 
@@ -115,7 +118,25 @@ public class NutritionAdapter extends BaseAdapter {
         this.mealEntries = mealEntries;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
+    public void setItems(ArrayList<Item> meals) {
+        items = meals;
+/*        items = new ArrayList<>();
+        for (Item meal : meals) {
+            Meal m = (Meal) meal;
+            items.add(new Meal(m.getMealName()));
+            for (MealEntry mealEntry : m.getMealEntries()) {
+                items.add(new MealEntry(mealEntry.getFoodName(), mealEntry.getCalories()));
+            }
+        }*/
+    }
+
+    public void setMealsList(ArrayList<Item> meals) {
+        this.mealItems = meals;
+        setItems(meals);
+    }
+
+    public void setItems(ArrayList<Item> items, int totalCalories) {
+        this.totalCalories = totalCalories;
+        setItems(items);
     }
 }

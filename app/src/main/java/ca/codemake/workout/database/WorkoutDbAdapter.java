@@ -41,7 +41,14 @@ public class WorkoutDbAdapter {
     }
 
     public Cursor getAllEntriesForId(long id) {
-        return db.rawQuery("SELECT " + Food.COLUMN_NAME_FOOD_NAME + " FROM " + Food.TABLE_NAME + " LEFT OUTER JOIN " + MealEntry.TABLE_NAME + " ON " +Food.TABLE_NAME + "." + Food._ID + "=" + MealEntry.TABLE_NAME + "." + MealEntry.COLUMN_NAME_FOOD_ID + " WHERE " + id + "=" + MealEntry.COLUMN_NAME_MEAL_ID, null);
+        return db.rawQuery("SELECT " + Food.COLUMN_NAME_FOOD_NAME + " FROM " + Food.TABLE_NAME + " LEFT OUTER JOIN " + MealEntry.TABLE_NAME + " ON " + Food.TABLE_NAME + "." + Food._ID + "=" + MealEntry.TABLE_NAME + "." + MealEntry.COLUMN_NAME_FOOD_ID + " WHERE " + id + "=" + MealEntry.COLUMN_NAME_MEAL_ID, null);
+    }
+
+    public Cursor getAllMealEntries() {
+        return db.rawQuery("SELECT foods._id as 'food id', foods.food_name, foods.calories, meals._id as 'meals id', meals.meal_name," +
+                "(SELECT SUM(foods.calories) FROM foods JOIN meal_entries on meal_entries.food_id = foods._id JOIN meals as m ON m._id = meal_entries.meal_id WHERE meals._id = m._id) as 'total_calories'," +
+                "(SELECT SUM(foods.calories) FROM foods JOIN meal_entries on meal_entries.food_id = foods._id JOIN meals as m ON m._id = meal_entries.meal_id) as 'all_calories'" +
+                "FROM foods JOIN meal_entries on meal_entries.food_id = foods._id JOIN meals ON meals._id = meal_entries.meal_id ORDER BY meals._id ASC", null);
     }
 
     public Cursor getAllFoods() {

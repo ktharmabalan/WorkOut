@@ -26,6 +26,7 @@
         android:layout_below="@+id/textView14">
 
         <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             style="@android:style/Widget.ProgressBar.Horizontal"
@@ -36,6 +37,7 @@
         <!--android:progressBackgroundTint="@color/secondary_color"-->
 
         <TextView
+            android:id="@+id/progressBarText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Remaining 500 calories of 1200"
