@@ -61,4 +61,49 @@ public final class WorkoutContract {
         public static final String COLUMN_NAME_FOOD_ID = "food_id";
         public static final String COLUMN_NAME_DATE = "date";
     }
+
+    public static abstract class BodyGroup implements BaseColumns {
+        public static final String TABLE_NAME = "body_groups";
+        public static final String COLUMN_NAME_BODY_GROUP_NAME = "body_group_name";
+    }
+
+    public static abstract class Exercise implements BaseColumns {
+        public static final String TABLE_NAME = "exercises";
+        public static final String COLUMN_NAME_EXERCISE_NAME = "exercise_name";
+        public static final String COLUMN_NAME_DESCRIPTION = "description";
+    }
+
+    public static abstract class Routine implements BaseColumns {
+        public static final String TABLE_NAME = "routines";
+        public static final String COLUMN_NAME_ROUTINE_NAME = "routine_name";
+        public static final String COLUMN_NAME_START_DATE = "start_date";
+        public static final String COLUMN_NAME_END_DATE = "end_date";
+    }
+
+    public static abstract class Workout implements BaseColumns {
+        public static final String TABLE_NAME = "workouts";
+        public static final String COLUMN_NAME_WORKOUT_NAME = "workout_name";
+        public static final String COLUMN_NAME_ROUTINE_ID = "routine_id";
+        public static final String COLUMN_NAME_DATE = "date";
+        public static final String COLUMN_NAME_MARGIN_TOP = "margin_top";
+    }
+
+    public static abstract class ExerciseBodyGroup implements BaseColumns {
+        public static final String TABLE_NAME = "exercise_body_groups";
+        public static final String COLUMN_NAME_EXERCISE_ID = "exercise_id";
+        public static final String COLUMN_NAME_BODY_GROUP_ID = "body_group_id";
+    }
+
+    public static abstract class ExerciseEntry implements BaseColumns {
+        public static final String TABLE_NAME = "exercise_entries";
+        public static final String COLUMN_NAME_WORKOUT_ID = "workout_id";
+        public static final String COLUMN_NAME_EXERCISE_ID = "exercise_id";
+        public static final String COLUMN_NAME_SETS = "sets";
+    }
+
+    public static abstract class Configuration implements BaseColumns {
+        public static final String TABLE_NAME = "configurations";
+        public static final String COLUMN_NAME_KEY = "key";
+        public static final String COLUMN_NAME_VALUE = "value";
+    }
 }

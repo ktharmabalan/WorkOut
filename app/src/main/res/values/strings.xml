@@ -13,7 +13,7 @@
     <string name="title_activity_recommended_workout_details">Recommended Workout Details</string>
     <string name="title_activity_nutrition_calculator">Nutrition Calculator</string>
     <string name="title_activity_nutrition_day">Add meal entry</string>
-    <string name="title_activity_workout_pattern">Create Workout</string>
+    <string name="title_activity_create_routine">Create Routine</string>
     <string name="title_activity_choose_exercises">Choose Exercises</string>
     <string name="add_food">Add Food</string>
 

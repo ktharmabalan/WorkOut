@@ -49,7 +49,6 @@ public class Meal implements Item {
         this.mealName = mealName;
     }
 
-    @Override
     public boolean isDivider() {
         return true;
     }

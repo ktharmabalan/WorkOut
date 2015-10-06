@@ -56,7 +56,6 @@ public class MealEntry implements Item {
         this.servingSize = servingSize;
     }
 
-    @Override
     public boolean isDivider() {
         return false;
     }

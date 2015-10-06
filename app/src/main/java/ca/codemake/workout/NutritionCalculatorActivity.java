@@ -21,47 +21,41 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 
 import ca.codemake.workout.adapters.NutritionAdapter;
-import ca.codemake.workout.database.WorkoutDbAdapter;
+import ca.codemake.workout.database.WorkoutDbHelper;
 import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Meal;
 import ca.codemake.workout.models.MealEntry;
 
 public class NutritionCalculatorActivity extends ListActivity implements View.OnClickListener {
 
-    public NutritionAdapter nutritionAdapter;
+    private NutritionAdapter nutritionAdapter;
+//    private WorkoutDbAdapter db;
+    private WorkoutDbHelper db;
+    private static final String TAG = NutritionCalculatorActivity.class.getName();
 //    private Toolbar toolbar;
-    ArrayList<Item> sample = new ArrayList<>();
-    ArrayList<HashMap<String, Item>> hashMaps;
-    HashMap<String, Item> stringItemHashMap;
-
-    WorkoutDbAdapter db;
 
     protected void onStart() {
         super.onStart();
-        Log.d("TAG", "onStart");
+        Log.d(TAG, "onStart");
     }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_calculator);
 
-        Log.d("TAG", "onCreate");
+        Log.d(TAG, "onCreate");
 
 //        toolbar = (Toolbar) findViewById(R.id.tool_bar);
 //        setSupportActionBar(toolbar);
 
-        stringItemHashMap = new HashMap<>();
-        hashMaps = new ArrayList<>();
-
-        db = new WorkoutDbAdapter(getApplicationContext());
+//        db = new WorkoutDbAdapter(getApplicationContext());
+        db = new WorkoutDbHelper(getApplicationContext());
         db.open();
 
         setUpButtons();
         loadData();
-        setListAdapter(nutritionAdapter);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,12 +69,11 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_new_meal:
-
-//                showHelp();
                 Intent i = new Intent(getApplicationContext(), AddMealActivity.class);
                 startActivity(i);
                 return true;
             case R.id.action_calendar:
+                /* Create a dialog with a calendar view */
                 AlertDialog.Builder builder = new AlertDialog.Builder(NutritionCalculatorActivity.this);
                 // Get the layout inflater
                 LayoutInflater inflater = NutritionCalculatorActivity.this.getLayoutInflater();
@@ -93,20 +86,23 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
                 builder.setView(view);
 
                 builder.setTitle("Title");
-
 //                builder.setMessage("Hello World!");
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
 
+                /* Dialog configurations */
+                /*
                 // Set title divider color
-/*                int titleDividerId = getResources().getIdentifier("titleDivider", "id", "android");
+                int titleDividerId = getResources().getIdentifier("titleDivider", "id", "android");
                 View titleDivider = dialog.findViewById(titleDividerId);
                 if (titleDivider != null)
-                    titleDivider.setBackgroundColor(getResources().getColor(android.R.color.holo_purple));*/
+                    titleDivider.setBackgroundColor(getResources().getColor(android.R.color.holo_purple));
+                 */
 
-
-/*                // sets whether to show the week number.
+                /* Calendar configurations */
+                /*
+                // sets whether to show the week number.
                 calendar.setShowWeekNumber(false);
                 // sets the first day of week according to Calendar.
                 // here we set Monday as the first day of the Calendar
@@ -118,10 +114,10 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
                 //sets the color for the separator line between weeks.
                 calendar.setWeekSeparatorLineColor(getResources().getColor(R.color.light_orange));
                 //sets the color for the vertical bar shown at the beginning and at the end of the selected date.
-                calendar.setSelectedDateVerticalBar(R.color.dark_orange);*/
+                calendar.setSelectedDateVerticalBar(R.color.dark_orange);
+                */
 
-
-
+                /* Calendar date changed */
                 calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                     @Override
                     public void onSelectedDayChange(CalendarView calendarView, int year, int month, int dayOfMonth) {
@@ -131,11 +127,6 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
                     }
                 });
 
-//                sample.add(new Meal("Another"));
-//
-//                nutritionAdapter.setMealsList(sample);
-//                nutritionAdapter.notifyDataSetInvalidated();
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -144,31 +135,11 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
 
     private void loadData() {
         nutritionAdapter = new NutritionAdapter(this);
-/*
-        ArrayList<MealEntry> mealEntries = new ArrayList<>();
-        mealEntries.add(new MealEntry("Pancakes", 300));
-        mealEntries.add(new MealEntry("Orange Juice", 100));
 
-        mealEntries.add(new MealEntry("Burger", 500));
-        mealEntries.add(new MealEntry("Pop", 200));
-
-        mealEntries.add(new MealEntry("Pasta", 500));
-        mealEntries.add(new MealEntry("Wine", 300));
-
-        nutritionAdapter.addMealEntries(mealEntries);*/
-
-        TextView date = (TextView) findViewById(R.id.textView14);
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
-        date.setText(simpleDateFormat.format(calendar.getTime()));
-
-        ArrayList<Item> items = new ArrayList<>();
-        Meal meal;
-
-//        Cursor cursor = db.getAllMeals();
         Cursor cursor = db.getAllMealEntries();
 
-        if(cursor.getCount() == 0) {
+        /* Insert nutrition data into database if there are no meal entries */
+/*        if(cursor.getCount() == 0) {
             db.newMeal("Breakfast", 0, 1);
             db.newMeal("Brunch", 0, 1);
             db.newMeal("Lunch", 0, 1);
@@ -191,15 +162,17 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
             db.newMealEntry(4, 1);
             db.newMealEntry(1, 6);
 
-//            cursor = db.getAllMeals();
             cursor = db.getAllMealEntries();
-        }
-//        Meal meal = new Meal("Breakfast");
+        }*/
 
+        /* Populate the array list used for list view with meals and meal entries */
+        ArrayList<Item> items = new ArrayList<>();
         int totalCalories = 0;
+
         if (cursor.moveToFirst()) {
-//            Cursor subCursor;
+            Meal meal;
             String mealName = null;
+
             do {
                 if(mealName == null) {
                     mealName = cursor.getString(cursor.getColumnIndex("meal_name"));
@@ -219,93 +192,24 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
 
                 items.add(new MealEntry(cursor.getString(cursor.getColumnIndex("food_name")), cursor.getInt(cursor.getColumnIndex("calories"))));
 
-/*                meal = new Meal(cursor.getString(0));
-                items.add(meal);
-//                Log.d("TAG", cursor.getString(0));
-
-                subCursor = db.getAllEntriesForId(cursor.getLong(1));
-                if(subCursor.moveToFirst()) {
-                    do {
-                        items.add(new MealEntry(subCursor.getString(0), 100));
-//                        Log.d("TAG", subCursor.getString(0));
-                    } while (subCursor.moveToNext());
-                }*/
             } while (cursor.moveToNext());
         }
 
+        nutritionAdapter.setItems(items);
+        setListAdapter(nutritionAdapter);
 
+        /* Set TextView for date with current date */
+        TextView date = (TextView) findViewById(R.id.textView14);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
+        date.setText(simpleDateFormat.format(calendar.getTime()));
+
+        /* Update the progress bar with total calories for the day */
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setProgress(75);
         TextView progressBarText = (TextView) findViewById(R.id.progressBarText);
         progressBarText.setText(String.valueOf(totalCalories));
-
-//        nutritionAdapter.setItems(items);
-        nutritionAdapter.setItems(items, totalCalories);
-
-        // Using items and meals that include meal entries
-/*        Meal m = new Meal("Breakfast");
-        m.addMealEntry(new MealEntry("Pancakes", 300));
-        m.addMealEntry(new MealEntry("Orange Juice", 100));
-        sample.add(m);
-
-        m = new Meal("Lunch");
-        m.setMarginTop(true);
-        m.addMealEntry(new MealEntry("Burger", 500));
-        m.addMealEntry(new MealEntry("Pop", 200));
-        sample.add(m);
-
-        m = new Meal("Dinner");
-        m.setMarginTop(true);
-        m.addMealEntry(new MealEntry("Pasta", 500));
-        m.addMealEntry(new MealEntry("Wine", 300));
-        sample.add(m);
-
-        m = new Meal("Other");
-        m.setMarginTop(true);
-        m.addMealEntry(new MealEntry("Apple", 100));
-        m.addMealEntry(new MealEntry("Orange Juice", 200));
-        m.addMealEntry(new MealEntry("Cookies", 250));
-        sample.add(m);
-        nutritionAdapter.setMealsList(sample);*/
-
-//        nutritionAdapter.setItems(sample);
-
-        // Add meals and mealentries into one list
-/*        ArrayList<Item> items = new ArrayList<>();
-        Meal meal = new Meal("Breakfast");
-        items.add(meal);
-        items.add(new MealEntry("Pancakes", 300));
-        items.add(new MealEntry("Orange Juice", 100));
-
-        meal = new Meal("Lunch");
-        meal.setMarginTop(true);
-        items.add(meal);
-        items.add(new MealEntry("Burger", 500));
-        items.add(new MealEntry("Pop", 200));
-
-        meal = new Meal("Dinner");
-        meal.setMarginTop(true);
-        items.add(meal);
-        items.add(new MealEntry("Pasta", 500));
-        items.add(new MealEntry("Wine", 300));
-
-        meal = new Meal("Other");
-        meal.setMarginTop(true);
-        items.add(meal);
-        items.add(new MealEntry("Apple", 100));
-        items.add(new MealEntry("Orange Juice", 200));
-        items.add(new MealEntry("Cookies", 250));
-
-        nutritionAdapter.setItems(items);*/
     }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater menuInflater = getMenuInflater();
-//        menuInflater.inflate(R.menu.menu_nutrition_calculator, menu);
-//        return true;
-//    }
 
     public void setUpButtons() {
         Button b = (Button) this.findViewById(R.id.btn_nutrition_day);
@@ -323,14 +227,13 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
 
     protected void onPause() {
         super.onPause();
-        Log.d("TAG", "onPAUSE");
+        Log.d(TAG, "onPause");
         db.close();
     }
 
     protected void onResume() {
         super.onResume();
-        Log.d("TAG", "onResume");
+        Log.d(TAG, "onResume");
         db.open();
     }
-
 }

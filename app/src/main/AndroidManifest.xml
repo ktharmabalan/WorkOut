@@ -18,13 +18,20 @@
         <!-- android:theme="@android:style/Theme.Holo.Light.DarkActionBar" -->
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" >            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
             android:name=".WorkoutActivity"
             android:label="@string/title_activity_workout"
             android:parentActivityName=".MainActivity">
+
+
+
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -35,6 +42,7 @@
             android:name=".WorkoutMenuActivity"
             android:label="@string/title_activity_workout_menu"
             android:parentActivityName=".WorkoutActivity">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WorkoutActivity" />
@@ -95,8 +103,8 @@
         </activity>
 
         <activity
-            android:name=".CreateWorkoutActivity"
-            android:label="@string/title_activity_workout_pattern"
+            android:name=".CreateRoutineActivity"
+            android:label="@string/title_activity_create_routine"
             android:parentActivityName=".WorkoutActivity">
 
             <meta-data
@@ -107,21 +115,16 @@
         <activity
             android:name=".ChooseExerciseActivity"
             android:label="@string/title_activity_choose_exercises"
-            android:parentActivityName=".CreateWorkoutActivity">
+            android:parentActivityName=".CreateRoutineActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CreateWorkoutActivity" />
+                android:value=".CreateRoutineActivity" />
         </activity>
 
         <activity
             android:name=".NutritionCalculatorActivity"
             android:label="@string/title_activity_nutrition_calculator"
             android:parentActivityName=".MainActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="40dp"
-    android:background="#F3F3F3"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <TextView
         android:layout_width="fill_parent"
@@ -12,10 +11,10 @@
         android:gravity="center_vertical"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Exercise Name"
-        android:id="@+id/exercise"
-        android:layout_toLeftOf="@+id/removeExercise"
+        android:id="@+id/exercise_name"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <!--android:layout_toLeftOf="@+id/removeExercise"-->
 
     <TextView
         android:layout_width="fill_parent"
@@ -23,13 +22,13 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Sets"
         android:id="@+id/sets"
-        android:layout_below="@+id/exercise"
+        android:layout_below="@+id/exercise_name"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/exercise"
-        android:layout_alignEnd="@+id/exercise" />
+        android:layout_alignRight="@+id/exercise_name"
+        android:layout_alignEnd="@+id/exercise_name" />
 
-    <Button
+<!--    <Button
         style="@style/AppTheme.SmallButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,6 +46,6 @@
         android:background="@android:drawable/ic_delete"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/editSets"
-        android:layout_toStartOf="@+id/editSets" />
+        android:layout_toStartOf="@+id/editSets" />-->
 
 </RelativeLayout>

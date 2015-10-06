@@ -3,27 +3,25 @@ package ca.codemake.workout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-
 public class WorkoutActivity extends Activity implements View.OnClickListener {
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_regimen);
         setUpButtons();
     }
 
-/*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_workout, menu);
         return true;
     }
 
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -36,7 +34,7 @@ public class WorkoutActivity extends Activity implements View.OnClickListener {
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 
     public void setUpButtons() {
         Button b = (Button) this.findViewById(R.id.btn_workout_day);
@@ -49,7 +47,6 @@ public class WorkoutActivity extends Activity implements View.OnClickListener {
         b.setOnClickListener(this);
     }
 
-    @Override
     public void onClick(View v) {
         Button b = (Button) v;
 
@@ -58,7 +55,7 @@ public class WorkoutActivity extends Activity implements View.OnClickListener {
             startActivity(i);
         } else if(b.getId() == R.id.btn_custom_workout) {
 //            Intent i = new Intent(getApplicationContext(), CustomWorkoutActivity.class);
-            Intent i = new Intent(getApplicationContext(), CreateWorkoutActivity.class);
+            Intent i = new Intent(getApplicationContext(), CreateRoutineActivity.class);
             startActivity(i);
         } else if(b.getId() == R.id.btn_recommended_workout) {
             Intent i = new Intent(getApplicationContext(), RecommendedWorkoutActivity.class);

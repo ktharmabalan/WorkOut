@@ -20,7 +20,7 @@
         android:gravity="center_vertical"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Exercise Name"
-        android:id="@+id/exerciseName"
+        android:id="@+id/name"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/exerciseSelect"
         android:layout_toEndOf="@+id/exerciseSelect" />

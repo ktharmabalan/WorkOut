@@ -5,7 +5,7 @@
     android:background="@color/primary_color">
 
     <TextView
-        android:id="@+id/divider"
+        android:id="@+id/workout_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
@@ -19,8 +19,11 @@
         android:layout_height="match_parent"
         android:id="@+id/bodyGroup"
         android:hint="Body Group"
-        android:layout_alignTop="@+id/divider"
-        android:layout_toRightOf="@+id/divider"
+        android:visibility="invisible"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:layout_alignTop="@+id/workout_name"
+        android:layout_toRightOf="@+id/workout_name"
         android:layout_toStartOf="@+id/addExerciseToWeekDay" />
 
     <Button
@@ -34,7 +37,7 @@
         android:layout_marginRight="5dp"
         android:layout_toStartOf="@+id/editWeekday"
         android:layout_alignTop="@+id/bodyGroup"
-        android:layout_alignBottom="@+id/divider" />
+        android:layout_alignBottom="@+id/workout_name" />
 
     <Button
         android:id="@+id/editWeekday"

@@ -56,20 +56,6 @@ public class AddNutritionEntryActivity extends Activity {
         mealNameList.add("Dinner");
         mealNameList.add("Other");
 
-
-        /*autoText = new HashMap<>();
-
-        WorkoutDbAdapter db = new WorkoutDbAdapter(getApplicationContext());
-        db.open();
-        Cursor cursor = db.getAllFoods();
-        if(cursor.moveToFirst()) {
-            do {
-                foodNameList.add(cursor.getString(0));
-                autoText.put(cursor.getString(0), String.valueOf(cursor.getLong(1)));
-            } while (cursor.moveToNext());
-        }
-        db.close();*/
-
         if(mealNameList.size() > 0) {
             AutoCompleteTextView mealName = (AutoCompleteTextView) findViewById(R.id.mealName);
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mealNameList);
@@ -81,8 +67,6 @@ public class AddNutritionEntryActivity extends Activity {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, foodNameList);
             foodName.setAdapter(adapter);
         }
-
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
