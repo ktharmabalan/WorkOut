@@ -3,18 +3,24 @@ package ca.codemake.workout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import ca.codemake.workout.database.WorkoutDbHelper;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
 //    private Toolbar toolbar;
+    private WorkoutDbHelper db;
+    private final static String TAG = "MainActivity";
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = new WorkoutDbHelper(getApplicationContext());
 
 //        toolbar = (Toolbar) findViewById(R.id.tool_bar);
 //        setSupportActionBar(toolbar);
@@ -52,18 +58,34 @@ public class MainActivity extends Activity implements View.OnClickListener {
         b.setOnClickListener(this);
     }
 
-    @Override
     public void onClick(View v) {
         Button b = (Button) v;
 
         if(b.getId() == R.id.btn_begin_workout) {
 //            Toast.makeText(this, "Begin Workout", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getApplicationContext(), WorkoutActivity.class);
-            startActivity(i);
+            if(db.getConfiguration("CHOSEN_ROUTINE").getCount() == 0) {
+                Intent i = new Intent(getApplicationContext(), CreateRoutineActivity.class);
+                startActivity(i);
+            } else {
+                Intent i = new Intent(getApplicationContext(), WorkoutInputActivity.class);
+                startActivity(i);
+            }
         } else if(b.getId() == R.id.btn_nutrition_calculator) {
 //            Toast.makeText(this, "Nutrition Calculator", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(getApplicationContext(), NutritionCalculatorActivity.class);
             startActivity(i);
         }
+    }
+
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+        db.close();
+    }
+
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+        db.open();
     }
 }

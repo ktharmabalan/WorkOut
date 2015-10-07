@@ -11,12 +11,14 @@ import java.util.ArrayList;
 import ca.codemake.workout.models.Item;
 
 public class SimpleAdapter extends BaseAdapter {
+    protected Context context;
     protected LayoutInflater inflater;
     protected ArrayList<Item> items;
 
     public SimpleAdapter(Context context) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         items = new ArrayList<>();
+        this.context = context;
     }
 
     public int getCount() {
@@ -37,5 +39,10 @@ public class SimpleAdapter extends BaseAdapter {
 
     public void setItems(ArrayList<Item> items) {
         this.items = items;
+    }
+
+    public void addToItems(Item item) {
+        this.items.add(item);
+        notifyDataSetChanged();
     }
 }

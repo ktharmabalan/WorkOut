@@ -43,4 +43,9 @@ public class ExerciseEntry implements Item {
     public boolean hasMarginTop() {
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "ExerciseEntry{ name='" + name + '}';
+    }
 }

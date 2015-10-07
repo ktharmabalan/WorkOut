@@ -41,6 +41,8 @@ public class CreateRoutineActivity extends ListActivity {
     private Workout workout;
     private ExerciseEntry exerciseEntry;
 
+    private int numWorkouts = 0;
+
     String[] workdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
     String[] exercises = {"Bench Press", "Squat", "Rows", "Shoulder Press"};
 //    String[] bodyGroup = {"Chest", "Back", "Shoulders", "Arms", "Legs", "Cardio", "Rest"};
@@ -58,7 +60,9 @@ public class CreateRoutineActivity extends ListActivity {
         View empty = findViewById(R.id.emptyView);
         getListView().setEmptyView(empty);
 
-        loadData();
+//        loadData();
+        items = new ArrayList<>();
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,7 +76,8 @@ public class CreateRoutineActivity extends ListActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_new_routine:
-                createNewRoutineDialog();
+//                createNewRoutineDialog();
+                createNewWorkout();
                 return true;
             case R.id.action_edit:
                 return true;
@@ -81,6 +86,18 @@ public class CreateRoutineActivity extends ListActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void createNewWorkout() {
+        workout = new Workout("Sample Workout " + (++numWorkouts), false);
+        items.add(workout);
+
+        setAdapter();
+    }
+
+    private void setAdapter() {
+        mAdapter.setItems(items);
+        setListAdapter(mAdapter);
     }
 
     private void createNewRoutineDialog() {
@@ -157,7 +174,7 @@ public class CreateRoutineActivity extends ListActivity {
             }
 
             workout = new Workout("Sample Workout", false);
-            items.add(workout);
+//            items.add(workout);
 
             newRoutine = false;
         } else {

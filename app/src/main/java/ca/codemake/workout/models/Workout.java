@@ -100,4 +100,9 @@ public class Workout implements Item {
     public boolean hasMarginTop() {
         return marginTop;
     }
+
+    @Override
+    public String toString() {
+        return "Workout{" + name + '}';
+    }
 }

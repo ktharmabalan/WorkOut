@@ -1,18 +1,66 @@
 package ca.codemake.workout;
 
 import android.app.Activity;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 
-public class WorkoutInputActivity extends Activity implements View.OnClickListener {
+import ca.codemake.workout.adapters.RoutineCreateAdapter;
+import ca.codemake.workout.database.WorkoutDbHelper;
+import ca.codemake.workout.models.ExerciseEntry;
+import ca.codemake.workout.models.Item;
+import ca.codemake.workout.models.Workout;
 
-    @Override
+public class WorkoutInputActivity extends Activity {
+
+    private WorkoutDbHelper db;
+    private RoutineCreateAdapter adapter;
+    private final static String TAG = "WorkoutInputActivity";
+    private ArrayList<Item> items;
+
+    private ExerciseEntry exerciseEntry;
+    private Workout workout;
+    ListView listView;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_input);
-        setUpButtons();
+
+        listView = (ListView) findViewById(R.id.list_workout_tracker);
+
+        db = new WorkoutDbHelper(getApplicationContext());
+        items = new ArrayList<>();
+
+        Cursor cursor = db.getExerciseEntriesByWorkoutId(1);
+
+        if(cursor.moveToFirst()) {
+            do {
+                if(cursor.isFirst()) {
+                    initWorkout(cursor);
+                }
+                initExerciseEntry(cursor);
+            } while (cursor.moveToNext());
+        }
+
+        adapter = new RoutineCreateAdapter(this);
+        adapter.setItems(items);
+        listView.setAdapter(adapter);
+
+        AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
+
+            }
+        };
+
+        listView.setOnItemClickListener(onItemClickListener);
+        listView.setItemsCanFocus(true);
     }
 
 /*    @Override
@@ -37,18 +85,28 @@ public class WorkoutInputActivity extends Activity implements View.OnClickListen
         return super.onOptionsItemSelected(item);
     }*/
 
-    public void setUpButtons() {
-        Button b = (Button) this.findViewById(R.id.btn_done);
-        b.setOnClickListener(this);
+    private void initExerciseEntry(Cursor cursor) {
+        exerciseEntry = new ExerciseEntry(
+            cursor.getLong(cursor.getColumnIndex("exercise_entry_id")),
+            cursor.getString(cursor.getColumnIndex("exercise_name")),
+            cursor.getLong(cursor.getColumnIndex("sets")));
+
+        items.add(exerciseEntry);
     }
 
-    @Override
-    public void onClick(View v) {
-        Button b = (Button) v;
+    private void initWorkout(Cursor cursor) {
+        workout = new Workout(cursor.getString(cursor.getColumnIndex("workout_name")));
+        items.add(workout);
+    }
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+        db.close();
+    }
 
-        if(b.getId() == R.id.btn_done) {
-//            Intent i = new Intent(getApplicationContext(), AddNutritionEntryActivity.class);
-//            startActivity(i);
-        }
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+        db.open();
     }
 }

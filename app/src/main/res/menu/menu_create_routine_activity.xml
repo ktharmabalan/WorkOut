@@ -6,11 +6,11 @@
         android:title="New workout"
         android:showAsAction="always" />
 
-    <item
+<!--    <item
         android:id="@+id/action_edit"
         android:icon="@drawable/edit"
         android:title="Edit"
-        android:showAsAction="always" />
+        android:showAsAction="always" />-->
 
     <item
         android:id="@+id/action_save"

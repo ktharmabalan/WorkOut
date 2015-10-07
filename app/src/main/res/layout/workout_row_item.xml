@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:paddingLeft="10dp"
     android:paddingRight="10dp">
 
@@ -11,41 +12,26 @@
         android:gravity="center_vertical"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Exercise Name"
-        android:id="@+id/exercise_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <!--android:layout_toLeftOf="@+id/removeExercise"-->
+        android:id="@+id/exercise_name"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Sets"
-        android:id="@+id/sets"
-        android:layout_below="@+id/exercise_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/exercise_name"
-        android:layout_alignEnd="@+id/exercise_name" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Sets"
+            android:layout_weight="1"
+            android:id="@+id/sets"/>
 
-<!--    <Button
-        style="@style/AppTheme.SmallButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="qty"
-        android:layout_centerVertical="true"
-        android:id="@+id/editSets"
-        android:layout_alignParentRight="true" />
-
-    <Button
-        style="@style/AppTheme.SmallButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/removeExercise"
-        android:background="@android:drawable/ic_delete"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/editSets"
-        android:layout_toStartOf="@+id/editSets" />-->
-
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Reps"
+            android:layout_weight="1"
+            android:id="@+id/reps"/>
+    </LinearLayout>
+</LinearLayout>

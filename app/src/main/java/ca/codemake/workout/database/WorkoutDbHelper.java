@@ -260,6 +260,13 @@ public class WorkoutDbHelper extends SQLiteOpenHelper {
                 " ORDER BY w." + Workout._ID + " ASC", null);
     }
 
+    public Cursor getExerciseEntriesByWorkoutId(long id) {
+        return db.rawQuery("SELECT w." + Workout.COLUMN_NAME_WORKOUT_NAME + " as workout_name, w." + Workout._ID + " as workout_id, e." + Exercise._ID + " as exercise_id, e." +
+                Exercise.COLUMN_NAME_EXERCISE_NAME + " as exercise_name, ee." + ExerciseEntry._ID + " as exercise_entry_id, ee." + ExerciseEntry.COLUMN_NAME_SETS + " as sets, w." +
+                Workout.COLUMN_NAME_ROUTINE_ID + " as routine_id FROM " + Workout.TABLE_NAME + " as w JOIN " + ExerciseEntry.TABLE_NAME + " as ee ON ee." + ExerciseEntry.COLUMN_NAME_WORKOUT_ID + "=w." +
+                Workout._ID + " JOIN " + Exercise.TABLE_NAME + " as e ON e." + Exercise._ID + "=ee." + ExerciseEntry.COLUMN_NAME_EXERCISE_ID + " WHERE w." + Workout._ID + "=" + id, null);
+    }
+
     public long newMeal(String mealname, int calories, int margintop) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Meal.COLUMN_NAME_MEAL_NAME, mealname);
@@ -433,7 +440,6 @@ public class WorkoutDbHelper extends SQLiteOpenHelper {
         newExerciseEntry(1, 8, 10);
         newExerciseEntry(4, 1, 10);
         newExerciseEntry(4, 7, 5);
-
 
         newConfiguration("CURRENT_ROUTINE", "1");
         newConfiguration("TARGET_CALORIES", String.valueOf(2000));
