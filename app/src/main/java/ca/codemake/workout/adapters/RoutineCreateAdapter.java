@@ -30,8 +30,10 @@ public class RoutineCreateAdapter extends SimpleAdapter implements ListView.OnIt
 
             Workout workout = (Workout) items.get(position);
 
-            EditText editText = (EditText) convertView.findViewById(R.id.workout_name);
-            editText.setText(workout.getName());
+//            EditText editText = (EditText) convertView.findViewById(R.id.workout_name);
+//            editText.setText(workout.getName());
+            textView = (TextView) convertView.findViewById(R.id.workout_name);
+            textView.setText(workout.getName());
 
             Button addExercise = (Button) convertView.findViewById(R.id.addExerciseToWeekDay);
             addExercise.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +82,7 @@ public class RoutineCreateAdapter extends SimpleAdapter implements ListView.OnIt
             editWeekday.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     Toast.makeText(parent.getContext(), "Edit Weekday", Toast.LENGTH_SHORT).show();
+//                    context.startActionMode
                 }
             });
         }

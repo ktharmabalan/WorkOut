@@ -7,9 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import ca.codemake.workout.adapters.RoutineCreateAdapter;
 import ca.codemake.workout.database.WorkoutDbHelper;
@@ -31,6 +34,12 @@ public class WorkoutInputActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_input);
+
+        /* Set TextView for date with current date */
+        TextView date = (TextView) findViewById(R.id.workout_date);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
+        date.setText(simpleDateFormat.format(calendar.getTime()));
 
         listView = (ListView) findViewById(R.id.list_workout_tracker);
 
@@ -59,7 +68,8 @@ public class WorkoutInputActivity extends Activity {
             }
         };
 
-        listView.setOnItemClickListener(onItemClickListener);
+//        listView.setOnItemClickListener(onItemClickListener);
+        listView.setOnItemClickListener(adapter);
         listView.setItemsCanFocus(true);
     }
 

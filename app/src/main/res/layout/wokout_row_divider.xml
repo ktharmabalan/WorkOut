@@ -12,18 +12,24 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal">
 
-        <LinearLayout
+<!--        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/workout_name"
+            android:hint="Workout name"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+            />-->
+
+        <TextView
+            android:id="@+id/workout_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/workout_name"
-                android:hint="Workout name"
-                android:textColorHint="#fff"
-                android:textColor="#fff" />
-        </LinearLayout>
+            android:text="Workout name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:textColor="#fff" />
 
         <Button
             android:id="@+id/addExerciseToWeekDay"

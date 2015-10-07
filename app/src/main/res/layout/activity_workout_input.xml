@@ -7,27 +7,27 @@
     tool:context=".WorkoutInputActivity">
 
     <TextView
-        android:id="@+id/routine_name"
+        android:id="@+id/workout_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/secondary_color"
         android:gravity="center_horizontal"
-        android:text="Routine name"
+        android:text="Date"
         android:textStyle="bold"
         android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:paddingTop="5dp"
         android:paddingBottom="5dp" />
 
-    <TextView
+<!--    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Congatulations on Day5!\nKeep Killing it!"
+        android:text="Congratulations on Day5!\nKeep Killing it!"
         android:textColor="@color/primary_color"
-        android:id="@+id/txt_congratulations" />
+        android:id="@+id/txt_congratulations" />-->
 
     <ListView
         android:id="@+id/list_workout_tracker"
