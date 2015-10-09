@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">WorkOut</string>
+    <string name="app_name">Workout</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_workout">WorkoutActivity</string>
     <string name="title_activity_workout_menu">Workout Menu</string>
-    <string name="title_activity_workout_input">Workout Record</string>
+    <string name="title_activity_workout_input">Workout Input</string>
     <string name="title_activity_workout_history">Workout History</string>
     <string name="title_activity_custom_workout">Customise</string>
     <string name="title_activity_custom_workout_group">Custom Workout Groups</string>

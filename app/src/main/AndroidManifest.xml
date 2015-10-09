@@ -19,142 +19,133 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".WorkoutActivity"
             android:label="@string/title_activity_workout"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" >
 
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".WorkoutMenuActivity"
             android:label="@string/title_activity_workout_menu"
-            android:parentActivityName=".WorkoutActivity">
-
+            android:parentActivityName=".WorkoutActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WorkoutActivity" />
         </activity>
-
         <activity
             android:name=".WorkoutInputActivity"
             android:label="@string/title_activity_workout_input"
-            android:parentActivityName=".WorkoutMenuActivity">
+            android:parentActivityName=".WorkoutMenuActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WorkoutMenuActivity" />
         </activity>
-
         <activity
             android:name=".WorkoutHistoryActivity"
             android:label="@string/title_activity_workout_history"
-            android:parentActivityName=".WorkoutMenuActivity">
+            android:parentActivityName=".WorkoutMenuActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WorkoutMenuActivity" />
         </activity>
-
         <activity
             android:name=".CustomWorkoutActivity"
             android:label="@string/title_activity_custom_workout"
-            android:parentActivityName=".WorkoutActivity">
+            android:parentActivityName=".WorkoutActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WorkoutActivity" />
         </activity>
-
         <activity
             android:name=".CustomWorkoutGroupActivity"
             android:label="@string/title_activity_custom_workout_group"
-            android:parentActivityName=".CustomWorkoutActivity">
+            android:parentActivityName=".CustomWorkoutActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CustomWorkoutActivity" />
         </activity>
-
         <activity
             android:name=".RecommendedWorkoutActivity"
             android:label="@string/title_activity_recommended_workout"
-            android:parentActivityName=".WorkoutActivity">
+            android:parentActivityName=".WorkoutActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WorkoutActivity" />
         </activity>
-
         <activity
             android:name=".RecommendedWorkoutDetailsActivity"
             android:label="@string/title_activity_recommended_workout_details"
-            android:parentActivityName=".RecommendedWorkoutActivity">
+            android:parentActivityName=".RecommendedWorkoutActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RecommendedWorkoutActivity" />
         </activity>
-
         <activity
             android:name=".CreateRoutineActivity"
             android:label="@string/title_activity_create_routine"
-            android:parentActivityName=".WorkoutActivity">
-
+            android:parentActivityName=".WorkoutActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".WorkoutActivity" />
         </activity>
-
         <activity
             android:name=".ChooseExerciseActivity"
             android:label="@string/title_activity_choose_exercises"
-            android:parentActivityName=".CreateRoutineActivity">
+            android:parentActivityName=".CreateRoutineActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CreateRoutineActivity" />
         </activity>
-
         <activity
             android:name=".NutritionCalculatorActivity"
             android:label="@string/title_activity_nutrition_calculator"
-            android:parentActivityName=".MainActivity">
-
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".AddNutritionEntryActivity"
             android:label="@string/title_activity_nutrition_day"
-            android:parentActivityName=".NutritionCalculatorActivity">
+            android:parentActivityName=".NutritionCalculatorActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NutritionCalculatorActivity" />
         </activity>
-
         <activity
             android:name=".AddFoodActivity"
             android:label="@string/add_food"
-            android:parentActivityName=".AddFoodActivity">
+            android:parentActivityName=".AddFoodActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AddNutritionEntryActivity" />
         </activity>
-
         <activity
             android:name=".AddMealActivity"
             android:label="@string/title_activity_add_meal"
-            android:parentActivityName=".NutritionCalculatorActivity">
+            android:parentActivityName=".NutritionCalculatorActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NutritionCalculatorActivity" />
+        </activity>
+        <activity
+            android:name=".WorkoutRecordActivity"
+            android:label="Record Workout"
+            android:parentActivityName=".WorkoutInputActivity"  >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WorkoutInputActivity" />
         </activity>
     </application>
 

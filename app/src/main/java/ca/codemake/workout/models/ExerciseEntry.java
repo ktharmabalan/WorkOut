@@ -5,11 +5,20 @@ public class ExerciseEntry implements Item {
     private long id;
     private String name;
     private long sets;
+    private double weight;
+    private long reps;
 
     public ExerciseEntry(long id, String name, long sets) {
         setId(id);
         setName(name);
         setSets(sets);
+    }
+
+    public ExerciseEntry(String name, double weight, long sets, long reps) {
+        this.name = name;
+        this.reps = reps;
+        this.sets = sets;
+        this.weight = weight;
     }
 
     public long getId() {
@@ -44,7 +53,22 @@ public class ExerciseEntry implements Item {
         return false;
     }
 
-    @Override
+    public long getReps() {
+        return reps;
+    }
+
+    public void setReps(long reps) {
+        this.reps = reps;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
     public String toString() {
         return "ExerciseEntry{ name='" + name + '}';
     }

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -102,5 +101,10 @@ public class RoutineCreateAdapter extends SimpleAdapter implements ListView.OnIt
 
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         Toast.makeText(context, String.valueOf(position), Toast.LENGTH_SHORT).show();
+    }
+
+    public void remove(int position) {
+        items.remove(position);
+        notifyDataSetChanged();
     }
 }
