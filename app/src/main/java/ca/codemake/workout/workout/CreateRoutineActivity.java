@@ -5,6 +5,8 @@ import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +30,7 @@ import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Routine;
 import ca.codemake.workout.models.Workout;
 
-public class CreateRoutineActivity extends ListActivity {
+public class CreateRoutineActivity extends AppCompatActivity {
 
     private static final String TAG = CreateRoutineActivity.class.getName();
     private RoutineCreateAdapter mAdapter;
@@ -44,9 +47,9 @@ public class CreateRoutineActivity extends ListActivity {
 
     private int numWorkouts = 0;
 
-    String[] workdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-    String[] exercises = {"Bench Press", "Squat", "Rows", "Shoulder Press"};
-//    String[] bodyGroup = {"Chest", "Back", "Shoulders", "Arms", "Legs", "Cardio", "Rest"};
+    private Toolbar toolbar;
+
+    private ListView listView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,15 +58,19 @@ public class CreateRoutineActivity extends ListActivity {
         db = new WorkoutDbHelper(getApplicationContext());
         mAdapter = new RoutineCreateAdapter(this);
 
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+
+        listView = (ListView) findViewById(R.id.routine_list);
+
         routineName = (TextView) findViewById(R.id.routine_name);
         newRoutine = false;
 
         View empty = findViewById(R.id.emptyView);
-        getListView().setEmptyView(empty);
+        listView.setEmptyView(empty);
 
 //        loadData();
         items = new ArrayList<>();
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,7 +105,7 @@ public class CreateRoutineActivity extends ListActivity {
 
     private void setAdapter() {
         mAdapter.setItems(items);
-        setListAdapter(mAdapter);
+        listView.setAdapter(mAdapter);
     }
 
     private void createNewRoutineDialog() {
@@ -211,7 +218,7 @@ public class CreateRoutineActivity extends ListActivity {
 
         mAdapter.setItems(items);
 
-        setListAdapter(mAdapter);
+        listView.setAdapter(mAdapter);
 
 //        db.close();
     }

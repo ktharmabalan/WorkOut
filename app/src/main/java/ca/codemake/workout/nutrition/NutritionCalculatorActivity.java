@@ -1,10 +1,13 @@
 package ca.codemake.workout.nutrition;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.app.ListFragment;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,13 +33,15 @@ import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Meal;
 import ca.codemake.workout.models.MealEntry;
 
-public class NutritionCalculatorActivity extends ListActivity implements View.OnClickListener {
+public class NutritionCalculatorActivity extends Activity implements View.OnClickListener {
 
     private NutritionAdapter nutritionAdapter;
 //    private WorkoutDbAdapter db;
     private WorkoutDbHelper db;
     private static final String TAG = NutritionCalculatorActivity.class.getName();
 //    private Toolbar toolbar;
+
+    private ListView listView;
 
     protected void onStart() {
         super.onStart();
@@ -46,6 +52,7 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_calculator);
 
+        listView = (ListView) findViewById(R.id.nutrition_list);
         Log.d(TAG, "onCreate");
 
 //        toolbar = (Toolbar) findViewById(R.id.tool_bar);
@@ -197,7 +204,8 @@ public class NutritionCalculatorActivity extends ListActivity implements View.On
         }
 
         nutritionAdapter.setItems(items);
-        setListAdapter(nutritionAdapter);
+//        setListAdapter(nutritionAdapter);
+        listView.setAdapter(nutritionAdapter);
 
         /* Set TextView for date with current date */
         TextView date = (TextView) findViewById(R.id.textView14);
