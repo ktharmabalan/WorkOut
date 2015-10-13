@@ -6,7 +6,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.AddNutritionEntryActivity"/>
+        className = "ca.codemake.workout.nutrition.AddNutritionEntryActivity"/>
       <point      
         x = "548"      
         y = "4288"/>
@@ -14,7 +14,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.WorkoutHistoryActivity"/>
+        className = "ca.codemake.workout.workout.WorkoutHistoryActivity"/>
       <point      
         x = "648"      
         y = "4388"/>
@@ -38,7 +38,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.WorkoutActivity"/>
+        className = "ca.codemake.workout.workout.WorkoutActivity"/>
       <point      
         x = "500"      
         y = "2860"/>
@@ -46,7 +46,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
-        className = "ca.codemake.workout.WorkoutActivity"/>
+        className = "ca.codemake.workout.workout.WorkoutActivity"/>
       <point      
         x = "1768"      
         y = "2860"/>
@@ -54,7 +54,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.RecommendedWorkoutActivity"/>
+        className = "ca.codemake.workout.workout.RecommendedWorkoutActivity"/>
       <point      
         x = "2868"      
         y = "2732"/>
@@ -62,7 +62,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.CustomWorkoutActivity"/>
+        className = "ca.codemake.workout.workout.CustomWorkoutActivity"/>
       <point      
         x = "2816"      
         y = "4516"/>
@@ -70,7 +70,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.WorkoutMenuActivity"/>
+        className = "ca.codemake.workout.workout.WorkoutMenuActivity"/>
       <point      
         x = "500"      
         y = "4240"/>
@@ -78,7 +78,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.WorkoutInputActivity"/>
+        className = "ca.codemake.workout.workout.WorkoutInputActivity"/>
       <point      
         x = "500"      
         y = "100"/>
@@ -86,7 +86,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
-        className = "ca.codemake.workout.WorkoutInputActivity"/>
+        className = "ca.codemake.workout.workout.WorkoutInputActivity"/>
       <point      
         x = "1768"      
         y = "100"/>
@@ -94,7 +94,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.RecommendedWorkoutDetailsActivity"/>
+        className = "ca.codemake.workout.workout.RecommendedWorkoutDetailsActivity"/>
       <point      
         x = "600"      
         y = "4340"/>
@@ -102,7 +102,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.NutritionCalculatorActivity"/>
+        className = "ca.codemake.workout.nutrition.NutritionCalculatorActivity"/>
       <point      
         x = "700"      
         y = "4440"/>
@@ -110,7 +110,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.CustomWorkoutGroupActivity"/>
+        className = "ca.codemake.workout.workout.CustomWorkoutGroupActivity"/>
       <point      
         x = "750"      
         y = "4490"/>

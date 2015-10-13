@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/background"
-    tools:context="ca.codemake.workout.NutritionCalculatorActivity">
+    tools:context="ca.codemake.workout.nutrition.NutritionCalculatorActivity">
 
     <TextView
         android:layout_width="match_parent"

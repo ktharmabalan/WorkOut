@@ -1,10 +1,11 @@
-package ca.codemake.workout;
+package ca.codemake.workout.workout;
 
 import android.app.ListActivity;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
+import ca.codemake.workout.R;
 import ca.codemake.workout.adapters.ChooseExerciseAdapter;
 import ca.codemake.workout.models.Exercise;
 import ca.codemake.workout.models.Item;

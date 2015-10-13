@@ -1,4 +1,4 @@
-package ca.codemake.workout;
+package ca.codemake.workout.workout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
+import ca.codemake.workout.R;
 import ca.codemake.workout.adapters.RoutineCreateAdapter;
 import ca.codemake.workout.database.WorkoutDbHelper;
 import ca.codemake.workout.models.ExerciseEntry;

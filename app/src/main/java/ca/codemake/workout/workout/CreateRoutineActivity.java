@@ -1,4 +1,4 @@
-package ca.codemake.workout;
+package ca.codemake.workout.workout;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import ca.codemake.workout.R;
 import ca.codemake.workout.adapters.RoutineCreateAdapter;
 import ca.codemake.workout.database.WorkoutDbHelper;
 import ca.codemake.workout.models.ExerciseEntry;

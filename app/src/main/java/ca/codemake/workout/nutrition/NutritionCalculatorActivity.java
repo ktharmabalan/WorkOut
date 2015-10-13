@@ -1,4 +1,4 @@
-package ca.codemake.workout;
+package ca.codemake.workout.nutrition;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import ca.codemake.workout.R;
 import ca.codemake.workout.adapters.NutritionAdapter;
 import ca.codemake.workout.database.WorkoutDbHelper;
 import ca.codemake.workout.models.Item;

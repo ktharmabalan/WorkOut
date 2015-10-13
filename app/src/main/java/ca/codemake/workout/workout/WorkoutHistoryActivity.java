@@ -1,7 +1,9 @@
-package ca.codemake.workout;
+package ca.codemake.workout.workout;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import ca.codemake.workout.R;
 
 /**
  * Created by Kajan on 8/19/2015.

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import ca.codemake.workout.AddNutritionEntryActivity;
+import ca.codemake.workout.nutrition.AddNutritionEntryActivity;
 import ca.codemake.workout.R;
 import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Meal;

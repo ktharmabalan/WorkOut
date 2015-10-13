@@ -1,4 +1,4 @@
-package ca.codemake.workout;
+package ca.codemake.workout.workout;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import ca.codemake.workout.R;
 
 public class CustomWorkoutActivity extends Activity implements ListView.OnItemClickListener {
 

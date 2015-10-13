@@ -1,9 +1,11 @@
-package ca.codemake.workout;
+package ca.codemake.workout.nutrition;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import ca.codemake.workout.R;
 
 public class AddMealActivity extends Activity {
 

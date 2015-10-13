@@ -15,9 +15,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import ca.codemake.workout.database.WorkoutDbHelper;
+import ca.codemake.workout.nutrition.NutritionCalculatorActivity;
+import ca.codemake.workout.workout.CreateRoutineActivity;
+import ca.codemake.workout.workout.WorkoutInputActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -116,10 +118,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public static final String ARG_OBJECT = "object";
 
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.viewpager_object, container, false);
             Bundle args = getArguments();
-            ((TextView) rootView.findViewById(R.id.text1)).setText(args.getString(ARG_OBJECT));
 
+//            View rootView = inflater.inflate(R.layout.viewpager_object, container, false);
+//            ((TextView) rootView.findViewById(R.id.text1)).setText(args.getString(ARG_OBJECT));
+
+            View rootView;
+            if(args.getString(ARG_OBJECT) == "Workout")
+                rootView = inflater.inflate(R.layout.activity_workout_menu, container, false);
+            else
+                rootView = inflater.inflate(R.layout.activity_nutrition_calculator, container, false);
             return rootView;
         }
     }

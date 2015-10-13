@@ -1,4 +1,4 @@
-package ca.codemake.workout;
+package ca.codemake.workout.nutrition;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+
+import ca.codemake.workout.R;
 
 /**
  * Created by Kajan on 8/19/2015.

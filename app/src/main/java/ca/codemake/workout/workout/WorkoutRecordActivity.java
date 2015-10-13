@@ -1,4 +1,4 @@
-package ca.codemake.workout;
+package ca.codemake.workout.workout;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import ca.codemake.workout.R;
 import ca.codemake.workout.adapters.WorkoutRecordAdapter;
 import ca.codemake.workout.database.WorkoutDbHelper;
 import ca.codemake.workout.models.ExerciseEntry;

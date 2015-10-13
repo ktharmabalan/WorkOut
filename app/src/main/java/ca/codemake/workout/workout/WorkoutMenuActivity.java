@@ -1,10 +1,12 @@
-package ca.codemake.workout;
+package ca.codemake.workout.workout;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import ca.codemake.workout.R;
 
 public class WorkoutMenuActivity extends Activity implements View.OnClickListener {
 
