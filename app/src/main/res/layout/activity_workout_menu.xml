@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Day 5:"
-        android:textColor="@color/primary_color_dark"
+        android:textColor="@color/colorPrimaryDark"
         android:id="@+id/txt_day"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"

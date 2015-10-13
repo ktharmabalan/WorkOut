@@ -10,7 +10,7 @@
         android:id="@+id/workout_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/secondary_color"
+        android:background="@color/colorAccent"
         android:gravity="center_horizontal"
         android:text="Date"
         android:textStyle="bold"

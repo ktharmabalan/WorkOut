@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:background="@color/primary_color"
+    android:background="@color/colorPrimary"
     android:descendantFocusability="blocksDescendants">
 
     <LinearLayout

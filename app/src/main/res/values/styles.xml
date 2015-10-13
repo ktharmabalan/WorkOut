@@ -1,18 +1,16 @@
 <resources>
     <!-- Base application theme -->
-    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
-    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+    <style name="AppTheme" parent="AppTheme.Base">
 
-        <!-- Main theme colors -->
-        <!--   your app branding color for the app bar -->
-        <item name="android:colorPrimary">@color/primary_color</item>
-        <!--   darker variant for the status bar and contextual app bars -->
-        <item name="android:colorPrimaryDark">@color/primary_color_dark</item>
-        <!--   theme UI controls like checkboxes and text fields -->
-        <item name="android:colorAccent">#7652D8</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         
-        <item name="android:textColorPrimary">#fff</item>
-        <item name="android:windowBackground">@color/background</item>
+        <!--<item name="android:textColorPrimary">#fff</item>-->
+        <!--<item name="android:windowBackground">@color/background</item>-->
         
     <!--<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">-->
         <!--ActionBar-->
@@ -31,29 +29,37 @@
         <!--<item name="android:itemTextAppearance">@style/AppTheme.OptionsMenuTextColor</item>-->
 
         <!--Button-->
-        <item name="android:buttonStyle">@style/AppTheme.Button</item>
+        <!--<item name="android:buttonStyle">@style/AppTheme.Button</item>-->
 
         <!--EditText-->
-        <item name="android:editTextStyle">@style/AppTheme.EditText</item>
+        <!--<item name="android:editTextStyle">@style/AppTheme.EditText</item>-->
 
         <!--TextView-->
         <!--<item name="android:textViewStyle">@style/AppTheme.TextView</item>-->
 
         <!--AutoCompleteTextView-->
-        <item name="android:autoCompleteTextViewStyle">@style/AppTheme.AutoCompleteTextView</item>
+        <!--<item name="android:autoCompleteTextViewStyle">@style/AppTheme.AutoCompleteTextView</item>-->
 
         <!--AlertDialog-->
-        <item name="android:alertDialogTheme">@style/AppTheme.AlertDialog</item>
+        <!--<item name="android:alertDialogTheme">@style/AppTheme.AlertDialog</item>-->
         <!--<item name="android:alertDialogStyle">@style/AppTheme.AlertDialogStyle</item>-->
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!-- *************************************************************************************** -->
 
     <!-- ActionBar-->
     <!--<style name="AppTheme.ActionBar" parent="android:Widget.Holo.Light.ActionBar">-->
     <style name="AppTheme.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/primary_color_dark</item>
-        <item name="background">@color/primary_color_dark</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="background">@color/colorPrimaryDark</item>
 
         <!--ActionBar Text Color-->
         <item name="android:titleTextStyle">@style/AppTheme.ActionBarText</item>
@@ -96,20 +102,20 @@
 
     <!--EditText-->
     <style name="AppTheme.EditText" parent="android:Widget.EditText">
-        <item name="android:textColor">@color/primary_color</item>
-        <item name="android:textColorHint">@color/primary_color</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/colorPrimary</item>
     </style>
 
     <!--TextView-->
     <style name="AppTheme.TextView" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
     <!--AutoCompleteTextView-->
     <style name="AppTheme.AutoCompleteTextView" parent="android:Widget.AutoCompleteTextView">
-        <item name="android:textColor">@color/primary_color</item>
-        <item name="android:textColorHint">@color/primary_color</item>
-        <item name="android:popupBackground">@color/primary_color</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="android:popupBackground">@color/colorPrimary</item>
     </style>
 
     <!--ProgressBar-->
@@ -122,10 +128,10 @@
     <style name="AppTheme.AlertDialog" parent="MaterialDialog">
         <item name="android:windowTitleStyle">@style/AppTheme.AlertDialogTitle</item>
         <item name="android:textColorPrimary">#f0f</item> <!--message color-->
-        <item name="android:background">@color/primary_color</item> <!--Entire dialog background-->
+        <item name="android:background">@color/colorPrimary</item> <!--Entire dialog background-->
     </style>
 
-    <style name="MaterialDialog" parent="android:Theme.Material.Light.Dialog">
+    <style name="MaterialDialog" parent="android:Theme.Holo.Light.Dialog">
     <!--<style name="MaterialDialog" parent="android:Theme.Holo.Dialog">-->
         <item name="android:windowBackground">@android:color/transparent</item> <!--Background for dialog-->
         <item name="android:windowContentOverlay">@null</item>
@@ -133,7 +139,7 @@
     </style>
 
     <style name="MaterialTitle">
-        <item name="android:textAppearance">@android:style/TextAppearance.Material.DialogWindowTitle</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Holo.DialogWindowTitle</item>
     </style>
 
     <style name="AppTheme.AlertDialogTitle" parent="MaterialTitle">

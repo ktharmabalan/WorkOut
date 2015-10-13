@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="@color/secondary_color"
+        android:background="@color/colorAccent"
         android:textColor="#fff"
         android:gravity="center_horizontal"
         android:textStyle="bold"

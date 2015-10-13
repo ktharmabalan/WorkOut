@@ -17,7 +17,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Burger"
             android:textStyle="bold"
-            android:textColor="@color/secondary_color"
+            android:textColor="@color/colorAccent"
             android:id="@+id/foodName" />
 
         <TextView
@@ -26,7 +26,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="300 CALS"
             android:textStyle="bold"
-            android:textColor="@color/secondary_color"
+            android:textColor="@color/colorAccent"
             android:id="@+id/calories"
             android:gravity="right"
             android:layout_gravity="center_vertical"
@@ -45,7 +45,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="1 burger, 300 cal"
             android:layout_weight=".5"
-            android:textColor="@color/primary_color_dark"
+            android:textColor="@color/colorPrimaryDark"
             android:layout_gravity="center_vertical"
             android:id="@+id/servingSize" />
 

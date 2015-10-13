@@ -10,7 +10,7 @@
         android:id="@+id/exerciseSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/primary_color"
+        android:textColor="@color/colorPrimary"
         android:background="@color/dark_orange"/>
 
     <TextView
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/ic_dialog_info"
-        android:backgroundTint="@color/secondary_color_dark"
+        android:backgroundTint="@color/colorAccentDark"
         />
 
     <!--  divider -->

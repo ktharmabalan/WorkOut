@@ -3,49 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-<!--    <include
-        android:id="@+id/tool_bar"
-        layout="@layout/tool_bar">
-    </include>-->
+    <include
+        layout="@layout/app_bar"
+        android:id="@+id/app_bar" />
 
     <TextView
+        android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="WORKOUT"
-        android:id="@+id/textView6"
         android:layout_centerHorizontal="true"
-        android:layout_weight ="2"
+        android:layout_marginTop="25dp"
+        android:layout_weight="2"
         android:gravity="center_vertical|center_horizontal"
+        android:text="WORKOUT"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorAccentDark"
         android:textSize="50dp"
-        android:textStyle="bold"
-        android:textColor="@color/secondary_color_dark"
-        android:layout_marginTop="25dp" />
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/btn_begin_workout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Begin Workout"
-        android:id="@+id/btn_begin_workout"
         android:layout_centerVertical="true"
-        android:layout_weight="1"
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_weight="1"
+        android:text="Begin Workout"
         android:textSize="24dp" />
 
     <Button
+        android:id="@+id/btn_nutrition_calculator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Daily Nutrition Calculator"
-        android:id="@+id/btn_nutrition_calculator"
+        android:layout_marginBottom="100dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_weight="1"
-        android:layout_marginBottom="100dp"
+        android:text="Daily Nutrition Calculator"
         android:textSize="24dp" />
 
 </LinearLayout>

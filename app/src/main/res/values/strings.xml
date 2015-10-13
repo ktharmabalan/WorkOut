@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Workout</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_workout">WorkoutActivity</string>
@@ -16,34 +15,11 @@
     <string name="title_activity_create_routine">Create Routine</string>
     <string name="title_activity_choose_exercises">Choose Exercises</string>
     <string name="add_food">Add Food</string>
+    <string name="title_activity_add_meal">Add Meal</string>
 
     <string-array name="serving_size">
         <item>g</item>
         <item>ml</item>
     </string-array>
-
-    <color name="primary_color_dark">#1F7CDB</color>
-    <color name="primary_color">@color/green_blue_medium</color>
-    <color name="secondary_color_dark">#763ADD</color>
-    <color name="secondary_color">#7652D8</color>
-    <color name="light_blue">#7986BC</color>
-    <color name="dark_blue">#3949AB</color>
-    <color name="light_orange">#FFAB91</color>
-    <color name="dark_orange">#FF8A65</color>
-    <color name="text_color">#fff</color>
-    <color name="under_line">#acacac</color>
-    <color name="background">@color/lighter_gray</color>
-    <color name="light_gray">#EDEDED</color>
-    <color name="lighter_gray">#EEEEEE</color>
-    <color name="green_blue_dark">#4B88A5</color>
-    <color name="green_blue_medium">#3297DB</color>
-    <color name="green_blue">#2C85AD</color>
-    <color name="green_blue_light">#20C09E</color>
-    <color name="green_blue_lighter">#11BA9B</color>
-    <color name="green_blue_lightest">#62D8B6</color>
-    <color name="red_orange_dark">#EE5545</color>
-    <color name="red_orange">#E84033</color>
-    <color name="red_orange_light">#E64C40</color>
-    <string name="title_activity_add_meal">Add Meal</string>
 
 </resources>
