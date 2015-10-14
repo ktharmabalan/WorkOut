@@ -8,7 +8,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Meal Name"
+        android:hint="Meal title"
         android:id="@+id/mealName" />
 
     <Button

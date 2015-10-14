@@ -21,7 +21,7 @@
         android:layout_weight="1"
         android:layout_marginLeft="10dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Exercise Name"
+        android:text="Exercise title"
         />
 
     <Button

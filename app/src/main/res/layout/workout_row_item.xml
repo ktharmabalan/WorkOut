@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Exercise Name"
+        android:text="Exercise title"
         android:id="@+id/exercise_name"/>
 
     <LinearLayout

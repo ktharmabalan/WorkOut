@@ -18,16 +18,4 @@
     <string name="title_activity_add_meal">Add Meal</string>
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
-
-    <string-array name="serving_size">
-        <item>g</item>
-        <item>ml</item>
-    </string-array>
-
-    <string-array name="drawer_items">
-        <item>Nutrition</item>
-        <item>Workout</item>
-        <item>Settings</item>
-    </string-array>
-
 </resources>
