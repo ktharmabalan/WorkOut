@@ -6,7 +6,8 @@
     <!--<color name="colorAccentDark">#E64A19</color>-->
     <color name="colorAccent">#673AB7</color>
     <color name="colorAccentDark">#512DA8</color>
-
+    <!--<color name="colorAccent">#F44336</color>-->
+    <!--<color name="colorAccentDark">#D32F2F</color>-->
 
     <color name="light_blue">#7986BC</color>
     <color name="dark_blue">#3949AB</color>

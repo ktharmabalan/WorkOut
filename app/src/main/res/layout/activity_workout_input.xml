@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tool:context=".WorkoutInputActivity">
+    tool:context="ca.codemake.workout.workout.WorkoutInputActivity">
+
+    <!--<include-->
+        <!--layout="@layout/app_bar_layout" />-->
 
     <TextView
         android:id="@+id/workout_date"

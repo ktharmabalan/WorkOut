@@ -1,7 +1,8 @@
 package ca.codemake.workout.workout;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -14,7 +15,7 @@ import ca.codemake.workout.models.ExerciseEntry;
 import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Workout;
 
-public class WorkoutRecordActivity extends Activity {
+public class WorkoutRecordActivity extends AppCompatActivity {
 
     private WorkoutDbHelper db;
     private WorkoutRecordAdapter adapter;
@@ -25,9 +26,14 @@ public class WorkoutRecordActivity extends Activity {
     private Workout workout;
     private ListView listView;
 
+    private Toolbar toolbar;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_record);
+
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
 
         listView = (ListView) findViewById(R.id.workout_record);
 

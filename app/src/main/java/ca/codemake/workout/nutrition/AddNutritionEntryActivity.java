@@ -1,8 +1,9 @@
 package ca.codemake.workout.nutrition;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,23 +18,20 @@ import java.util.HashMap;
 
 import ca.codemake.workout.R;
 
-/**
- * Created by Kajan on 8/19/2015.
- */
-public class AddNutritionEntryActivity extends Activity {
+public class AddNutritionEntryActivity extends AppCompatActivity {
 
     private HashMap<String, String> autoText;
     private ArrayList foodNameList;
     private ArrayList mealNameList;
-//    private Toolbar toolbar;
 
+    private Toolbar toolbar;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_nutrition_entry);
 
-//        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-//        setSupportActionBar(toolbar);
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
 
 //        ActionBar actionBar = getSupportActionBar();
 //        actionBar.setDisplayHomeAsUpEnabled(true);
@@ -58,13 +56,13 @@ public class AddNutritionEntryActivity extends Activity {
         mealNameList.add("Dinner");
         mealNameList.add("Other");
 
-        if(mealNameList.size() > 0) {
+        if (mealNameList.size() > 0) {
             AutoCompleteTextView mealName = (AutoCompleteTextView) findViewById(R.id.mealName);
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mealNameList);
             mealName.setAdapter(adapter);
         }
 
-        if(foodNameList.size() > 0) {
+        if (foodNameList.size() > 0) {
             AutoCompleteTextView foodName = (AutoCompleteTextView) findViewById(R.id.foodName);
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, foodNameList);
             foodName.setAdapter(adapter);

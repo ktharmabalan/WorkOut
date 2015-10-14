@@ -2,22 +2,9 @@ package ca.codemake.workout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import ca.codemake.workout.database.WorkoutDbHelper;
@@ -25,7 +12,7 @@ import ca.codemake.workout.nutrition.NutritionCalculatorActivity;
 import ca.codemake.workout.workout.CreateRoutineActivity;
 import ca.codemake.workout.workout.WorkoutInputActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends DrawerBaseActivity implements View.OnClickListener {
 
     private Toolbar toolbar;
     private WorkoutDbHelper db;
@@ -33,7 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_drawer_base);
+//        setContentView(R.layout.activity_main);
+        onCreateDrawer(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);

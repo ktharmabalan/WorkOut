@@ -153,7 +153,6 @@ public class WorkoutDbHelper extends SQLiteOpenHelper {
             + ");";
 
 
-
     // DELETE
     // Table Meals
     private static final String SQL_DELETE_MEALS = DROP_TABLE + Meal.TABLE_NAME;
@@ -283,7 +282,7 @@ public class WorkoutDbHelper extends SQLiteOpenHelper {
         return db.insert(Food.TABLE_NAME, null, contentValues);
     }
 
-    public long newMealEntry(long meal_id, long food_id){
+    public long newMealEntry(long meal_id, long food_id) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(MealEntry.COLUMN_NAME_MEAL_ID, meal_id);
         contentValues.put(MealEntry.COLUMN_NAME_FOOD_ID, food_id);
@@ -347,7 +346,7 @@ public class WorkoutDbHelper extends SQLiteOpenHelper {
 
     public boolean emptyRoutine() {
         Cursor cursor = db.rawQuery("SELECT COUNT(" + Routine._ID + ") FROM " + Routine.TABLE_NAME, null);
-        if(cursor != null) {
+        if (cursor != null) {
             cursor.moveToFirst();
             Log.d(TAG, String.valueOf((cursor.getInt(0) == 0)));
             return (cursor.getInt(0) == 0);
