@@ -9,10 +9,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowActionModeOverlay">true</item>
+
+        <item name="actionModeStyle">@style/ActionMode</item>
+
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
         <!--<item name="android:textColorPrimary">#fff</item>-->
         <!--<item name="android:windowBackground">@color/background</item>-->
-        
-    <!--<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">-->
+
+        <!--<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">-->
         <!--ActionBar-->
         <!--<item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>-->
         <!--Support Library Compatibility-->
@@ -45,12 +53,27 @@
         <!--<item name="android:alertDialogStyle">@style/AppTheme.AlertDialogStyle</item>-->
     </style>
 
+    <style name="ActionMode" parent="@style/Widget.AppCompat.ActionMode">
+        <item name="background">@color/colorPrimary</item>
+
+<!--        <item name="titleTextStyle"></item>
+        <item name="subtitleTextStyle"></item>
+        <item name="height"></item>
+        <item name="actionMenuTextColor"></item>-->
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/black</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!-- *************************************************************************************** -->
@@ -64,6 +87,8 @@
         <!--ActionBar Text Color-->
         <item name="android:titleTextStyle">@style/AppTheme.ActionBarText</item>
         <item name="titleTextStyle">@style/AppTheme.ActionBarText</item>
+
+
     </style>
 
     <!--ActionBar Text-->
@@ -127,19 +152,23 @@
     <!--AlertDialog-->
     <style name="AppTheme.AlertDialog" parent="MaterialDialog">
         <item name="android:windowTitleStyle">@style/AppTheme.AlertDialogTitle</item>
-        <item name="android:textColorPrimary">#f0f</item> <!--message color-->
-        <item name="android:background">@color/colorPrimary</item> <!--Entire dialog background-->
+        <item name="android:textColorPrimary">#f0f</item>
+        <!--message color-->
+        <item name="android:background">@color/colorPrimary</item>
+        <!--Entire dialog background-->
     </style>
 
     <style name="MaterialDialog" parent="android:Theme.Holo.Light.Dialog">
-    <!--<style name="MaterialDialog" parent="android:Theme.Holo.Dialog">-->
-        <item name="android:windowBackground">@android:color/transparent</item> <!--Background for dialog-->
+        <!--<style name="MaterialDialog" parent="android:Theme.Holo.Dialog">-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--Background for dialog-->
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowTitleStyle">@style/MaterialTitle</item>
     </style>
 
     <style name="MaterialTitle">
-        <item name="android:textAppearance">@android:style/TextAppearance.Holo.DialogWindowTitle</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Holo.DialogWindowTitle
+        </item>
     </style>
 
     <style name="AppTheme.AlertDialogTitle" parent="MaterialTitle">
@@ -147,20 +176,21 @@
     </style>
 
     <style name="AppTheme.AlertDialogWindowTitle" parent="@android:style/TextAppearance.Holo.DialogWindowTitle">
-        <item name="android:textColor">#fff</item> <!--Title color-->
+        <item name="android:textColor">#fff</item>
+        <!--Title color-->
         <item name="android:textStyle">bold</item>
     </style>
 
-<!--    <style name="AppTheme.AlertDialogStyle">
-        <item name="android:fullDark">#99f</item>
-        <item name="android:topDark">#f99</item>
-        <item name="android:centerDark">#9f9</item>
-        &lt;!&ndash;<item name="android:bottomDark">...</item>&ndash;&gt;
-        &lt;!&ndash;<item name="android:fullBright">...</item>&ndash;&gt;
-        &lt;!&ndash;<item name="android:topBright">...</item>&ndash;&gt;
-        &lt;!&ndash;<item name="android:centerBright">...</item>&ndash;&gt;
-        &lt;!&ndash;<item name="android:bottomBright">...</item>&ndash;&gt;
-        &lt;!&ndash;<item name="android:bottomMedium">...</item>&ndash;&gt;
-        &lt;!&ndash;<item name="android:centerMedium">...</item>&ndash;&gt;
-    </style>-->
+    <!--    <style name="AppTheme.AlertDialogStyle">
+            <item name="android:fullDark">#99f</item>
+            <item name="android:topDark">#f99</item>
+            <item name="android:centerDark">#9f9</item>
+            &lt;!&ndash;<item name="android:bottomDark">...</item>&ndash;&gt;
+            &lt;!&ndash;<item name="android:fullBright">...</item>&ndash;&gt;
+            &lt;!&ndash;<item name="android:topBright">...</item>&ndash;&gt;
+            &lt;!&ndash;<item name="android:centerBright">...</item>&ndash;&gt;
+            &lt;!&ndash;<item name="android:bottomBright">...</item>&ndash;&gt;
+            &lt;!&ndash;<item name="android:bottomMedium">...</item>&ndash;&gt;
+            &lt;!&ndash;<item name="android:centerMedium">...</item>&ndash;&gt;
+        </style>-->
 </resources>

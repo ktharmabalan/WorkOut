@@ -3,15 +3,14 @@ package ca.codemake.workout.nutrition;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ListView;
@@ -31,83 +30,51 @@ import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Meal;
 import ca.codemake.workout.models.MealEntry;
 
-//public class NutritionCalculatorActivity extends Fragment implements View.OnClickListener {
-public class NutritionCalculatorActivity extends AppCompatActivity implements View.OnClickListener {
+public class NutritionCalculatorFragment extends Fragment implements View.OnClickListener {
 
+    private static final int REQUEST_CODE = 1;
     private NutritionAdapter nutritionAdapter;
     private WorkoutDbHelper db;
-    private static final String TAG = NutritionCalculatorActivity.class.getName();
-    private Toolbar toolbar;
+    private static final String TAG = "NutritionCalculator";
 
     private ListView listView;
 
-    private boolean isFragment = false;
-
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-////        setContentView(R.layout.activity_nutrition_calculator);
-//
-//        View rootView = inflater.inflate(R.layout.activity_nutrition_calculator, container, false);
-//
-//        listView = (ListView) rootView.findViewById(R.id.nutrition_list);
-//        Log.d(TAG, "onCreate");
-//
-////        db = new WorkoutDbAdapter(getApplicationContext());
-//        db = new WorkoutDbHelper(getActivity());
-//        db.open();
-//
-//        setUpButtons(rootView);
-//        loadData(rootView);
-//
-//        return rootView;
-//    }
-
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nutrition_calculator);
-
-        listView = (ListView) findViewById(R.id.nutrition_list);
-        Log.d(TAG, "onCreate");
-
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
-
-//        db = new WorkoutDbAdapter(getApplicationContext());
-        db = new WorkoutDbHelper(getApplicationContext());
-        db.open();
-
-        setUpButtons(null);
-        loadData(null);
+        setHasOptionsMenu(true);
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.activity_nutrition_calculator, container, false);
+
+        listView = (ListView) rootView.findViewById(R.id.nutrition_list);
+
+//        db = new WorkoutDbHelper(getActivity());
+        db = WorkoutDbHelper.getInstance(getActivity().getApplicationContext());
+
+        setUpButtons(rootView);
+        loadData(rootView);
+
+        return rootView;
+    }
+
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_nutrition_calculator_activity_actions, menu);
-        return super.onCreateOptionsMenu(menu);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_new_meal:
-                Intent i = null;
-                if (isFragment) {
-//                    i = new Intent(getActivity(), AddMealActivity.class);
-                } else {
-                    i = new Intent(getApplicationContext(), AddMealActivity.class);
-                }
+                Intent i = new Intent(getActivity(), AddMealActivity.class);
                 startActivity(i);
                 return true;
             case R.id.action_calendar:
                 /* Create a dialog with a calendar view */
-                AlertDialog.Builder builder = null;
-                if (isFragment) {
-//                    builder = new AlertDialog.Builder(getActivity());
-                } else {
-                    builder = new AlertDialog.Builder(getApplicationContext());
-                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 // Get the layout inflater
-                LayoutInflater inflater = NutritionCalculatorActivity.this.getLayoutInflater();
+                LayoutInflater inflater = getActivity().getLayoutInflater();
 
                 View view = inflater.inflate(R.layout.calendar, null);
 
@@ -153,11 +120,7 @@ public class NutritionCalculatorActivity extends AppCompatActivity implements Vi
                     public void onSelectedDayChange(CalendarView calendarView, int year, int month, int dayOfMonth) {
                         Calendar calendar = Calendar.getInstance();
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
-                        if (isFragment) {
-//                            Toast.makeText(getActivity(), simpleDateFormat.format(new Date(calendarView.getDate())), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), simpleDateFormat.format(new Date(calendarView.getDate())), Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(getActivity(), simpleDateFormat.format(new Date(calendarView.getDate())), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -168,11 +131,7 @@ public class NutritionCalculatorActivity extends AppCompatActivity implements Vi
     }
 
     private void loadData(View rootView) {
-        if (isFragment) {
-//            nutritionAdapter = new NutritionAdapter(getActivity());
-        } else {
-            nutritionAdapter = new NutritionAdapter(getApplicationContext());
-        }
+        nutritionAdapter = new NutritionAdapter(getActivity());
 
         Cursor cursor = db.getAllMealEntries();
 
@@ -245,21 +204,13 @@ public class NutritionCalculatorActivity extends AppCompatActivity implements Vi
         ProgressBar progressBar = null;
         TextView progressBarText = null;
 
-        if(isFragment) {
-            date = (TextView) rootView.findViewById(R.id.textView14);
+        date = (TextView) rootView.findViewById(R.id.textView14);
 
         /* Update the progress bar with total calories for the day */
-            progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
-            progressBar.setProgress(75);
-            progressBarText = (TextView) rootView.findViewById(R.id.progressBarText);
-        } else {
-            date = (TextView) findViewById(R.id.textView14);
+        progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+        progressBar.setProgress(75);
+        progressBarText = (TextView) rootView.findViewById(R.id.progressBarText);
 
-        /* Update the progress bar with total calories for the day */
-            progressBar = (ProgressBar) findViewById(R.id.progressBar);
-            progressBar.setProgress(75);
-            progressBarText = (TextView) findViewById(R.id.progressBarText);
-        }
 
         progressBarText.setText(String.valueOf(totalCalories));
         date.setText(simpleDateFormat.format(calendar.getTime()));
@@ -267,12 +218,7 @@ public class NutritionCalculatorActivity extends AppCompatActivity implements Vi
     }
 
     public void setUpButtons(View rootView) {
-        Button b = null;
-        if (isFragment) {
-            b = (Button) rootView.findViewById(R.id.btn_nutrition_day);
-        } else {
-            b = (Button) findViewById(R.id.btn_nutrition_day);
-        }
+        Button b = (Button) rootView.findViewById(R.id.btn_nutrition_day);
         b.setOnClickListener(this);
     }
 
@@ -280,29 +226,26 @@ public class NutritionCalculatorActivity extends AppCompatActivity implements Vi
         Button b = (Button) v;
 
         if (b.getId() == R.id.btn_nutrition_day) {
-            if (isFragment) {
-//                Intent i = new Intent(getActivity(), AddNutritionEntryActivity.class);
-//                startActivity(i);
-            } else {
-                Intent i = new Intent(getApplicationContext(), AddNutritionEntryActivity.class);
-                startActivity(i);
-            }
+            Intent i = new Intent(getActivity(), AddNutritionEntryActivity.class);
+            startActivity(i);
+//            startActivityForResult(i, REQUEST_CODE);
         }
     }
 
     public void onPause() {
         super.onPause();
-        if (db != null) {
-            Log.d(TAG, "onPause");
-            db.close();
-        }
+//        if (db != null) {
+//            Log.d(TAG, "onPause");
+//            db.close("NutritionCalculatorFragment");
+//        }
     }
 
     public void onResume() {
         super.onResume();
-        if (db != null) {
-            Log.d(TAG, "onResume");
-            db.open();
-        }
+        db = WorkoutDbHelper.getInstance(getActivity().getApplicationContext());
+//        if (db != null) {
+//            Log.d(TAG, "onResume");
+//            db.open("NutritionCalculatorFragment");
+//        }
     }
 }

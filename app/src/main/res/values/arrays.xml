@@ -8,6 +8,8 @@
     <string-array name="drawer_items">
         <item>Nutrition</item>
         <item>Workout</item>
+        <item>Routines</item>
+        <item>Foods</item>
         <item>Settings</item>
     </string-array>
 

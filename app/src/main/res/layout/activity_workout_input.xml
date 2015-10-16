@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tool:context="ca.codemake.workout.workout.WorkoutInputActivity">
+    tool:context="ca.codemake.workout.workout.WorkoutInputFragment">
 
     <!--<include-->
         <!--layout="@layout/app_bar_layout" />-->
@@ -32,10 +32,27 @@
         android:textColor="@color/primary_color"
         android:id="@+id/txt_congratulations" />-->
 
-    <ListView
-        android:id="@+id/list_workout_tracker"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:choiceMode="none">
-    </ListView>
+        android:orientation="vertical">
+        <ListView
+            android:id="@+id/list_workout_tracker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="none"/>
+
+        <TextView
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:background="#dddddd"
+            android:textColor="#000"
+            android:text="Press the '+' icon to add a \nnew Workout Routine"
+            android:gravity="center" />
+    </LinearLayout>
+
+
+
 </LinearLayout>

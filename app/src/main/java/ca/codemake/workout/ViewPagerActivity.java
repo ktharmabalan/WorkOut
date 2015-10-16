@@ -16,12 +16,12 @@ import android.view.MenuInflater;
 import android.view.View;
 
 import ca.codemake.workout.database.WorkoutDbHelper;
-import ca.codemake.workout.workout.WorkoutInputActivity;
+import ca.codemake.workout.workout.WorkoutInputFragment;
 
 public class ViewPagerActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private WorkoutDbHelper db;
-    private final static String TAG = "MainActivity";
+    private final static String TAG = "ViewPager";
 
     ViewPagerAdapter viewPagerAdapter;
     ViewPager viewPager;
@@ -29,7 +29,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
-    WorkoutInputActivity workoutFragment;
+    WorkoutInputFragment workoutFragment;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +38,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
-//        workoutFragment = new WorkoutInputActivity();
+//        workoutFragment = new WorkoutInputFragment();
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -89,11 +89,11 @@ public class ViewPagerActivity extends AppCompatActivity {
             Bundle args = new Bundle();
             if (position == 0) {
 //                fragment = new ViewPagerFragment();
-//                fragment = new NutritionCalculatorActivity();
-                fragment = new WorkoutInputActivity();
+//                fragment = new NutritionCalculatorFragment();
+                fragment = new WorkoutInputFragment();
                 args.putString(ARG_OBJECT, "Nutrition");
             } else {
-                fragment = new WorkoutInputActivity();
+                fragment = new WorkoutInputFragment();
                 args.putString(ARG_OBJECT, "Workout");
             }
             fragment.setArguments(args);

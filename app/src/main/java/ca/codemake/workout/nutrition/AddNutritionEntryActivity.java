@@ -2,6 +2,8 @@ package ca.codemake.workout.nutrition;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -33,8 +35,8 @@ public class AddNutritionEntryActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         TextView date = (TextView) findViewById(R.id.txt_nutrition_day);
         Calendar calendar = Calendar.getInstance();
@@ -79,6 +81,14 @@ public class AddNutritionEntryActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+//                Intent returnIntent = new Intent();
+//                returnIntent.putExtra("result",result);
+//                setResult(RESULT_OK, returnIntent);
+//                finish();
+                return true;
             case R.id.action_save:
 //                showHelp();
                 Intent i = new Intent(getApplicationContext(), AddFoodActivity.class);
@@ -88,5 +98,4 @@ public class AddNutritionEntryActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }

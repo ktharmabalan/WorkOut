@@ -78,7 +78,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.workout.WorkoutInputActivity"/>
+        className = "ca.codemake.workout.workout.WorkoutInputFragment"/>
       <point      
         x = "500"      
         y = "100"/>
@@ -86,7 +86,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
-        className = "ca.codemake.workout.workout.WorkoutInputActivity"/>
+        className = "ca.codemake.workout.workout.WorkoutInputFragment"/>
       <point      
         x = "1768"      
         y = "100"/>
@@ -102,7 +102,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "ca.codemake.workout.nutrition.NutritionCalculatorActivity"/>
+        className = "ca.codemake.workout.nutrition.NutritionCalculatorFragment"/>
       <point      
         x = "700"      
         y = "4440"/>

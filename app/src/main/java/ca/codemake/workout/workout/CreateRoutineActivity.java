@@ -1,7 +1,6 @@
 package ca.codemake.workout.workout;
 
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -33,7 +32,7 @@ import ca.codemake.workout.models.Workout;
 public class CreateRoutineActivity extends AppCompatActivity {
 
     private static final String TAG = CreateRoutineActivity.class.getName();
-    private RoutineCreateAdapter mAdapter;
+    private RoutineCreateAdapter adapter;
     private WorkoutDbHelper db;
     private ArrayList<Item> items;
     private boolean newRoutine;
@@ -55,8 +54,9 @@ public class CreateRoutineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_routine);
 
-        db = new WorkoutDbHelper(getApplicationContext());
-        mAdapter = new RoutineCreateAdapter(this);
+//        db = new WorkoutDbHelper(getApplicationContext());
+        db = WorkoutDbHelper.getInstance(getApplicationContext());
+        adapter = new RoutineCreateAdapter(this);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -104,8 +104,8 @@ public class CreateRoutineActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        mAdapter.setItems(items);
-        listView.setAdapter(mAdapter);
+        adapter.setItems(items);
+        listView.setAdapter(adapter);
     }
 
     private void createNewRoutineDialog() {
@@ -167,12 +167,7 @@ public class CreateRoutineActivity extends AppCompatActivity {
 
     private void loadData() {
         items = new ArrayList<>();
-
-//        db.open();
-
         Cursor cursor;
-
-//        db.emptyRoutine();
 
         if(newRoutine){
             cursor = db.getRoutineById(routine_id);
@@ -216,11 +211,9 @@ public class CreateRoutineActivity extends AppCompatActivity {
             }
         }
 
-        mAdapter.setItems(items);
+        adapter.setItems(items);
 
-        listView.setAdapter(mAdapter);
-
-//        db.close();
+        listView.setAdapter(adapter);
     }
 
     private void initExerciseEntry(Cursor cursor) {
@@ -246,11 +239,12 @@ public class CreateRoutineActivity extends AppCompatActivity {
 
     protected void onResume() {
         super.onResume();
-        db.open();
+        db = WorkoutDbHelper.getInstance(getApplicationContext());
+//        db.open("CreateRoutineActivity");
     }
 
     protected void onPause() {
         super.onPause();
-        db.close();
+//        db.close("CreateRoutineActivity");
     }
 }

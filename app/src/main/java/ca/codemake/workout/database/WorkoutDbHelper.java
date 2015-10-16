@@ -3,7 +3,6 @@ package ca.codemake.workout.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -22,7 +21,8 @@ import ca.codemake.workout.database.WorkoutContract.Workout;
 // Helper Class
 public class WorkoutDbHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = WorkoutDbHelper.class.getName();
+    private static WorkoutDbHelper workoutDbHelperInstance;
+    private static final String TAG = "WorkoutDbHelper";
     private SQLiteDatabase db;
 
     /* If you change the database schema, you must increment the database version */
@@ -171,10 +171,22 @@ public class WorkoutDbHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_EXERCISE_ENTRIES = DROP_TABLE + ExerciseEntry.TABLE_NAME;
     private static final String SQL_DELETE_CONFIGURATIONS = DROP_TABLE + Configuration.TABLE_NAME;
 
-    public WorkoutDbHelper(Context context) {
+    public static synchronized WorkoutDbHelper getInstance(Context context) {
+
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (workoutDbHelperInstance == null) {
+            workoutDbHelperInstance = new WorkoutDbHelper(context.getApplicationContext());
+        }
+        return workoutDbHelperInstance;
+    }
+
+    private WorkoutDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        db = open();
         Log.d(TAG, "Constructor");
+//        db = open("WorkoutDbHelper");
+        db = getWritableDatabase();
     }
 
     public void onCreate(SQLiteDatabase db) {
@@ -214,20 +226,27 @@ public class WorkoutDbHelper extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    // Open database
-    public SQLiteDatabase open() throws SQLException {
-        db = getWritableDatabase();
-        Log.d(TAG, "Db Open");
-        return db;
-//        return getWritableDatabase();
-    }
+//    // Open database
+//    public SQLiteDatabase open(String caller) throws SQLException {
+//        if(db == null) {
+//            db = getWritableDatabase();
+//            Log.d(TAG, "Db Opened by " + caller);
+//        }
+//        return db;
+////        return getWritableDatabase();
+//    }
+//
+//    // Close database
+//    public void close(String caller) {
+//        if(db != null) {
+//            Log.d(TAG, "Db Closed by " + caller);
+//            db.close();
+//        }
+////        this.close();
+//    }
 
-    // Close database
-    public void close() {
-        Log.d(TAG, "Db Close");
-        db.close();
-//        this.close();
-
+    public boolean isOpen() {
+        return db.isOpen();
     }
 
     public Cursor getAllMeals() {

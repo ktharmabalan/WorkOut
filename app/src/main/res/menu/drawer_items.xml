@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/workout"
+            android:checked="false"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="Workout" />
+
+        <item
+            android:id="@+id/nutrition"
+            android:checked="false"
+            android:icon="@android:drawable/ic_menu_delete"
+            android:title="Nutrition" />
+
+        <item
+            android:id="@+id/routines"
+            android:checked="false"
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="Routines" />
+
+        <item
+            android:id="@+id/setting"
+            android:checked="false"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Settings" />
+    </group>
+</menu>

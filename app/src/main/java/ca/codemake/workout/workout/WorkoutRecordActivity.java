@@ -3,7 +3,6 @@ package ca.codemake.workout.workout;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -37,7 +36,8 @@ public class WorkoutRecordActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.workout_record);
 
-        db = new WorkoutDbHelper(getApplicationContext());
+//        db = new WorkoutDbHelper(getApplicationContext());
+        db = WorkoutDbHelper.getInstance(getApplicationContext());
         items = new ArrayList<>();
 
         items.add(new ExerciseEntry("Bench Press", 155, 5, 5));
@@ -62,13 +62,14 @@ public class WorkoutRecordActivity extends AppCompatActivity {
 
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause");
-        db.close();
+//        Log.d(TAG, "onPause");
+//        db.close("WorkoutRecordActivity");
     }
 
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume");
-        db.open();
+//        Log.d(TAG, "onResume");
+//        db.open("WorkoutRecordActivity");
+        db = WorkoutDbHelper.getInstance(getApplicationContext());
     }
 }

@@ -18,4 +18,6 @@
     <string name="title_activity_add_meal">Add Meal</string>
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
+    <string name="title_activity_main">Workout</string>
+    <string name="title_activity_sample">Sample</string>
 </resources>

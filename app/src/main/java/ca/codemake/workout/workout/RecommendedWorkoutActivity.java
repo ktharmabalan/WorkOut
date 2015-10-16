@@ -9,9 +9,6 @@ import android.widget.ListView;
 
 import ca.codemake.workout.R;
 
-/**
- * Created by Kajan on 8/19/2015.
- */
 public class RecommendedWorkoutActivity extends Activity implements ListView.OnItemClickListener {
 
     protected void onCreate(Bundle savedInstanceState) {

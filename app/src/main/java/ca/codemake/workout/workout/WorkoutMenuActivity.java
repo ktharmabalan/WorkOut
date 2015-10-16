@@ -29,7 +29,7 @@ public class WorkoutMenuActivity extends Activity implements View.OnClickListene
         Button b = (Button) v;
 
         if(b.getId() == R.id.btn_begin_workout) {
-            Intent i = new Intent(getApplicationContext(), WorkoutInputActivity.class);
+            Intent i = new Intent(getApplicationContext(), WorkoutInputFragment.class);
             startActivity(i);
         } else if(b.getId() == R.id.btn_workout_history) {
             Intent i = new Intent(getApplicationContext(), WorkoutHistoryActivity.class);

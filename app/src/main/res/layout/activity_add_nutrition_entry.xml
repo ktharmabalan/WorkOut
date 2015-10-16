@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".AddNutritionEntryActivity">
+    tools:context="ca.codemake.workout.nutrition.AddNutritionEntryActivity">
 
     <include layout="@layout/app_bar_layout" />
 

@@ -1,92 +1,176 @@
 package ca.codemake.workout;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.FrameLayout;
 
 import ca.codemake.workout.database.WorkoutDbHelper;
-import ca.codemake.workout.nutrition.NutritionCalculatorActivity;
-import ca.codemake.workout.workout.CreateRoutineActivity;
-import ca.codemake.workout.workout.WorkoutInputActivity;
+import ca.codemake.workout.nutrition.NutritionCalculatorFragment;
+import ca.codemake.workout.workout.WorkoutInputFragment;
 
-public class MainActivity extends DrawerBaseActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
+    protected DrawerLayout drawerLayout;
+    protected ActionBarDrawerToggle drawerToggle;
+    private NavigationView navigationView;
     private Toolbar toolbar;
+
+    private FrameLayout frameLayout;
+    private FragmentManager fragmentManager;
+    private Fragment fragment;
+
     private WorkoutDbHelper db;
-    private final static String TAG = "MainActivity";
+
+    private static final String TAG = "MainActivity";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer_base);
-//        setContentView(R.layout.activity_main);
-        onCreateDrawer(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
+        db = WorkoutDbHelper.getInstance(getApplicationContext());
+        setUpAppBar();
+
+        frameLayout = (FrameLayout) findViewById(R.id.content_frame);
+
+        // Set initial fragment
+        fragmentManager = getSupportFragmentManager();
+
+//        loadWorkout();
+        fragment = new Sample();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        createNavigationDrawer();
+    }
+
+    private void setUpAppBar() {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar.setNavigationIcon(R.drawable.ic_drawer);
+
         setSupportActionBar(toolbar);
 
-        db = new WorkoutDbHelper(getApplicationContext());
-        setUpButtons();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(false);
+//        actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
-    public void setUpButtons() {
-        Button b = (Button) this.findViewById(R.id.btn_begin_workout);
-        b.setOnClickListener(this);
-
-        b = (Button) this.findViewById(R.id.btn_nutrition_calculator);
-        b.setOnClickListener(this);
+    private void createNavigationDrawer() {
+        initNavigationView();
+        initDrawerLayout();
     }
 
-    public void onClick(View v) {
-        Button b = (Button) v;
+    protected void createNavigationDrawer(int layout) {
+        createNavigationDrawer();
+        setContent(layout);
+    }
 
-        if(b.getId() == R.id.btn_begin_workout) {
-//            Toast.makeText(this, "Begin Workout", Toast.LENGTH_SHORT).show();
-            if(db.getConfiguration("CHOSEN_ROUTINE").getCount() != 0) {
-                Intent i = new Intent(getApplicationContext(), CreateRoutineActivity.class);
-                startActivity(i);
-            } else {
-                Intent i = new Intent(getApplicationContext(), WorkoutInputActivity.class);
-                startActivity(i);
+    private void initDrawerLayout() {
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
+            // Called when a drawer has settled in a completely closed state.
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+//                getSupportActionBar().setTitle(title);
+//                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
-        } else if(b.getId() == R.id.btn_nutrition_calculator) {
-//            Toast.makeText(this, "Nutrition Calculator", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getApplicationContext(), NutritionCalculatorActivity.class);
-            startActivity(i);
-        }
+
+            // Called when a drawer has settled in a completely open state.
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+//                getSupportActionBar().setTitle(title);
+//                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+        };
+
+        // Set the drawer toggle as the DrawerListener
+        drawerLayout.setDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+    }
+
+    private void initNavigationView() {
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.getMenu().getItem(0).setChecked(true);
+
+//      Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+            // This method will trigger on item Click of navigation menu
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                //Checking if the item is in checked state or not, if not make it in checked state
+//                if (menuItem.isChecked())
+//                    menuItem.setChecked(false);
+//                else
+//                    menuItem.setChecked(true);
+
+                //Closing drawer on item click
+                drawerLayout.closeDrawers();
+
+                //Check to see which item was being clicked and perform appropriate action
+                switch (menuItem.getItemId()) {
+                    //Replacing the main content with ContentFragment Which is our Inbox View;
+                    case R.id.workout:
+                        checkDrawerItem(menuItem);
+                        fragment = new WorkoutInputFragment();
+                        break;
+                    case R.id.nutrition:
+                        checkDrawerItem(menuItem);
+                        fragment = new NutritionCalculatorFragment();
+                        break;
+                    case R.id.routines:
+                        checkDrawerItem(menuItem);
+                        break;
+                    case R.id.setting:
+                        checkDrawerItem(menuItem);
+                        break;
+                    default:
+                        break;
+                }
+
+                if(fragment != null) {
+                    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                }
+                return true;
+            }
+        });
+    }
+
+    private void loadWorkout() {
+        fragment = new WorkoutInputFragment();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+    }
+
+    private void setContent(int layout) {
+        frameLayout.addView(getLayoutInflater().inflate(layout, null));
+    }
+
+    // Swaps fragments in the main content view
+    private void checkDrawerItem(MenuItem menuItem) {
+        setTitle(menuItem.getTitle());
+        menuItem.setChecked(true);
+    }
+
+    public void setTitle(CharSequence title) {
+        getSupportActionBar().setTitle(title);
     }
 
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause");
-        db.close();
+//        db.close("MainActivity");
+        db = WorkoutDbHelper.getInstance(getApplicationContext());
     }
 
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume");
-        db.open();
+//        db.open("MainActivity");
     }
 }

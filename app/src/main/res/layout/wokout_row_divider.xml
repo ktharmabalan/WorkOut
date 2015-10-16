@@ -2,63 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="48dp"
+    android:background="@color/colorPrimary"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:background="@color/colorPrimary"
-    android:descendantFocusability="blocksDescendants">
+    android:paddingRight="10dp">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal">
 
-<!--        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/workout_name"
-            android:hint="Workout name"
-            android:textColorHint="#fff"
-            android:textColor="#fff"
-            />-->
-
         <TextView
             android:id="@+id/workout_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="Workout name"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center_vertical"
             android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="Workout name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#fff" />
 
         <Button
             android:id="@+id/addExerciseToWeekDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/plus_small"
-            android:backgroundTint="#fff"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:layout_gravity="center_vertical"/>
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/plus_small" />
 
         <Button
             android:id="@+id/editWeekday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_small"
-            android:paddingLeft="20dp"
-            android:paddingRight="15dp"
-            android:layout_gravity="center_vertical" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/edit_small" />
     </LinearLayout>
 
     <!--  divider -->
-    <View
+<!--    <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="1dp"
-        android:background="#9E9E9E"
-        android:id="@+id/view">
-    </View>
+        android:background="#9E9E9E" />-->
 
 </LinearLayout>
