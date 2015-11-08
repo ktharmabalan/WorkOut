@@ -6,7 +6,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 import ca.codemake.workout.R;
-import ca.codemake.workout.adapters.ChooseExerciseAdapter;
+import ca.codemake.workout.adapters.ChooseExerciseListAdapter;
 import ca.codemake.workout.models.Exercise;
 import ca.codemake.workout.models.Item;
 
@@ -16,7 +16,7 @@ public class ChooseExerciseActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_exercises);
 
-        ChooseExerciseAdapter mAdapter = new ChooseExerciseAdapter(this);
+        ChooseExerciseListAdapter mAdapter = new ChooseExerciseListAdapter(this);
 
         ArrayList<Item> items = new ArrayList<>();
 

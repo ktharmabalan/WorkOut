@@ -8,9 +8,9 @@ import android.widget.TextView;
 import ca.codemake.workout.R;
 import ca.codemake.workout.models.Exercise;
 
-public class ChooseExerciseAdapter extends SimpleAdapter {
+public class ChooseExerciseListAdapter extends SimpleListAdapter {
 
-    public ChooseExerciseAdapter(Context context) {
+    public ChooseExerciseListAdapter(Context context) {
         super(context);
     }
 

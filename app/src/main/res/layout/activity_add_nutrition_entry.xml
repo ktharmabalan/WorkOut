@@ -1,60 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    android:orientation="vertical"
-    tools:context="ca.codemake.workout.nutrition.AddNutritionEntryActivity">
-
-    <include layout="@layout/app_bar_layout" />
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".nutrition.AddNutritionEntryActivity">
 
     <TextView
-        android:id="@+id/txt_nutrition_day"
+        android:id="@+id/txt_nutrition_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottom_border_secondary_dark"
+        android:background="@color/gray"
+        android:focusable="true"
         android:gravity="center_horizontal"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:text="Date"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text_color"
+        android:textColor="#757575"
         android:textStyle="bold" />
 
+    <!--    <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calories consumed"/>-->
+
+    <!--    <Switch
+            android:id="@+id/calories_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_nutrition_date"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:text="Calories consumed"
+            android:visibility="invisible"
+            android:textStyle="bold" />-->
+
+    <RadioGroup
+        android:id="@+id/calories_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nutrition_date"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp">
+
+        <RadioButton
+            android:id="@+id/calories_consumed_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Calories consumed"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/calories_expended_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Calories Expended"
+            android:textStyle="bold" />
+    </RadioGroup>
+
     <LinearLayout
+        android:id="@+id/calories_expended_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/calories_category"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:visibility="gone">
 
-        <AutoCompleteTextView
-            android:id="@+id/mealName"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="Meal name" />
+            android:layout_height="wrap_content">
 
-        <AutoCompleteTextView
-            android:id="@+id/foodName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Food name" />
+            <EditText
+                android:id="@+id/activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Activity performed"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/calories"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Calories per serving"
-            android:inputType="number" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/servings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Number of servings"
-            android:inputType="number" />
+            <EditText
+                android:id="@+id/calories_expended"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Calories expended"
+                android:inputType="numberDecimal|numberSigned" />
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/calories_consumed_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/calories_category"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/food_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/food_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Food name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/meal_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/meal_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Meal name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/calories_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/calories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Calories per serving"
+                android:inputType="numberDecimal|numberSigned" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/number_of_servings_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/number_of_servings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Number of servings"
+                android:inputType="numberDecimal|numberSigned" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/serving_size_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/serving_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Serving size" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+</RelativeLayout>

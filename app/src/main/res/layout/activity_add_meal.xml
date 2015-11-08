@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Meal title"
-        android:id="@+id/mealName" />
+        android:id="@+id/meal_name" />
 
     <Button
         android:layout_width="match_parent"

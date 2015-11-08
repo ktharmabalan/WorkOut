@@ -154,7 +154,12 @@
         <activity
             android:name=".nutrition.AddNutritionEntryActivity"
             android:label="@string/title_activity_nutrition_day"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
+<!--            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -163,9 +168,14 @@
             android:name=".nutrition.AddFoodActivity"
             android:label="@string/add_food"
             android:parentActivityName=".nutrition.AddNutritionEntryActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".nutrition.AddNutritionEntryActivity" />
+<!--            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+            <!--<meta-data-->
+                <!--android:name="android.support.PARENT_ACTIVITY"-->
+                <!--android:value=".nutrition.AddNutritionEntryActivity" />-->
         </activity>
         <activity
             android:name=".nutrition.AddMealActivity"

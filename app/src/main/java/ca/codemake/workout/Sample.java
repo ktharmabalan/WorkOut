@@ -17,7 +17,7 @@ public class Sample extends Fragment {
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
 
-    private static final String TAG = "RecyclerViewFragment";
+//    private static final String TAG = "RecyclerViewFragment";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
     private static final int SPAN_COUNT = 2;
     private static final int DATASET_COUNT = 60;
@@ -40,7 +40,7 @@ public class Sample extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.activity_sample, container, false);
-        rootView.setTag(TAG);
+//        rootView.setTag(TAG);
 
         // BEGIN_INCLUDE(initializeRecyclerView)
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
@@ -60,12 +60,12 @@ public class Sample extends Fragment {
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
 
         mAdapter = new CustomAdapter(mDataset);
-        // Set CustomAdapter as the adapter for RecyclerView.
+        // Set WorkoutInputAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
         // END_INCLUDE(initializeRecyclerView)
 
 //        setRecyclerViewLayoutManager(LayoutManagerType.LINEAR_LAYOUT_MANAGER);
-        setRecyclerViewLayoutManager(LayoutManagerType.GRID_LAYOUT_MANAGER);
+//        setRecyclerViewLayoutManager(LayoutManagerType.GRID_LAYOUT_MANAGER);
 
         return rootView;
     }
@@ -124,21 +124,21 @@ public class Sample extends Fragment {
      * Provide views to RecyclerView with data from mDataSet.
      */
     public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-        private static final String TAG = "CustomAdapter";
+        private static final String TAG = "WorkoutInputAdapter";
 
         private String[] mDataSet;
 
         // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
 
         /**
-         * Provide a reference to the type of views that you are using (custom ViewHolder)
+         * Provide a reference to the type of views that you are using (custom RowViewHolder)
          */
         public class ViewHolder extends RecyclerView.ViewHolder {
             private final TextView textView;
 
             public ViewHolder(View v) {
                 super(v);
-                // Define click listener for the ViewHolder's View.
+                // Define click listener for the RowViewHolder's View.
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="pref_nutrition_settings"
+        android:title="Nutrition Settings">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_"
+            android:title="Check Box" />
+        <EditTextPreference
+            android:hint="Enter something"
+            android:key="pref_text"
+            android:title="Text Title"
+            android:summary="Text summary"
+            android:dialogTitle="dialog title"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_workout"
+        android:title="Workout Settings">
+        <ListPreference
+            android:key="list_preference"
+            android:title="List Title"
+            android:dialogTitle="Dialog Title"
+            android:entries="@array/pref_entries"
+            android:entryValues="@array/pref_values" />
+    </PreferenceCategory>
+</PreferenceScreen>

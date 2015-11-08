@@ -7,22 +7,21 @@
     android:orientation="vertical"
     tools:context="ca.codemake.workout.nutrition.NutritionCalculatorFragment">
 
-    <!--    <include
-            layout="@layout/app_bar_layout" />-->
-
+    <!-- Date -->
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/nutritionDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@color/gray"
         android:gravity="center_horizontal"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:text="Date"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text_color"
+        android:textColor="#757575"
         android:textStyle="bold" />
 
+    <!-- Progress Bar -->
     <RelativeLayout
         android:id="@+id/progressRemaining"
         android:layout_width="match_parent"
@@ -37,7 +36,6 @@
             android:minHeight="30dp"
             android:progress="58"
             android:progressDrawable="@drawable/progress" />
-        <!--android:progressBackgroundTint="@color/secondary_color"-->
 
         <TextView
             android:id="@+id/progressBarText"
@@ -51,63 +49,127 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
+        android:background="@color/gray_background"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="500"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/gray_text"
+                android:gravity="center"
+                android:text="Goal"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2000"
+                android:gravity="center"
+                android:textColor="@color/gray_text"
                 android:textStyle="bold" />
+        </LinearLayout>
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_text"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CALORIES REMAINING"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/gray_text"
+                android:gravity="center"
+                android:text="Consumed"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="-1000"
+                android:textColor="@color/gray_text"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_nutrition_day"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="2"
-            android:background="@drawable/button"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:text="Add Entry"
-            android:textColor="@color/text_color"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_text"/>
 
-        <!--&lt;!&ndash;android:background="#EAEAEA"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_text"
+                android:gravity="center"
+                android:text="Expended"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="+500"
+                android:textColor="@color/gray_text"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_text"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_text"
+                android:gravity="center"
+                android:text="Remaining"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1500"
+                android:textColor="@color/gray_text"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
-    <ListView
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/separator_dark"/>
+
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/nutrition_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:focusable="true" />
+        android:layout_height="match_parent" />
 
+    <TextView
+        android:id="@+id/emptyView"
+        style="@style/EmptyView"
+        android:text="Press the '+' icon to add a \nnew Nutrition entry" />
 </LinearLayout>

@@ -1,7 +1,6 @@
 package ca.codemake.workout.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -10,15 +9,25 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import ca.codemake.workout.nutrition.AddNutritionEntryActivity;
 import ca.codemake.workout.R;
 import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Meal;
 import ca.codemake.workout.models.MealEntry;
 
-public class NutritionAdapter extends SimpleAdapter {
+public class NutritionListAdapter extends SimpleListAdapter {
 
-    public NutritionAdapter(Context context) {
+    private ClickListener clickListener;
+
+    public interface ClickListener {
+        public void onClick(int position);
+        public void onLongClick(int position);
+    }
+
+    public void setClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
+
+    public NutritionListAdapter(Context context) {
         super(context);
     }
 
@@ -34,7 +43,7 @@ public class NutritionAdapter extends SimpleAdapter {
         return  position;
     }
 
-    public View getView(int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         TextView foodName = null;
         TextView calories = null;
         TextView servingSize = null;
@@ -57,28 +66,28 @@ public class NutritionAdapter extends SimpleAdapter {
                 linearLayout.setLayoutParams(params);
             }
 
-            mealName = (TextView) convertView.findViewById(R.id.mealName);
+            mealName = (TextView) convertView.findViewById(R.id.meal_name);
             mealName.setText(meal.getMealName());
             calories = (TextView) convertView.findViewById(R.id.mealCalories);
             calories.setText(String.valueOf(meal.getCalories()));
 
-            addMealItem = (Button) convertView.findViewById(R.id.button3);
+            addMealItem = (Button) convertView.findViewById(R.id.addMealEntry);
 
             addMealItem.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Intent i = new Intent(parent.getContext(), AddNutritionEntryActivity.class);
-                    parent.getContext().startActivity(i);
-//                    Toast.makeText(parent.getContext(), finalMealName.getText(), Toast.LENGTH_SHORT).show();
+                    if(clickListener != null) {
+                        clickListener.onClick(position);
+                    }
                 }
             });
         } else {
             MealEntry mealEntry = (MealEntry) items.get(position);
 
-            foodName = (TextView) convertView.findViewById(R.id.foodName);
+            foodName = (TextView) convertView.findViewById(R.id.food_name);
             foodName.setText(mealEntry.getFoodName());
             calories = (TextView) convertView.findViewById(R.id.calories);
             calories.setText(String.valueOf(mealEntry.getCalories()));
-            servingSize = (TextView) convertView.findViewById(R.id.servingSize);
+            servingSize = (TextView) convertView.findViewById(R.id.serving_size);
             servingSize.setText(mealEntry.getServingSize());
         }
         return convertView;

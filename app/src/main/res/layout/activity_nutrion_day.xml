@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Month 4 Day 3"
-        android:id="@+id/txt_nutrition_day"
+        android:id="@+id/txt_nutrition_date"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -24,7 +24,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/txt_nutrition_day"
+        android:layout_below="@+id/txt_nutrition_date"
         android:layout_above="@+id/btn_nutrition_done"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">

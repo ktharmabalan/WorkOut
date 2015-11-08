@@ -18,4 +18,16 @@
         <item>@android:drawable/ic_menu_always_landscape_portrait</item>
         <item>@android:drawable/ic_menu_recent_history</item>
     </integer-array>
+
+    <string-array name="pref_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="pref_values">
+        <item>Value 1</item>
+        <item>Value 2</item>
+        <item>Value 3</item>
+    </string-array>
 </resources>

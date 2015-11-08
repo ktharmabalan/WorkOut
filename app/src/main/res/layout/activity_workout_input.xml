@@ -6,53 +6,27 @@
     android:orientation="vertical"
     tool:context="ca.codemake.workout.workout.WorkoutInputFragment">
 
-    <!--<include-->
-        <!--layout="@layout/app_bar_layout" />-->
-
     <TextView
         android:id="@+id/workout_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@color/gray"
         android:gravity="center_horizontal"
-        android:text="Date"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
-
-<!--    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:text="Date"
+        android:textColor="#757575"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Congratulations on Day5!\nKeep Killing it!"
-        android:textColor="@color/primary_color"
-        android:id="@+id/txt_congratulations" />-->
+        android:textStyle="bold" />
 
-    <LinearLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <ListView
-            android:id="@+id/list_workout_tracker"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:choiceMode="none"/>
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/emptyView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textStyle="bold"
-            android:background="#dddddd"
-            android:textColor="#000"
-            android:text="Press the '+' icon to add a \nnew Workout Routine"
-            android:gravity="center" />
-    </LinearLayout>
-
-
+    <TextView
+        android:id="@+id/emptyView"
+        style="@style/EmptyView"
+        android:text="Press the '+' icon to add a \nnew Workout routine" />
 
 </LinearLayout>

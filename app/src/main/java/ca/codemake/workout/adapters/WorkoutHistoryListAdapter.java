@@ -9,12 +9,12 @@ import android.widget.BaseAdapter;
 /**
  * Created by Kajan on 8/20/2015.
  */
-public class WorkoutHistoryAdapter extends BaseAdapter {
+public class WorkoutHistoryListAdapter extends BaseAdapter {
 
     private Context context;
     private String[] values;
 
-    public WorkoutHistoryAdapter(Context context, String[] values) {
+    public WorkoutHistoryListAdapter(Context context, String[] values) {
         this.context = context;
         this.values = values;
     }

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/topSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/bottom_border_gray" />
+
+    <LinearLayout
+        android:id="@+id/switch_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_border_gray"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/nutrition_facts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="5dp"
+            android:paddingTop="20dp"
+            android:text="Nutrition Facts"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <!--android:background="@color/gray_background"-->
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="20dp" />
+
+    </LinearLayout>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="10dp"
+        android:id="@+id/nutrition_facts_table"
+        android:visibility="gone"
+        android:stretchColumns="*">
+
+        <!--        <TableRow>
+                    <TextView
+                        android:id="@+id/calories"
+                        android:layout_width="match_parent"
+                        android:text="Calories" />
+
+                    <TextView
+                        android:id="@+id/caloriesAmn"
+                        android:layout_width="match_parent"
+                        android:text="0" />
+                </TableRow>-->
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/element"
+                style="@style/Nutrition.Text"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/amount"
+                style="@style/Nutrition.Edit.Amn"
+                android:text="Amount" />
+
+            <TextView
+                android:id="@+id/dailyValue"
+                style="@style/Nutrition.Edit.Dv"
+                android:text="% Daily Value" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fats"
+                style="@style/Nutrition.Text.Title"
+                android:text="Fat" />
+
+            <EditText
+                android:id="@+id/fatsAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+
+            <EditText
+                android:id="@+id/fatsDv"
+                style="@style/Nutrition.Edit.Dv.Title"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saturated"
+                style="@style/Nutrition.Text"
+                android:text="Saturated Fat" />
+
+            <EditText
+                android:id="@+id/saturatedAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+
+            <EditText
+                android:id="@+id/saturatedDv"
+                style="@style/Nutrition.Edit.Dv.Title"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/trans"
+                style="@style/Nutrition.Text"
+                android:text="Trans Fat" />
+
+            <EditText
+                android:id="@+id/transAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/polyunsaturated"
+                style="@style/Nutrition.Text"
+                android:text="Polyunsaturated Fat" />
+
+            <EditText
+                android:id="@+id/polyunsaturatedAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/monounsaturated"
+                style="@style/Nutrition.Text"
+                android:text="Monounsaturated Fat" />
+
+            <EditText
+                android:id="@+id/monounsaturatedAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/cholesterol"
+                style="@style/Nutrition.Text.Title"
+                android:text="Cholesterol" />
+
+            <EditText
+                android:id="@+id/cholesterolAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(mg)"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/sodium"
+                style="@style/Nutrition.Text.Title"
+                android:text="Sodium" />
+
+            <EditText
+                android:id="@+id/sodiumAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(mg)"
+                android:inputType="number|numberDecimal" />
+
+            <EditText
+                android:id="@+id/sodiumDv"
+                style="@style/Nutrition.Edit.Dv.Title"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/potassium"
+                style="@style/Nutrition.Text"
+                android:text="Potassium" />
+
+            <EditText
+                android:id="@+id/potassiumAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(mg)"
+                android:inputType="number|numberDecimal" />
+
+            <EditText
+                android:id="@+id/potassiumDv"
+                style="@style/Nutrition.Edit.Dv"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/carbs"
+                style="@style/Nutrition.Text.Title"
+                android:text="Carbohydrate" />
+
+            <EditText
+                android:id="@+id/carbsAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+
+            <EditText
+                android:id="@+id/carbsDv"
+                style="@style/Nutrition.Edit.Dv.Title"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fibre"
+                style="@style/Nutrition.Text"
+                android:text="Fibre" />
+
+            <EditText
+                android:id="@+id/fibreAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+
+            <EditText
+                android:id="@+id/fibreDv"
+                style="@style/Nutrition.Edit.Dv.Title"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/sugar"
+                style="@style/Nutrition.Text"
+                android:text="Sugar" />
+
+            <EditText
+                android:id="@+id/sugarAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/protein"
+                style="@style/Nutrition.Text.Title"
+                android:text="Protein" />
+
+            <EditText
+                android:id="@+id/proteinAmn"
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <View
+            android:id="@+id/bottomSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bottom_border_gray" />
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/vitaminA"
+                style="@style/Nutrition.Text"
+                android:text="Vitamin A" />
+
+            <EditText
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/vitaminADv"
+                style="@style/Nutrition.Edit.Dv"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/vitaminC"
+                style="@style/Nutrition.Text"
+                android:text="Vitamin C" />
+
+            <EditText
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/vitaminCDv"
+                style="@style/Nutrition.Edit.Dv"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/calcium"
+                style="@style/Nutrition.Text"
+                android:text="Calcium" />
+
+            <EditText
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/calciumDv"
+                style="@style/Nutrition.Edit.Dv"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/iron"
+                style="@style/Nutrition.Text"
+                android:text="Iron" />
+
+            <EditText
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/ironDv"
+                style="@style/Nutrition.Edit.Dv"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/thiamine"
+                style="@style/Nutrition.Text"
+                android:text="Thiamine" />
+
+            <EditText
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/thiamineDv"
+                style="@style/Nutrition.Edit.Dv"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/riboflavin"
+                style="@style/Nutrition.Text"
+                android:text="Riboflavin" />
+
+            <EditText
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/riboflavinDv"
+                style="@style/Nutrition.Edit.Dv"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/vitaminD"
+                style="@style/Nutrition.Text"
+                android:text="Vitamin D" />
+
+            <EditText
+                style="@style/Nutrition.Edit.Amn"
+                android:hint="(g)"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/vitaminDDv"
+                style="@style/Nutrition.Edit.Dv"
+                android:hint="%"
+                android:inputType="number|numberDecimal" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

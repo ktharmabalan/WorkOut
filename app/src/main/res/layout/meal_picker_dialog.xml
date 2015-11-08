@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
+
+    <!--    <TextView
+            android:id="@+id/dialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Title"
+            android:textSize="30sp"
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:textStyle="bold" />-->
+
+    <!--    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Enter meal name"
+            android:padding="10dp"/>-->
+
+    <EditText
+        android:id="@+id/mealTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoText="true"
+        android:hint="Meal title"
+        android:singleLine="true" />
+
+    <!--android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"-->
+
+    <!--    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+            <Button
+                style="@style/AppTheme.AlertDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:text="Cancel"
+                android:layout_marginRight="4dp"/>
+            &lt;!&ndash;            android:background="@color/colorAccent"&ndash;&gt;
+            <Button
+                style="@style/AppTheme.AlertDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:text="Ok"/>
+
+
+    &lt;!&ndash;        android:background="@color/colorAccent"&ndash;&gt;
+        </LinearLayout>-->
+
+</LinearLayout>

@@ -154,7 +154,8 @@ public class CreateRoutineActivity extends AppCompatActivity {
     private void createNewRoutine(String route_name) {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
-        routine_id = db.newRoutine(route_name, simpleDateFormat.format(calendar.getTime()));
+//        routine_id = db.newRoutine(route_name, simpleDateFormat.format(calendar.getTime()));
+        routine_id = db.newRoutine(route_name, true);
 
         newRoutine = true;
         loadData();
@@ -232,7 +233,7 @@ public class CreateRoutineActivity extends AppCompatActivity {
 
     private void initRoutine(Cursor cursor) {
         routine_id = cursor.getInt(cursor.getColumnIndex("routine_id"));
-        routine = new Routine(cursor.getString(cursor.getColumnIndex("routine_name")));
+        routine = new Routine(cursor.getString(cursor.getColumnIndex("routine_name")), cursor.getInt(cursor.getColumnIndex("active")) == 1);
         routine.setId((int)routine_id);
         routineName.setText(routine.getName());
     }

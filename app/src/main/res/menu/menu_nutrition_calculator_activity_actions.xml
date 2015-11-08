@@ -8,6 +8,6 @@
 
     <item android:id="@+id/action_new_meal"
         android:title="Add meal"
-        android:icon="@drawable/plus"
+        android:icon="@android:drawable/ic_input_add"
         app:showAsAction="always" />
 </menu>

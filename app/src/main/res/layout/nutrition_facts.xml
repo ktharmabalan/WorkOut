@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/nutrition_facts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_border_gray"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="20dp"
+        android:text="Nutrition Facts"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <!--android:background="@color/gray_background"-->
+
+    <TextView
+        android:id="@+id/amount"
+        style="@style/NutritionBase.Item.Left"
+        android:layout_below="@+id/nutrition_facts"
+        android:text="Amount" />
+
+    <TextView
+        android:id="@+id/dailyValue"
+        style="@style/NutritionBase.Item.Right"
+        android:layout_below="@+id/nutrition_facts"
+        android:layout_toEndOf="@+id/amount"
+        android:text="% Daily Value" />
+
+    <View
+        android:layout_below="@+id/amount"
+        android:id="@+id/topSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/bottom_border_gray" />
+
+    <TextView
+        android:id="@+id/calories"
+        style="@style/NutritionBase.Item.Left"
+        android:layout_below="@+id/topSeparator"
+        android:text="Calories" />
+
+    <TextView
+        android:id="@+id/caloriesAmn"
+        style="@style/NutritionBase.Item.Middle"
+        android:layout_below="@+id/topSeparator"
+        android:layout_toEndOf="@+id/calories"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/totalFats"
+        style="@style/NutritionBase.Item.Left"
+        android:layout_below="@+id/calories"
+        android:text="Total Fat (g)" />
+
+    <TextView
+        android:id="@+id/totalFatsAmn"
+        style="@style/NutritionBase.Item.Middle"
+        android:layout_below="@+id/caloriesAmn"
+        android:layout_toEndOf="@+id/totalFats"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/totalFatsDv"
+        style="@style/NutritionBase.Item.Right"
+        android:layout_below="@+id/caloriesAmn"
+        android:layout_toEndOf="@+id/totalFatsAmn"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/saturated"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/totalFats"
+        android:text="Saturated Fat (g)" />
+
+    <TextView
+        android:id="@+id/saturatedAmn"
+        style="@style/NutritionBase.SubItem.Middle"
+        android:layout_below="@+id/totalFatsAmn"
+        android:layout_toEndOf="@+id/saturated"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/saturatedDv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/totalFatsDv"
+        android:layout_toEndOf="@+id/saturatedAmn"
+        android:layout_above="@+id/polyunsaturatedAmn"
+        android:gravity="center_vertical|end"
+        android:textStyle="bold"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/trans"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/saturated"
+        android:text="Trans Fat (g)" />
+
+    <TextView
+        android:id="@+id/transAmn"
+        style="@style/NutritionBase.SubItem.Middle"
+        android:layout_below="@+id/saturatedAmn"
+        android:layout_toEndOf="@+id/trans"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/polyunsaturated"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/trans"
+        android:text="Polyunsaturated Fat (g)" />
+
+    <TextView
+        android:id="@+id/polyunsaturatedAmn"
+        style="@style/NutritionBase.SubItem.Middle"
+        android:layout_below="@+id/transAmn"
+        android:layout_toEndOf="@+id/polyunsaturated"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/monounsaturated"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/polyunsaturated"
+        android:text="Monounsaturated Fat (g)" />
+
+    <TextView
+        android:id="@+id/monounsaturatedAmn"
+        style="@style/NutritionBase.SubItem.Middle"
+        android:layout_below="@+id/polyunsaturatedAmn"
+        android:layout_toEndOf="@+id/monounsaturated"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/cholesterol"
+        style="@style/NutritionBase.Item.Left"
+        android:layout_below="@+id/monounsaturated"
+        android:text="Cholesterol (mg)" />
+
+    <TextView
+        android:id="@+id/cholesterolAmn"
+        style="@style/NutritionBase.Item.Middle"
+        android:layout_below="@+id/monounsaturatedAmn"
+        android:layout_toEndOf="@+id/cholesterol"
+        android:text="0" />
+
+<!--    <TextView
+        android:id="@+id/cholesterolDv"
+        style="@style/NutritionBase.Item.Right"
+        android:layout_below="@+id/monounsaturatedAmn"
+        android:layout_toEndOf="@+id/cholesterolAmn"
+        android:text="0%" />-->
+
+    <TextView
+        android:id="@+id/sodium"
+        style="@style/NutritionBase.Item.Left"
+        android:layout_below="@+id/cholesterol"
+        android:text="Sodium (mg)" />
+
+    <TextView
+        android:id="@+id/sodiumNum"
+        style="@style/NutritionBase.Item.Middle"
+        android:layout_below="@+id/cholesterolAmn"
+        android:layout_toEndOf="@+id/sodium"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/sodiumDv"
+        style="@style/NutritionBase.Item.Right"
+        android:layout_below="@+id/cholesterolAmn"
+        android:layout_toEndOf="@+id/sodiumNum"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/potassium"
+        style="@style/NutritionBase.Item.Left"
+        android:layout_below="@+id/sodium"
+        android:text="Potassium (mg)" />
+
+    <TextView
+        android:id="@+id/potassiumAmn"
+        style="@style/NutritionBase.Item.Middle"
+        android:layout_below="@+id/sodiumNum"
+        android:layout_toEndOf="@+id/potassium"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/potassiumDv"
+        style="@style/NutritionBase.Item.Right"
+        android:layout_below="@+id/sodiumDv"
+        android:layout_toEndOf="@+id/potassiumAmn"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/carbs"
+        style="@style/NutritionBase.Item.Left"
+        android:layout_below="@+id/potassium"
+        android:text="Carbohydrates (g)" />
+
+    <TextView
+        android:id="@+id/carbsAmn"
+        style="@style/NutritionBase.Item.Middle"
+        android:layout_below="@+id/potassiumAmn"
+        android:layout_toEndOf="@+id/carbs"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/carbsDv"
+        style="@style/NutritionBase.Item.Right"
+        android:layout_below="@+id/potassiumDv"
+        android:layout_toEndOf="@+id/carbsAmn"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/fibre"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/carbs"
+        android:text="Fibre (g)" />
+
+    <TextView
+        android:id="@+id/fibreAmn"
+        style="@style/NutritionBase.SubItem.Middle"
+        android:layout_below="@+id/carbsAmn"
+        android:layout_toEndOf="@+id/fibre"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/fibreDv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/carbsDv"
+        android:layout_toEndOf="@+id/fibreAmn"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/sugar"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/fibre"
+        android:text="Sugars (g)" />
+
+    <TextView
+        android:id="@+id/sugarAmn"
+        style="@style/NutritionBase.SubItem.Middle"
+        android:layout_below="@+id/fibreAmn"
+        android:layout_toEndOf="@+id/sugar"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/protein"
+        style="@style/NutritionBase.Item.Left"
+        android:layout_below="@+id/sugar"
+        android:text="Protein (g)" />
+
+    <TextView
+        android:id="@+id/proteinAmn"
+        style="@style/NutritionBase.Item.Middle"
+        android:layout_below="@+id/sugarAmn"
+        android:layout_toEndOf="@+id/protein"
+        android:text="0" />
+
+    <View
+        android:layout_below="@+id/protein"
+        android:id="@+id/bottomSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/bottom_border_gray" />
+
+    <TextView
+        android:id="@+id/vitaminA"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/bottomSeparator"
+        android:text="Vitamin A" />
+
+    <TextView
+        android:id="@+id/vitaminADv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/bottomSeparator"
+        android:layout_toEndOf="@+id/vitaminA"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/vitaminC"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/vitaminA"
+        android:text="Vitamin C" />
+
+    <TextView
+        android:id="@+id/vitaminCDv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/vitaminADv"
+        android:layout_toEndOf="@+id/vitaminC"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/calcium"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/vitaminC"
+        android:text="Calcium" />
+
+    <TextView
+        android:id="@+id/calciumDv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/vitaminCDv"
+        android:layout_toEndOf="@+id/calcium"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/iron"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/calcium"
+        android:text="Iron" />
+
+    <TextView
+        android:id="@+id/ironDv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/calciumDv"
+        android:layout_toEndOf="@+id/iron"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/thiamine"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/iron"
+        android:text="Thiamine" />
+
+    <TextView
+        android:id="@+id/thiamineDv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/ironDv"
+        android:layout_toEndOf="@+id/thiamine"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/riboflavin"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/thiamine"
+        android:text="Riboflavin" />
+
+    <TextView
+        android:id="@+id/riboflavinDv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/thiamineDv"
+        android:layout_toEndOf="@+id/riboflavin"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/vitaminD"
+        style="@style/NutritionBase.SubItem.Left"
+        android:layout_below="@+id/riboflavin"
+        android:text="Vitamin D" />
+
+    <TextView
+        android:id="@+id/vitaminDDv"
+        style="@style/NutritionBase.SubItem.Right"
+        android:layout_below="@+id/riboflavinDv"
+        android:layout_toEndOf="@+id/riboflavin"
+        android:text="0%" />
+</RelativeLayout>

@@ -1,10 +1,14 @@
 package ca.codemake.workout.models;
 
 public class MealEntry implements Item {
+    public long meal_entry_id;
+    private long meal_id;
+    private String meal_name;
+    private long food_id;
     private String foodName;
     private int calories;
     private String servingSize;
-    private boolean marginTop = false;
+    private double number_of_servings;
 
     public MealEntry(String foodName, int calories) {
         this.foodName = foodName;
@@ -12,24 +16,17 @@ public class MealEntry implements Item {
         this.servingSize = "Serving size";
     }
 
+    public MealEntry(String foodName, int calories, long meal_entry_id) {
+        this.foodName = foodName;
+        this.calories = calories;
+        this.servingSize = "Serving size";
+        this.meal_entry_id = meal_entry_id;
+    }
+
     public MealEntry(String foodName, int calories, String servingSize) {
         this.foodName = foodName;
         this.calories = calories;
         this.servingSize = servingSize;
-    }
-
-    public MealEntry(String foodName, int calories, boolean marginTop) {
-        this.foodName = foodName;
-        this.calories = calories;
-        this.servingSize = "Serving size";
-        this.marginTop = marginTop;
-    }
-
-    public MealEntry(String foodName, int calories, String servingSize, boolean marginTop) {
-        this.foodName = foodName;
-        this.calories = calories;
-        this.servingSize = servingSize;
-        this.marginTop = marginTop;
     }
 
     public int getCalories() {
@@ -60,11 +57,7 @@ public class MealEntry implements Item {
         return false;
     }
 
-    public void setMarginTop(boolean marginTop) {
-        this.marginTop = marginTop;
-    }
-
     public boolean hasMarginTop() {
-        return marginTop;
+        return false;
     }
 }

@@ -15,7 +15,7 @@ import ca.codemake.workout.models.ExerciseEntry;
 import ca.codemake.workout.models.Item;
 import ca.codemake.workout.models.Workout;
 
-public class RoutineCreateAdapter extends SimpleAdapter implements ListView.OnItemClickListener {
+public class RoutineCreateAdapter extends SimpleListAdapter implements ListView.OnItemClickListener {
 
     public RoutineCreateAdapter(Context context) {
         super(context);
@@ -25,7 +25,7 @@ public class RoutineCreateAdapter extends SimpleAdapter implements ListView.OnIt
         TextView textView = null;
 
         if (items.get(position).isDivider()) {
-            convertView = inflater.inflate(R.layout.wokout_row_divider, null);
+            convertView = inflater.inflate(R.layout.workout_row_divider, null);
 
             Workout workout = (Workout) items.get(position);
 
@@ -42,8 +42,8 @@ public class RoutineCreateAdapter extends SimpleAdapter implements ListView.OnIt
 //                    int pos = position > 0 ? position - 1 : 0;
                     int curPos = 0;
 
-                    for(Item item : items.subList(position+1, items.size())) {
-                        if(item.isDivider()) {
+                    for (Item item : items.subList(position + 1, items.size())) {
+                        if (item.isDivider()) {
                             break;
                         }
                         Log.d("TAG", item.toString());
@@ -62,7 +62,7 @@ public class RoutineCreateAdapter extends SimpleAdapter implements ListView.OnIt
                     items.add(position + 1 + curPos, new ExerciseEntry(1, "Sample " + (position + 1) + "-" + curPos, 20));
 
                     for (Item i : items) {
-                        if(i.isDivider()) {
+                        if (i.isDivider()) {
                             Workout w = (Workout) i;
                             Log.d("TAG", w.toString());
                         } else {
@@ -84,8 +84,7 @@ public class RoutineCreateAdapter extends SimpleAdapter implements ListView.OnIt
 //                    context.startActionMode
                 }
             });
-        }
-        else {
+        } else {
             convertView = inflater.inflate(R.layout.workout_row_item, null);
             textView = (TextView) convertView.findViewById(R.id.exercise_name);
 

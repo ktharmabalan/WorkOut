@@ -14,6 +14,12 @@ public class Meal implements Item {
         mealEntries = new ArrayList<>();
     }
 
+    public Meal(String mealName, int calories) {
+        this.mealName = mealName;
+        this.calories = calories;
+        mealEntries = new ArrayList<>();
+    }
+
     public Meal(String mealName, boolean marginTop) {
         this.mealName = mealName;
         this.marginTop = marginTop;

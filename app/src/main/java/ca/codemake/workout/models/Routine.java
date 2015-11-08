@@ -6,14 +6,28 @@ public class Routine implements Item {
 
     private int id;
     private String name;
-    private String start_date;
+    private String date_created;
     private String end_date;
+    private int days_followed;
+    private boolean active;
     private ArrayList<Workout> workouts;
     private int position;
 
-    public Routine(String name) {
+    public Routine(String name, boolean active) {
         this.name = name;
-        workouts = new ArrayList<>();
+        this.active = active;
+
+    }
+
+    public Routine(String name, String date_created, int days_followed, boolean active) {
+        this.name = name;
+        this.date_created = date_created;
+        this.days_followed = days_followed;
+        this.active = active;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
     public int getId() {
@@ -49,7 +63,7 @@ public class Routine implements Item {
     }
 
     public void replaceAtPosition(int position, Workout workout) {
-        if(workouts.size() <= position) {
+        if (workouts.size() <= position) {
             workouts.add(position, workout);
         }
     }
@@ -62,12 +76,12 @@ public class Routine implements Item {
         this.end_date = end_date;
     }
 
-    public String getStart_date() {
-        return start_date;
+    public String getDate_created() {
+        return date_created;
     }
 
-    public void setStart_date(String start_date) {
-        this.start_date = start_date;
+    public void setDate_created(String date_created) {
+        this.date_created = date_created;
     }
 
     public boolean isDivider() {

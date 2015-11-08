@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="ca.codemake.workout.workout.WorkoutRecordActivity">
 
-    <include
-        layout="@layout/app_bar_layout" />
+    <!--<include layout="@layout/app_bar_only" />-->
 
     <TextView
         android:id="@+id/workout_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:background="@color/colorAccent"
-        android:textColor="#fff"
+        android:background="@color/gray"
         android:gravity="center_horizontal"
-        android:textStyle="bold"
-        android:text="Workout name" />
+        android:padding="5dp"
+        android:text="Workout name"
+        android:textColor="#757575"
+        android:textStyle="bold" />
 
-    <ListView
-        android:id="@+id/workout_record"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Workout Record"
+        android:visibility="gone" />
 </LinearLayout>

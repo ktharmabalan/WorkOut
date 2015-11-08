@@ -1,45 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp"
         android:id="@+id/marginTop"
-        android:background="@color/colorPrimaryDark">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/meal_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="BREAKFAST"
-            android:textColor="@color/text_color"
-            android:textStyle="bold"
-            android:layout_weight=".6"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/mealName" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="120500 CALS"
-            android:textColor="@color/text_color"
-            android:textStyle="bold"
-            android:id="@+id/mealCalories"
-            android:layout_gravity="center_vertical"
-            android:layout_weight=".8" />
-
-        <Button
-            style="@style/AppTheme.SmallButton"
-            android:background="@drawable/plus_circle_negative"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button3"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:focusable="false" />
+            android:text="Meal name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/mealCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Calories"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/addMealEntry"
+            style="@style/Custom.ImageButton"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:src="@android:drawable/ic_input_add"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/editMealEntry"
+            style="@style/Custom.ImageButton"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_mode_edit_white_24dp"
+            android:visibility="visible" />
+
+        <!--        <Button
+                    android:id="@+id/addMealEntry"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:background="@android:drawable/ic_input_add"
+                    android:backgroundTint="@color/colorAccent"
+                    android:focusable="false" />-->
     </LinearLayout>
+
+    <!--    <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/colorPrimary" />-->
 </LinearLayout>

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 
 import ca.codemake.workout.models.Item;
 
-public class SimpleAdapter extends BaseAdapter {
+public class SimpleListAdapter extends BaseAdapter {
     protected Context context;
     protected LayoutInflater inflater;
     protected ArrayList<Item> items;
 
-    public SimpleAdapter(Context context) {
+    public SimpleListAdapter(Context context) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         items = new ArrayList<>();
         this.context = context;
