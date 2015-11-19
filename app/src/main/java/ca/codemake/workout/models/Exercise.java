@@ -11,7 +11,7 @@ public class Exercise implements Item {
 
     public Exercise(String name) {
         this.name = name;
-        bodyGroups = new ArrayList<>();
+//        bodyGroups = new ArrayList<>();
     }
 
     public ArrayList<BodyGroup> getBodyGroups() {

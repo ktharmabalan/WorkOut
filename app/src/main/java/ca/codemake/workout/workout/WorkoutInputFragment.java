@@ -89,7 +89,7 @@ public class WorkoutInputFragment extends Fragment {
     private void initViews(View rootView) {
         /* Initialize the date */
         simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
-        date = (TextView) rootView.findViewById(R.id.workout_date);
+        date = (TextView) rootView.findViewById(R.id.date);
         date.setText(simpleDateFormat.format(Calendar.getInstance().getTime()));
 
         /* Initialize recycler view */

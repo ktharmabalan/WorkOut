@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/workout_date"
+        android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray"
@@ -25,6 +25,6 @@
     <TextView
         android:id="@+id/emptyView"
         style="@style/EmptyView"
-        android:text="Press the '+' icon to add a \nnew Routine" />
+        android:text="Press the '+' icon to add" />
 
 </LinearLayout>

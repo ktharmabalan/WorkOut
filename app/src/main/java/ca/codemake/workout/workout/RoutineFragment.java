@@ -43,7 +43,7 @@ public class RoutineFragment extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.routines_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.categories, container, false);
 
         getData();
         initViews(rootView);
@@ -73,7 +73,7 @@ public class RoutineFragment extends Fragment {
     private void initViews(View rootView) {
         /* Initialize the date */
         simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
-        date = (TextView) rootView.findViewById(R.id.workout_date);
+        date = (TextView) rootView.findViewById(R.id.date);
         date.setText(simpleDateFormat.format(Calendar.getInstance().getTime()));
 
         /* Initialize recycler view */
@@ -137,6 +137,7 @@ public class RoutineFragment extends Fragment {
             date.setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
             empty = (TextView) rootView.findViewById(R.id.emptyView);
+            empty.setText("Press the '+' icon to add a \nnew Routine");
             empty.setVisibility(View.VISIBLE);
         }
     }

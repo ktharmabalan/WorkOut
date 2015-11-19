@@ -7,7 +7,7 @@
     tool:context="ca.codemake.workout.workout.WorkoutInputFragment">
 
     <TextView
-        android:id="@+id/workout_date"
+        android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray"

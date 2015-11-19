@@ -8,6 +8,12 @@ public class Meal implements Item {
     private int calories = 0;
     private ArrayList<MealEntry> mealEntries;
     private boolean marginTop = false;
+    private boolean visible = true;
+
+    public Meal(String mealName, boolean visible) {
+        this.mealName = mealName;
+        this.visible = visible;
+    }
 
     public Meal(String mealName) {
         this.mealName = mealName;
@@ -17,12 +23,6 @@ public class Meal implements Item {
     public Meal(String mealName, int calories) {
         this.mealName = mealName;
         this.calories = calories;
-        mealEntries = new ArrayList<>();
-    }
-
-    public Meal(String mealName, boolean marginTop) {
-        this.mealName = mealName;
-        this.marginTop = marginTop;
         mealEntries = new ArrayList<>();
     }
 
@@ -65,6 +65,14 @@ public class Meal implements Item {
 
     public boolean hasMarginTop() {
         return marginTop;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }
 

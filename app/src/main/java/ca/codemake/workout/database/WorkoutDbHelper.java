@@ -415,6 +415,15 @@ public class WorkoutDbHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM routines", null);
     }
 
+    public Cursor getExercises() {
+        return db.rawQuery("SELECT * FROM exercises", null);
+    }
+
+    public Cursor getMeals() { return db.rawQuery("SELECT * FROM meals", null); }
+
+    public Cursor getFoods() { return db.rawQuery("SELECT * FROM foods", null); }
+
+
 /*    public boolean deleteTimetableById(String timetableid){
         return db.delete("timetables", "_id=" + timetableid, null) > 0;
     }
